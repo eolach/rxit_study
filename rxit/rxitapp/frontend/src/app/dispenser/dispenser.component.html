@@ -1,3 +1,38 @@
-<p>
-  dispenser works!
-</p>
+<form [formGroup]="dispenserForm">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div class="main-content">
+      <!-- Header -->
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" showToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="card-title">
+              <h2>Dispenser description</h2>
+            </mat-panel-title>
+            <mat-panel-description class="card-description">
+              Details of this dispenser practice
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-form-field>
+          <div class="form-group" fxLayout="row" min-width="400px">
+            <label>Dispenser name:</label>
+            <input matInput [formControl]="name" class="input-text" />
+          </div>
+          <div class="form-group" fxLayout="row">
+            <label>Address:</label>
+            <input matInput value="{{ dispenser.street }}" class="input-text" />
+          </div>
+          <div class="form-group" fxLayout="row">
+            <label>City:</label>
+            <input matInput value="{{ dispenser.city }}" class="input-text" />
+          </div>
+          <div class="form-group" fxLayout="row">
+            <label>Province:</label>
+            <input matInput value="{{ dispenser.province }}" class="input-text" />
+          </div>
+        </mat-form-field>
+
+      </mat-accordion>
+    </div>
+  </div>
+</form>
