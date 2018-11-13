@@ -27,7 +27,6 @@ export class UserTestService {
   login(username, password) {
     console.log('Getting user ', username)
     return of (this.ELEMENT_DATA.find(user => user.name === username));
-    // return of(HEROES.find(user => user.name === username));
   }
 
 }
