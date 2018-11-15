@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomMaterialModule } from './core/material.module';
 import { AppRoutingModule } from './core/app.routing.module';
 
+import { HttpModule } from '@angular/http';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
@@ -14,7 +16,7 @@ import { DispenserComponent } from './dispenser/dispenser.component';
 import { PrescriberComponent } from './prescriber/prescriber.component';
 
 import { UserService } from './core/user.service';
-import { UserTestService } from './data/user_test.service';
+import { UserHttpService } from './data/user_http.service';
 
 
 
@@ -29,13 +31,14 @@ import { UserTestService } from './data/user_test.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     FormsModule,
     ReactiveFormsModule,
     CustomMaterialModule,
     AppRoutingModule,
     FlexLayoutModule
   ],
-  providers: [UserService, UserTestService],
+  providers: [UserService, UserHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

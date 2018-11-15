@@ -7,14 +7,14 @@ export class Dispenser {
         public city: string,
         public province: string,
         public id: number,
-        public type: string,
-        public numPharmacist: number,
-        public numPharmaTech: number,
-        public pms: string,
-        public statistics?: DispenserStatistics,
-        public transcription?: DispenserTranscription,
-        public review?: DispenserReview,
-        public communication?: DispenserCommunication
+        // public type: string,
+        // public numPharmacist: number,
+        // public numPharmaTech: number,
+        // public pms: string,
+        // public statistics?: DispenserStatistics,
+        // public transcription?: DispenserTranscription,
+        // public review?: DispenserReview,
+        // public communication?: DispenserCommunication
     ) {}
 }
 

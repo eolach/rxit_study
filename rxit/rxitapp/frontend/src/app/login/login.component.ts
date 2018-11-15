@@ -4,9 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 // import { UserService } from '../core/user.service';
-import { UserTestService } from '../data/user_test.service';
+import { UserHttpService } from '../data/user_http.service';
 import { throwError } from 'rxjs';
 import { resolveReflectiveProviders } from '@angular/core/src/di/reflective_provider';
+import { Prescriber } from '../prescriber/prescriber.model';
+import { Dispenser } from '../dispenser/dispenser.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,9 +24,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   loading = false;
+  selectedPrescriber: Prescriber;
+  selectedDispenser: Dispenser;
 
   constructor(
-    private _userService: UserTestService,
+    private _userService: UserHttpService,
     private fb: FormBuilder
   ) { }
 
@@ -70,10 +74,20 @@ export class LoginComponent implements OnInit {
     this.isPrescriber = false;
     if (user.participant_type === 'dispenser') {
       this.isDispenser = true;
+      this._userService.getDispenser(user.participant_index)
+        .subscribe(dispenser => {
+          this.selectedDispenser = dispenser;
+          // console.log('Logging in ', this.selectedDispenser);
+        });
     } else if (user.participant_type === 'prescriber') {
-      this.isDispenser = false;
+      this.isPrescriber = true;
+      this._userService.getPrescriber(user.participant_index)
+        .subscribe(prescriber => {
+          this.selectedPrescriber = prescriber;
+          // console.log('Logging in ', this.selectedPrescriber);
+        });
     }
-    console.log('Logging in ', user.name);
+    // console.log('Logging in ', user);
     return;
   }
 }

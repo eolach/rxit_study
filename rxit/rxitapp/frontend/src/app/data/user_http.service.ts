@@ -3,7 +3,7 @@ import { User } from '../user/user.model';;
 import { Observable, of } from 'rxjs';
 
 @Injectable()
-export class UserTestService {
+export class UserHttpService {
 
   ELEMENT_DATA: User[] = [
     { name: 'harbourfront', password: 'harbour191', participant_type: 'prescriber', participant_index: 1 },

@@ -10,7 +10,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
             'username', 
             'participant_name', 
             'participant_type',
-            'participant_index'
+            'participant_index',
+            'password'
             )
 
 class DispenserSerializer(serializers.ModelSerializer):
@@ -21,7 +22,8 @@ class DispenserSerializer(serializers.ModelSerializer):
             'participant_name', 
             'street',
             'city',
-            'province'
+            'province',
+            'corporate_type'
             )
 
 class PrescriberSerializer(serializers.ModelSerializer):
@@ -29,8 +31,10 @@ class PrescriberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prescriber
         fields = ('id', 
+            'username',
             'participant_name', 
             'street',
             'city',
-            'province'
+            'province',
+            'practice_type'
             )

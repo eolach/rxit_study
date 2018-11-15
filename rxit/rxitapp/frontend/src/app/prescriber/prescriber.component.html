@@ -1,17 +1,284 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-  <div class="main-content">
-    <!-- Header -->
-    <mat-accordion>
-      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" showToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title class="card-title">
-            <h2>Prescriber description</h2>
-          </mat-panel-title>
-          <mat-panel-description class="card-description">
-            Details of this prescriber practice
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </div>
-</div>
+<form [formGroup]="prescriberForm">
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="main-content">
+            <mat-accordion>
+                <!--  -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Prescriber practice</h4>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Please confirm name/address details
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-form-field class="input-text">
+                        <input matInput placeholder="Name" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field class="input-text">
+                        <input matInput placeholder="Street" formControlName="street">
+                    </mat-form-field>
+                    <mat-form-field class="input-text">
+                        <input matInput placeholder="City" formControlName="city">
+                    </mat-form-field>
+                    <mat-form-field class="input-text">
+                        <input matInput placeholder="Province" formControlName="province">
+                    </mat-form-field>
+                </mat-expansion-panel>
+                <!-- Profile -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Practice profile</h4>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <p>What patterns to you see in patient visits?</p>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div formGroupName="statisticsForm">
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Total daily patients" formControlName="total_pt_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Total weekly patients" formControlName="total_pt_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Standard patients daily" formControlName="std_pt_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Standard patient weekly" formControlName="std_pt_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Extended daily patients" formControlName="ext_pt_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Extended weekly patients" formControlName="ext_pt_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="% of daily patients ongoing" formControlName="prop_ongoing_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="% of weekly patients ongoing" formControlName="prop_ongoing_weekly">
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+                <!-- Statistics -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Prescribing statistics</h4>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            What patterns do you see in prescriptions written?
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div formGroupName="prescriptionForm">
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Total prescriptions daily" formControlName="total_rx_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Total prescriptions weekly" formControlName="total_rx_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="New prescriptions daily" formControlName="new_rx_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="New prescriptions weekly" formControlName="new_rx_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Renew prescriptions daily" formControlName="renew_rx_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Renew prescriptions weekly" formControlName="renew_rx_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Multiple prescriptions daily" formControlName="multi_rx_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Multiple prescriptions  weekly" formControlName="multi_rx_weekly">
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+                <!-- Dispenser activities -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Dispenser activities</h4>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            What patterns do you see in communicating with dispensers?
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div formGroupName="communicationForm">
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Authorized by fax daily" formControlName="auth_rx_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Authorized by fax weekly" formControlName="auth_rx_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Clarify prescriptions daily" formControlName="clarify_rx_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Clarify prescriptions weekly" formControlName="clarify_rx_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Requested prescriptions daily" formControlName="request_rx_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Requested prescriptions weekly" formControlName="request_rx_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Other inquiries daily" formControlName="other_rx_daily">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Other inquiries weekly" formControlName="other_rx_weekly">
+                        </mat-form-field>
+                        <mat-form-field class="input-text">
+                            <textarea matInput placeholder="Other prescription notes" formControlName="other_rx_note"></textarea>
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+                <!-- Delivery -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Prescription delivery</h4>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            How do you provide the presciption to your patients?
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div formGroupName="deliveryForm">
+                    </div>
+                </mat-expansion-panel>
+                <!-- Management -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Prescription management</h4>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Who looks after the various processes of managing prescriptions?
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div formGroupName="adminForm">
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Authorized by fax daily" formControlName="pharmacy_msgs_freq">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Authorized by fax weekly" formControlName="pharmacy_msgs_role">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Clarify prescriptions daily" formControlName="pharmacy_msgs_num">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Clarify prescriptions weekly" formControlName="pharmacy_msgs_percent">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Requested prescriptions daily" formControlName="pharmacy_msgs_time">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Requested prescriptions weekly" formControlName="physician_msgs_freq">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Other inquiries daily" formControlName="physician_msgs_role">
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Other inquiries weekly" formControlName="physician_msgs_num">
+                        </mat-form-field>
+                        <mat-form-field class="input-text">
+                            <textarea matInput placeholder="Other prescription notes" formControlName="physician_msgs_percent"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Other inquiries weekly" formControlName="physician_msgs_time">
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+                <!-- Preparation -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Prescription preparation</h4>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            What process and systems do you use in selecting medications?
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div formGroupName="preparationForm">
+                        <div formArrayName='rx_name' fxLayout="row" class="form-group">
+                            <div *ngFor="let rx_name of rx_nameArray.controls">
+                                <mat-checkbox [formControl]="rx_name.get('selected')">
+                                    {{ rx_name.get('name').value }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+                <!-- Prescription specification -->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <h4>Prescription specification</h4>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            What process and systems do you use in specifying medications?
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div formGroupName="specificationForm">
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Time to select by name" formControlName="name_time">
+                        </mat-form-field>
+                        <div formArrayName='rx_name' fxLayout="row" class="form-group">
+                            <div *ngFor="let rx_name of rx_nameArray.controls">
+                                <mat-checkbox [formControl]="rx_name.get('selected')">
+                                    {{ rx_name.get('name').value }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Refer to patient history" formControlName="dosage_time">
+                        </mat-form-field>
+                        <div formArrayName='dosage'>
+                            <div *ngFor="let dosage of dosageArray.controls">
+                                <mat-checkbox [formControl]="dosage.get('selected')">
+                                    {{ dosage.get('name').value }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Refer to patient history" formControlName="refills_time">
+                        </mat-form-field>
+                        <div formArrayName='refills'>
+                            <div *ngFor="let refills of refillsArray.controls">
+                                <mat-checkbox [formControl]="refills.get('selected')">
+                                    {{ refills.get('name').value }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Refer to patient history" formControlName="route_time">
+                        </mat-form-field>
+                        <div formArrayName='route'>
+                            <div *ngFor="let route of routeArray.controls">
+                                <mat-checkbox [formControl]="route.get('selected')">
+                                    {{ route.get('name').value }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                        <mat-form-field class="input-number">
+                            <input matInput placeholder="Refer to patient history" formControlName="instruction_time">
+                        </mat-form-field>
+                        <div formArrayName='instruction'>
+                            <div *ngFor="let instruction of instructionArray.controls">
+                                <mat-checkbox [formControl]="instruction.get('selected')">
+                                    {{ instruction.get('name').value }}
+                                </mat-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</form>

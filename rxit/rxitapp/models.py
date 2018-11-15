@@ -24,6 +24,7 @@ class Dispenser(models.Model):
     street = models.CharField(max_length=100, blank=True, default='') 
     city = models.CharField(max_length=100, blank=True, default='')
     province = models.CharField(max_length=100, blank=True, default='')
+    corporate_type = models.CharField(max_length=100, blank=True, default='')
 
     def __str__(self):
         return self.username
@@ -35,6 +36,7 @@ class Prescriber(models.Model):
     street = models.CharField(max_length=100, blank=True, default='') 
     city = models.CharField(max_length=100, blank=True, default='')
     province = models.CharField(max_length=100, blank=True, default='')
+    practice_type = models.CharField(max_length=100, blank=True, default='')
 
     def __str__(self):
         return self.username
