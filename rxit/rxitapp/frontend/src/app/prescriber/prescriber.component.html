@@ -13,7 +13,7 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <mat-form-field class="input-text">
-                        <input matInput placeholder="Name" formControlName="name">
+                        <input matInput placeholder="Name" formControlName="participant_name">
                     </mat-form-field>
                     <mat-form-field class="input-text">
                         <input matInput placeholder="Street" formControlName="street">
@@ -205,7 +205,7 @@
                             What process and systems do you use in selecting medications?
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <div formGroupName="preparationForm">
+                    <!-- <div formGroupName="preparationForm">
                         <div formArrayName='rx_name' fxLayout="row" class="form-group">
                             <div *ngFor="let rx_name of rx_nameArray.controls">
                                 <mat-checkbox [formControl]="rx_name.get('selected')">
@@ -213,7 +213,7 @@
                                 </mat-checkbox>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </mat-expansion-panel>
                 <!-- Prescription specification -->
                 <mat-expansion-panel>

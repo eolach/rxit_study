@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { UserService } from '../core/user.service';
 import { UserHttpService } from '../data/user_http.service';
 import { throwError } from 'rxjs';
-import { resolveReflectiveProviders } from '@angular/core/src/di/reflective_provider';
 import { Prescriber } from '../prescriber/prescriber.model';
 import { Dispenser } from '../dispenser/dispenser.model';
 @Component({
@@ -49,7 +48,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.submitted = true;
-
+    this.selectedDispenser = undefined;
+    this.selectedPrescriber = undefined;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       console.log('Invalid submission');
@@ -77,17 +77,25 @@ export class LoginComponent implements OnInit {
       this._userService.getDispenser(user.participant_index)
         .subscribe(dispenser => {
           this.selectedDispenser = dispenser;
-          // console.log('Logging in ', this.selectedDispenser);
+          console.log('Logging in ', this.selectedDispenser);
         });
     } else if (user.participant_type === 'prescriber') {
       this.isPrescriber = true;
       this._userService.getPrescriber(user.participant_index)
         .subscribe(prescriber => {
           this.selectedPrescriber = prescriber;
-          // console.log('Logging in ', this.selectedPrescriber);
+          console.log('Logging in ', this.selectedPrescriber);
         });
     }
     // console.log('Logging in ', user);
     return;
+  }
+
+  refreshToken() {
+    this._userService.refreshToken();
+  }
+
+  logout() {
+    this._userService.logout();
   }
 }

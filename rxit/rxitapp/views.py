@@ -1,7 +1,9 @@
 from django.shortcuts import render
 
 from rest_framework import viewsets, permissions
-from .models import CustomUser, Dispenser, Prescriber
+from .models import CustomUser
+from .participants.dispenser import Dispenser
+from .participants.prescriber import Prescriber
 from . import serializers
 from .permissions import ReadOnly
 

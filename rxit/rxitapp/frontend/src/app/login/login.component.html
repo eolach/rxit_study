@@ -57,5 +57,5 @@
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
 </mat-card>
-<app-prescriber *ngIf="isPrescriber" [prescriber]=selectedPrescriber></app-prescriber>
-<app-dispenser *ngIf='isDispenser' [dispenser]=selectedDispenser></app-dispenser>
+<div *ngIf="selectedDispenser"><app-dispenser [dispenser]="selectedDispenser"></app-dispenser></div>
+<div *ngIf="selectedPrescriber"><app-prescriber [prescriber]="selectedPrescriber"  ></app-prescriber></div>

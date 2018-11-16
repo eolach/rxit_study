@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from '../user/user.model';;
+import { Dispenser } from '../dispenser/dispenser.model';
+import { Prescriber } from '../prescriber/prescriber.model';
 import { Observable, of } from 'rxjs';
+
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class UserHttpService {
@@ -16,44 +20,65 @@ export class UserHttpService {
     { name: 'campus', password: 'campus191', participant_type: 'dispenser', participant_index: 3 },
     { name: 'wlincoln', password: 'wlincoln191', participant_type: 'dispenser', participant_index: 4 },
   ];
-  DISPENSERS = [
-    { name: 'Mapleland IDA', street: '120 Welland Ave. Unit 10B', city: 'St.Catharines', province: 'ON', id: 1 },
-    { name: 'Woods Dispensary', street: '120 Welland Ave. Unit 10B', city: 'Lethbridge', province: 'AB', id: 2 },
-    { name: 'Campus Pharmacy', street: '460 St. Davids Rd #9', city: 'St. Catharines', province: 'ON', id: 3},
-    { name: 'West Lincoln Pharmacy', street: '25 - 239 St. Catharines St.', city: 'Smithville', province: 'ON', id: 4 },
-  ];
 
 
-  PRESCRIBERS = [
-    { name: 'Harbourfront Medical Group', street: '605 James St N. suite 102', city: 'Hamilton', province: 'ON', id: 1 },
-    { name: 'Lethbridge College Health Services', street: '3000 College Drive', city: 'Lethbridge', province: 'AB', id: 2 },
-    { name: 'Nsisi Medical Clinic', street: '414, 13th St. N', city: 'Lethbridge', province: 'AB', id: 3 },
-    { name: 'Southgate Medical Centre', street: '10-15 Southgate Blvd. South', city: 'Lethbridge', province: 'AB', id: 4 },
-    { name: 'Ambis and Jones Family Medicine', street: '310-15 Mountain Ave', city: 'Stoney Creek', province: 'ON', id: 5 },
-  ];
-
-
-  constructor() {
-  }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   login(username, password) {
     // console.log('Getting user ', username);
-    return of(this.ELEMENT_DATA.find(user => user.name === username));
-  }
+    // return of(this.ELEMENT_DATA.find(user => user.name === username));
+    this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions).subscribe(
+      data => {
+        this.updateData(data['token']);
+      },
+      err => {
+        this.errors = err['error'];
+      }
+    );
+ }
 
-  getDispenser(id) {
+  getDispenser(id: number): Observable<Dispenser>  {
     // console.log('Getting dispenser index ', id);
-    return of(this.DISPENSERS.find(dispenser => dispenser.id === id));
-  }
+    // return of(this.DISPENSERS.find(dispenser => dispenser.id === id));
+    console.log('getting dispenser ', id);
+    const url = `/api/dispensers/${id}`;
+    return this.http.get<Dispenser>(url));
+    }
 
-  getPrescriber(id) {
+  getPrescriber(id: number): Observable<Prescriber> {
     // console.log('Getting prescriber index ', id);
-    return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
+    // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
+    const url = `/api/prescribers/${id}`;
+    return this.http.get<Prescriber>(url);
+
   }
 
   updatePrescriber(id) {
     // console.log('updating prescriber index ', id);
-    return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
+    // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
+  }
+
+  updateDispenser(id) {
+    // console.log('updating prescriber index ', id);
+    // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
+  }
+
+  refreshToken() {}
+
+  logout() {}
+
+  private updateData(token) {
+    this.token = token;
+    this.errors = [];
+ 
+    // decode the token to read the username and expiration timestamp
+    const token_parts = this.token.split(/\./);
+    const token_decoded = JSON.parse(window.atob(token_parts[1]));
+    this.token_expires = new Date(token_decoded.exp * 1000);
+    this.username = token_decoded.username;
+
   }
 
 }

@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
-from .models import CustomUser, Dispenser, Prescriber
+from .models import CustomUser
+from .participants.dispenser import Dispenser
+from .participants.prescriber import Prescriber
 
 class CustomUserSerializer(serializers.ModelSerializer):
  

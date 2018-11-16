@@ -6,8 +6,6 @@ import { Subscription } from 'rxjs/Subscription';
 import { Dispenser } from './dispenser.model';
 import { UserHttpService } from '../data/user_http.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table';
-import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-dispenser',
@@ -16,8 +14,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 })
 
 export class DispenserComponent implements OnChanges {
-  @Input()
-  dispenser: Dispenser;
+  @Input() dispenser: Dispenser;
   dispenserSubs: Subscription;
   panelOpenState = false;
 
@@ -42,22 +39,16 @@ export class DispenserComponent implements OnChanges {
     private dispenserService: UserHttpService,
     private location: Location,
     private fb: FormBuilder
-  ) { }
-
-  ngOnChanges(): void {
-    this.rebuildForm();
-  }
-
-  goBack(): void {
-    this.location.back();
+  ) {
+    this.createForm();
   }
 
   createForm() {
     this.dispenserForm = this.fb.group({
-      name: ['name'],
-      street: ['street'],
-      city: ['city'],
-      province: ['province'],
+      participant_name: [''],
+      street: [''],
+      city: [''],
+      province: [''],
       type: [''],
       numPharmacist: [''],
       numPharmaTech: [''],
@@ -115,6 +106,24 @@ export class DispenserComponent implements OnChanges {
         comm_physician: ['']
       }),
     });
+  }
+
+  ngOnChanges(): void {
+    this.rebuildForm();
+  }
+  // Functions called from the form in the template
+  onSubmit() {
+    this.updateDispenser();
+    this.rebuildForm();
+  }
+
+  updateDispenser(): void {
+    // this.prescriberService.updatePrescriber(this.prescriber).subscribe(/* error handling */);
+  }
+
+
+  goBack(): void {
+    this.location.back();
   }
 
   rebuildForm() {

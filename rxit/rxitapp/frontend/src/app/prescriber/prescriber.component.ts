@@ -103,10 +103,10 @@ constructor(
   // invoked in constructor
   createForm() {
     this.prescriberForm = this.fb.group({
-      name: ['name'],
-      street: ['street'],
-      city: ['city'],
-      province: ['province'],
+      participant_name: [''],
+      street: [''],
+      city: [''],
+      province: [''],
       statisticsForm: this.fb.group({
         total_pt_daily: [''],
         total_pt_weekly: [''],
@@ -202,7 +202,7 @@ constructor(
 
   ngOnChanges(): void {
     this.rebuildForm();
-    console.log('rebuilding form');
+    console.log('rebuilding ', this.prescriber);
   }
 
 
@@ -242,7 +242,7 @@ constructor(
 
 
   updatePrescriber(): void {
-    this.prescriberService.updatePrescriber(this.prescriber).subscribe(/* error handling */);
+    // this.prescriberService.updatePrescriber(this.prescriber).subscribe(/* error handling */);
   }
 
   goBack(): void {
