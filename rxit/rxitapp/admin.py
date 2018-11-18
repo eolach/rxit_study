@@ -8,6 +8,7 @@ from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser
 from .participants.dispenser import Dispenser
 from .participants.prescriber import Prescriber
+from .participants.test_model import Test_model
 
 
 # Register your models here.
@@ -31,3 +32,8 @@ class DispenserAdmin(admin.ModelAdmin):
 class PrescriberAdmin(admin.ModelAdmin):
     list_display = ('participant_name', 'province')
     ordering = ['participant_name']
+
+@admin.register(Test_model)
+class Test_modelAdmin(admin.ModelAdmin):
+    list_display = ('model_name', 'model_number')
+    ordering = ['model_number']

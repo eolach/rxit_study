@@ -22,7 +22,27 @@ export class UserHttpService {
   ];
 
 
-  constructor(
+  // http options used for making API calls
+  private httpOptions: any;
+
+  // the actual JWT token
+  public token: string;
+
+  // the token expiration date
+  public token_expires: Date;
+
+  // the username of the logged in user
+  public username: string;
+
+  // error messages received from the login attempt
+  public errors: any = [];
+ 
+  constructor(private http: HttpClient) {
+    this.httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+  }
+onstructor(
     private http: HttpClient
   ) { }
 

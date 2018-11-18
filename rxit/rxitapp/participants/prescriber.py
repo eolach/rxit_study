@@ -1,4 +1,6 @@
 from django.db import models
+from rest_framework import serializers
+
 
 class Prescriber(models.Model):
     username = models.CharField(max_length=100, blank=True, default='')
@@ -10,3 +12,18 @@ class Prescriber(models.Model):
 
     def __str__(self):
         return self.username
+
+
+
+class PrescriberSerializer(serializers.ModelSerializer):
+ 
+    class Meta:
+        model = Prescriber
+        fields = ('id', 
+            'username',
+            'participant_name', 
+            'street',
+            'city',
+            'province',
+            'practice_type'
+            )
