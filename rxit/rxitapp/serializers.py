@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .models import CustomUser
-from .participants.dispenser import Dispenser
+# from .participants.dispenser import Dispenser
 from .participants.prescriber import Prescriber
 
 class CustomUserSerializer(serializers.ModelSerializer):
@@ -16,7 +16,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
             'password'
             )
 
-class DispenserSerializer(serializers.ModelSerializer):
+""" class DispenserSerializer(serializers.ModelSerializer):
  
     class Meta:
         model = Dispenser
@@ -27,8 +27,8 @@ class DispenserSerializer(serializers.ModelSerializer):
             'province',
             'corporate_type'
             )
-
-class PrescriberSerializer(serializers.ModelSerializer):
+ """
+""" class PrescriberSerializer(serializers.ModelSerializer):
  
     class Meta:
         model = Prescriber
@@ -40,3 +40,4 @@ class PrescriberSerializer(serializers.ModelSerializer):
             'province',
             'practice_type'
             )
+ """
