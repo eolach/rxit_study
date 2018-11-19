@@ -30,16 +30,23 @@ class Dispenser(models.Model):
     province = models.CharField(max_length=100, blank=True, default='')
     corporate_type = models.CharField(max_length=100, blank=True, default='')
     pharmacy_mgt_system = models.CharField(max_length=100, blank=True, default='')
-    numbers = models.OneToOneField(
+    numbers = models.ForeignKey(
         Numbers,
         on_delete=models.CASCADE,
         # primary_key=True
     ) 
-    rx_stats = models.OneToOneField(
+    total_rx = models.ForeignKey(
         RxStats,
+        related_name = '+',
         on_delete=models.CASCADE,
         # primary_key=True
     ) 
+    walk_in_rx = models.ForeignKey(
+        RxStats,
+        related_name = '+',
+        on_delete=models.CASCADE,
+        # primary_key=True
+    )
     def __str__(self):
         return self.username
 
@@ -69,7 +76,8 @@ class NumbersSerializer(serializers.ModelSerializer):
 class DispenserSerializer(serializers.ModelSerializer):
 
     numbers = NumbersSerializer()
-    rx_stats = RxStatsSerializer()
+    total_rx = RxStatsSerializer()
+    walk_in_rx = RxStatsSerializer()
 
     class Meta:
         model = Dispenser
@@ -81,15 +89,39 @@ class DispenserSerializer(serializers.ModelSerializer):
             'corporate_type',
             'numbers',
             'pharmacy_mgt_system',
-            'rx_stats'
+            'total_rx',
+            'walk_in_rx'
         )
 
     def create(self, validated_data):
         numbers_data = validated_data.pop('numbers')
-        rx_stats_data = validated_data.pop('rx_stats')
+        total_rx_data = validated_data.pop('total_rx')
+        walk_in_rx_data = validated_data.pop('walk_in_rx')
         numbers_model = NumbersSerializer.create(NumbersSerializer(), validated_data=numbers_data)
-        rx_stats_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=rx_stats_data)
-        dispenser_model, created = Dispenser.objects.update_or_create(numbers=numbers_model, rx_stats=rx_stats_model, **validated_data)
+        total_rx_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=total_rx_data)
+        walk_in_rx_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=walk_in_rx_data)
+        dispenser_model, created = Dispenser.objects.update_or_create(
+            numbers=numbers_model, 
+            total_rx=total_rx_model, 
+            walk_in_rx=walk_in_rx_model, 
+            **validated_data)
         
         return dispenser_model
+
+    def update(self, instance, validated_data):
+        # Gather the field set data
+        numbers_data = validated_data.pop('numbers')
+        total_rx_data = validated_data.pop('total_rx')
+        walk_in_rx_data = validated_data.pop('walk_in_rx')
+        # rebuild the fieldsets
+        numbers_model = NumbersSerializer.create(NumbersSerializer(), validated_data=numbers_data)
+        total_rx_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=total_rx_data)
+        walk_in_rx_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=walk_in_rx_data)
+        instance, created = Dispenser.objects.update_or_create(
+            numbers=numbers_model, 
+            total_rx=total_rx_model, 
+           walk_in_rx=walk_in_rx_model, 
+            **validated_data)
+        
+        return instance
             
