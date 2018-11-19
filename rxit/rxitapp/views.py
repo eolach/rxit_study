@@ -2,7 +2,8 @@ from django.shortcuts import render
 
 from rest_framework import viewsets, permissions
 from .models import CustomUser
-# from .participants.dispenser import Dispenser #, DispenserSerializer
+from .participants.test_model import Test_model, Test_modelSerializer
+from .participants.dispenser import Dispenser, DispenserSerializer
 from .participants.prescriber import Prescriber, PrescriberSerializer
 from . import serializers
 from .permissions import ReadOnly
@@ -23,12 +24,24 @@ class CustomUserViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.CustomUserSerializer
     permission_classes = (ReadOnly, )
 
-    """ class DispenserViewSet(viewsets.ModelViewSet):
-    Provides basic CRUD functions for the Dispenser model
+class Test_modelViewSet(viewsets.ModelViewSet):
+    
+    """
+    Provides basic CRUD functions for the Test_model model
+    """
+    queryset = Test_model.objects.all()
+    serializer_class = Test_modelSerializer
 
+class DispenserViewSet(viewsets.ModelViewSet):
+    
+    """
+    Provides basic CRUD functions for the Test_model model
+    """
     queryset = Dispenser.objects.all()
     serializer_class = DispenserSerializer
-    """
+
+
+
 class PrescriberViewSet(viewsets.ModelViewSet):
     """
     Provides basic CRUD functions for the Dispenser model
