@@ -22,7 +22,23 @@ class CustomUserViewSet(viewsets.ModelViewSet):
     """
     queryset = CustomUser.objects.all()
     serializer_class = serializers.CustomUserSerializer
-    permission_classes = (ReadOnly, )
+
+class SpecificUserViewSet(viewsets.ModelViewSet):
+    """
+    Provides basic CRUD functions for the User model
+    """
+    serializer_class = serializers.CustomUserSerializer
+    
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
+        queryset = CustomUser.objects.all()
+        user = self.request.user
+        queryset = queryset.filter(username=user)
+        return queryset
+
 
 class Test_modelViewSet(viewsets.ModelViewSet):
     

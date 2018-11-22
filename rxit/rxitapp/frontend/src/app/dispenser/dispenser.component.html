@@ -5,379 +5,89 @@
         <!--  -->
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title class="card-title">
               <h4>Dispenser description</h4>
             </mat-panel-title>
             <mat-panel-description>
-              Details of this dispenser practice
+              <h4>Details of this dispenser practice</h4>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <mat-form-field class="input-text">
-            <input matInput placeholder="Dispensary Name" formControlName="participant_name" />
-          </mat-form-field>
-          <mat-form-field class="input-text">
-            <input matInput placeholder="Street" formControlName="street" />
-          </mat-form-field>
-          <mat-form-field class="input-text">
-            <input matInput placeholder="City" formControlName="city" />
-          </mat-form-field>
-          <mat-form-field class="input-text">
-            <input matInput placeholder="Province" formControlName="province" class="input-text" />
-          </mat-form-field>
+          <div formGroupName="description">
+            <mat-form-field class="input-text">
+              <input matInput placeholder="Dispensary Name" formControlName="participant_name" />
+            </mat-form-field>
+            <mat-form-field class="input-text">
+              <input matInput placeholder="Street" formControlName="street" />
+            </mat-form-field>
+            <mat-form-field class="input-text">
+              <input matInput placeholder="City" formControlName="city" />
+            </mat-form-field>
+            <mat-form-field class="input-text">
+              <input matInput placeholder="Province" formControlName="province" />
+            </mat-form-field>
+          </div>
+          <div formGroupName="numbers">
+            <mat-form-field class="input-number">
+              <input matInput placeholder="Number of pharmacists" formControlName="num_pharmacists">
+            </mat-form-field>
+            <mat-form-field class="input-number">
+              <input matInput placeholder="Number of registered techs" formControlName="num_reg_tech">
+            </mat-form-field>
+            <mat-form-field class="input-number">
+              <input matInput placeholder="Number of assistants" formControlName="num_unreg">
+            </mat-form-field>
+          </div>
         </mat-expansion-panel>
         <!-- Statistics -->
-        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" showToggle>
+        <mat-expansion-panel>
+          <!--mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" showToggle> -->
           <mat-expansion-panel-header>
             <mat-panel-title class="card-title">
-              Dispenser statistics
+              <h4>Dispenser statistics</h4>
             </mat-panel-title>
             <mat-panel-description class="card-description">
-              Summary statistics for this dispenser practice
+              <p>Summary statistics for this dispenser practice</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <div formGroupName="statisticsForm">
-            <div fxLayout="column" max-width="80%" xLayoutAlign="center center" class="container-content">
-              <div class="card-header-text">How many prescriptions do you receive?
-              </div>
+          <div fxLayout="column" max-width="80%" xLayoutAlign="center center" class="container-content">
+            <div class="card-header-text">How many prescriptions do you receive?
+            </div>
+            <div formGroupName="total_rx">
               <div fxLayout="row" class="form-group">
                 <div class="input-description">Total prescriptions</div>
                 <mat-form-field class="input-number">
-                  <input matInput placeholder="Morning" formControlName="total_rx_am" />
+                  <input matInput placeholder="Morning" formControlName="num_am" />
                 </mat-form-field>
                 <mat-form-field class="input-number">
-                  <input matInput placeholder="Afternoon" formControlName="total_rx_pm" />
+                  <input matInput placeholder="Afternoon" formControlName="num_pm" />
                 </mat-form-field>
                 <mat-form-field class="input-number">
-                  <input matInput placeholder="Evening" formControlName="total_rx_night" />
+                  <input matInput placeholder="Evening" formControlName="num_evng" />
                 </mat-form-field>
                 <mat-form-field class="input-number">
-                  <input matInput placeholder="Weekend" formControlName="total_rx_wk" />
+                  <input matInput placeholder="Weekend" formControlName="num_wend" />
                 </mat-form-field>
               </div>
-              <div fxLayout="row" class="form-group level2">
-                <div class="input-description">Walk-in patients (printed)</div>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Morning" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Afternoon" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Evening" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Weekends" class="input-number" />
-                </mat-form-field>
-              </div>
-              <div fxLayout="row" class="form-group level2">
-                <div class="input-description">Walk-in patients (hand written)</div>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Morning" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Afternoon" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Evening" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Weekends" class="input-number" />
-                </mat-form-field>
-              </div>
-              <div fxLayout="row" class="form-group level2">
-                <div class="input-description">Faxed prescriptions</div>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Morning" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Afternoon" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Evening" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Weekends" class="input-number" />
-                </mat-form-field>
-              </div>
-              <div fxLayout="row" class="form-group level2">
-                <div class="input-description">e-prescribed using PrescribeIT</div>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Morning" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Afternoon" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Evening" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Weekends" class="input-number" />
-                </mat-form-field>
-              </div>
-              <div fxLayout="row" class="form-group level2">
-                <div class="input-description">Phoned-in requests (refills)</div>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Morning" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Afternoon" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Evening" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Weekends" class="input-number" />
-                </mat-form-field>
-              </div>
+            </div>
+            <div formGroupName="walk_in_rx">
               <div fxLayout="row" class="form-group">
-                <div class="input-description">Patients new to this dispenser</div>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Morning" class="input-number" />
+                <div class="input-description">Walk-in patients with printed prescriptions</div>
+                <mat-form-field class="input-number">
+                  <input matInput placeholder="Morning" formControlName="num_am" />
                 </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Afternoon" class="input-number" />
+                <mat-form-field class="input-number">
+                  <input matInput placeholder="Afternoon" formControlName="num_pm" />
                 </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Evening" class="input-number" />
+                <mat-form-field class="input-number">
+                  <input matInput placeholder="Evening" formControlName="num_evng" />
                 </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Weekends" class="input-number" />
-                </mat-form-field>
-              </div>
-              <div fxLayout="row" class="form-group">
-                <div class="input-description">Average time in mins. to dispense one item in prescription</div>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Morning" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Afternoon" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Evening" class="input-number" />
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput value="" placeholder="Weekends" class="input-number" />
+                <mat-form-field class="input-number">
+                  <input matInput placeholder="Weekend" formControlName="num_wend" />
                 </mat-form-field>
               </div>
             </div>
-          </div>
+            </div>
 
-        </mat-expansion-panel>
-
-        <!-- Transcription -->
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Prescription transcription
-            </mat-panel-title>
-            <mat-panel-description>
-              How long does it take to enter prescription data, and who does so?
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <div fxLayout="column" max-width="80%" xLayoutAlign="center center" class="container-content">
-            <div class="card-header-text">How long does it take to input prescription data into the pharmcy
-              management system?
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">New patients</div>
-              <mat-form-field class="input-number">
-                <input matInput value="" placeholder="mins" class="input-number" />
-              </mat-form-field>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">New prescription (exiting patient)</div>
-              <mat-form-field  class="input-number">
-                <input matInput value="" placeholder="mins" class="input-number" />
-              </mat-form-field>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Repeat prescription</div>
-              <mat-form-field class="input-number">
-                <input matInput value="" placeholder="mins" class="input-number" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="card-header-text">Who inputs the data?
-          </div>
-          <div fxLayout="row" class="form-group">
-            <div class="input-description">Pharmacist</div>
-            <mat-form-field class="input-number">
-              <input matInput value="" placeholder="mins" class="input-number" />
-            </mat-form-field>
-          </div>
-          <div class="input-description">Pharmacy technician</div>
-          <mat-form-field class="input-number">
-            <input matInput value="" placeholder="mins" class="input-number" />
-          </mat-form-field>
-          <div class="input-description">Pharmacy assistant</div>
-          <mat-form-field class="input-number">
-            <input matInput placeholder="mins" class="input-number" />
-          </mat-form-field>
-        </mat-expansion-panel>
-
-        <!-- Communication with prescriber -->
-        <mat-expansion-panel>
-          <!-- [expanded]="step === 0" (opened)="setStep(0)" showToggle>-->
-          <mat-expansion-panel-header>
-            <mat-panel-title class="card-title">
-              Prescription delivery
-            </mat-panel-title>
-            <mat-panel-description class="card-description">
-              How prescriptions are delivered to patients
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <div>During the review process, the pharmacist may need clarifaction of a prescription, and will cntact the
-            precriber.
-            (Pharmacists may be authorized to make ceratain changes and advise the prescriber.) What are the main
-            reaons
-            for seeking clarifcation? How do communications occur? Howlong do they take?
-          </div>
-          <div fxLayout="column" max-width="80%" xLayoutAlign="center center" class="container-content">
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Illegible prescription</div>
-              <mat-checkbox></mat-checkbox>
-              <mat-form-field>
-                <input matInput value="" placeholder="Duration" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Frequency" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Elapsed time" class="input-number" />
-              </mat-form-field>
-              <mat-checkbox>by fax</mat-checkbox>
-              <mat-checkbox>by phone</mat-checkbox>
-              <mat-checkbox>by direct message</mat-checkbox>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Illegible prescription</div>
-              <mat-checkbox></mat-checkbox>
-              <mat-form-field>
-                <input matInput value="" placeholder="Duration" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Frequency" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Elapsed time" class="input-number" />
-              </mat-form-field>
-              <mat-checkbox>by fax</mat-checkbox>
-              <mat-checkbox>by phone</mat-checkbox>
-              <mat-checkbox>by direct message</mat-checkbox>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Incomplete information</div>
-              <mat-checkbox></mat-checkbox>
-              <mat-form-field>
-                <input matInput value="" placeholder="Duration" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Frequency" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Elapsed time" class="input-number" />
-              </mat-form-field>
-              <mat-checkbox>by fax</mat-checkbox>
-              <mat-checkbox>by phone</mat-checkbox>
-              <mat-checkbox>by direct message</mat-checkbox>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Advise of change (no repsonse required)</div>
-              <mat-checkbox></mat-checkbox>
-              <mat-form-field>
-                <input matInput value="" placeholder="Duration" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Frequency" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Elapsed time" class="input-number" />
-              </mat-form-field>
-              <mat-checkbox>by fax</mat-checkbox>
-              <mat-checkbox>by phone</mat-checkbox>
-              <mat-checkbox>by direct message</mat-checkbox>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Cancellations</div>
-              <mat-checkbox></mat-checkbox>
-              <mat-form-field>
-                <input matInput value="" placeholder="Duration" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Frequency" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Elapsed time" class="input-number" />
-              </mat-form-field>
-              <mat-checkbox>by fax</mat-checkbox>
-              <mat-checkbox>by phone</mat-checkbox>
-              <mat-checkbox>by direct message</mat-checkbox>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Physician communication</div>
-              <mat-checkbox></mat-checkbox>
-              <mat-form-field>
-                <input matInput value="" placeholder="Duration" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Frequency" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="Elapsed time" class="input-number" />
-              </mat-form-field>
-              <mat-checkbox>by fax</mat-checkbox>
-              <mat-checkbox>by phone</mat-checkbox>
-              <mat-checkbox>by direct message</mat-checkbox>
-            </div>
-          </div>
-        </mat-expansion-panel>
-
-        <!-- Review -->
-        <mat-expansion-panel>
-          <!-- [expanded]="step === 0" (opened)="setStep(0)" showToggle> -->
-          <mat-expansion-panel-header>
-            <mat-panel-title class="card-title">
-              Prescription review with the patient
-            </mat-panel-title>
-            <mat-panel-description class="card-description">
-              How messages with pharmacies are handled
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <div fxLayout="column" max-width="80%" xLayoutAlign="center center" class="container-content">
-            <div class="card-header-text">A discussion by the pharmacist with the patient can be an important step in
-              filling a prescription. Sometimes
-              the is review takes place at the beginning of the process, and frequently at the end, when the
-              medications
-              are handed to the patient. How often does these occur
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">New patient and prescription</div>
-              <mat-form-field>
-                <input matInput value="" placeholder="% before filing" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="% on completion" class="input-number" />
-              </mat-form-field>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Existing patient with new prescription</div>
-              <mat-form-field>
-                <input matInput value="" placeholder="% before filing" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="% on completion" class="input-number" />
-              </mat-form-field>
-            </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Repeat prescription</div>
-              <mat-form-field>
-                <input matInput value="" placeholder="% before filing" class="input-number" />
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput value="" placeholder="% on completion" class="input-number" />
-              </mat-form-field>
-            </div>
-          </div>
         </mat-expansion-panel>
 
       </mat-accordion>

@@ -1,26 +1,21 @@
 import { Injectable } from '@angular/core';
-import { User } from '../user/user.model';;
+import { User } from '../user/user.model';
 import { Dispenser } from '../dispenser/dispenser.model';
 import { Prescriber } from '../prescriber/prescriber.model';
 import { Observable, of } from 'rxjs';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class UserHttpService {
 
-  ELEMENT_DATA: User[] = [
-    { name: 'harbourfront', password: 'harbour191', participant_type: 'prescriber', participant_index: 1 },
-    { name: 'mapleland', password: 'mapleland191', participant_type: 'dispenser', participant_index: 1 },
-    { name: 'lethbridgecoll', password: 'lethbridgecoll191', participant_type: 'prescriber', participant_index: 2 },
-    { name: 'nsisi', password: 'nsisi191', participant_type: 'prescriber', participant_index: 3 },
-    { name: 'woodsRx', password: 'woodsRx191', participant_type: 'dispenser', participant_index: 2 },
-    { name: 'southgate', password: 'southgate191', participant_type: 'prescriber', participant_index: 4 },
-    { name: 'ambis', password: 'ambis191', participant_type: 'prescriber', participant_index: 5 },
-    { name: 'campus', password: 'campus191', participant_type: 'dispenser', participant_index: 3 },
-    { name: 'wlincoln', password: 'wlincoln191', participant_type: 'dispenser', participant_index: 4 },
-  ];
+  currentUser: User;
 
+  // flags for participant type
+  public isDispenser: boolean;
+  public isPrescriber: boolean;
+  public selectedPrescriber: Prescriber;
+  public selectedDispenser: Dispenser;
 
   // http options used for making API calls
   private httpOptions: any;
@@ -34,43 +29,45 @@ export class UserHttpService {
   // the username of the logged in user
   public username: string;
 
-  // error messages received from the login attempt
+ // error messages received from the login attempt
   public errors: any = [];
  
   constructor(private http: HttpClient) {
     this.httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   }
-onstructor(
-    private http: HttpClient
-  ) { }
 
-  login(username, password) {
-    // console.log('Getting user ', username);
+  login(user) {
+    console.log('Getting user ', user);
     // return of(this.ELEMENT_DATA.find(user => user.name === username));
-    this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions).subscribe(
-      data => {
-        this.updateData(data['token']);
-      },
-      err => {
-        this.errors = err['error'];
-      }
-    );
- }
+    return this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions);
+      // .subscribe(
+      //   data => {
+      //     this.updateData(data['token']);
+      //   },
+      //   err => {
+      //     this.errors = err['error'];
+      //     console.log(this.errors);
+      //   }
+      // );
+  }
 
-  getDispenser(id: number): Observable<Dispenser>  {
-    // console.log('Getting dispenser index ', id);
-    // return of(this.DISPENSERS.find(dispenser => dispenser.id === id));
-    console.log('getting dispenser ', id);
+  getUser() {
+    console.log('Getting user detail');
+    const url = `/api/user`;
+    return this.http.get(url);
+  }
+
+  getDispenser(id: number): Observable<Dispenser> {
+    console.log('Getting dispenser index ', id);
     const url = `/api/dispensers/${id}`;
-    return this.http.get<Dispenser>(url));
-    }
+    return this.http.get<Dispenser>(url);
+  }
 
   getPrescriber(id: number): Observable<Prescriber> {
-    // console.log('Getting prescriber index ', id);
-    // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
-    const url = `/api/prescribers/${id}`;
+    console.log('Getting prescriber index ', id);
+     const url = `/api/prescribers/${id}`;
     return this.http.get<Prescriber>(url);
 
   }
@@ -85,20 +82,52 @@ onstructor(
     // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
   }
 
-  refreshToken() {}
+  refreshToken() { }
 
-  logout() {}
+  logout() { }
 
-  private updateData(token) {
-    this.token = token;
-    this.errors = [];
- 
-    // decode the token to read the username and expiration timestamp
-    const token_parts = this.token.split(/\./);
-    const token_decoded = JSON.parse(window.atob(token_parts[1]));
-    this.token_expires = new Date(token_decoded.exp * 1000);
-    this.username = token_decoded.username;
+  // private updateData(token) {
+  //   this.token = token;
+  //   this.errors = [];
 
-  }
+  //   // decode the token to read the username and expiration timestamp
+  //   const token_parts = this.token.split(/\./);
+  //   const token_decoded = JSON.parse(window.atob(token_parts[1]));
+  //   this.token_expires = new Date(token_decoded.exp * 1000);
+  //   this.username = token_decoded.username;
+  //   console.log('logged in ', this.username);
 
+  //   if (this.errors.length === 0) {
+  //     this.prepareUser();
+  //   }
+
+  // }
+
+  // private prepareUser() {
+  //   this.extractDetails();
+  // }
+
+  // private resolveParticipant(type: string, index: number, ) {
+  //   this.isDispenser = false;
+  //   this.isPrescriber = false;
+  //   console.log('Resolving ', type, ' and ', index);
+  //   if (type === 'dispenser') {
+  //     this.isDispenser = true;
+  //     console.log('Choosing participant', index);
+  //     this.getDispenser(index)
+  //       .subscribe((data: Dispenser) => {
+  //         this.selectedDispenser = data;
+  //         console.log('Selecting in ', this.selectedDispenser);
+  //       });
+  //   } else if (type === 'prescriber') {
+  //     this.isPrescriber = true;
+  //     this.getPrescriber(index)
+  //       .subscribe((data: Prescriber) => {
+  //         // this.selectedPrescriber = prescriber;
+  //         console.log('Logging in ', index);
+  //       });
+  //   }
+  //   // console.log('Logging in ', user);
+  //   return;
+  // }
 }

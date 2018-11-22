@@ -23,10 +23,10 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(CustomUser, CustomUserAdmin)
 
-@admin.register(Dispenser)
-class DispenserAdmin(admin.ModelAdmin):
-    list_display = ['participant_name', 'province']
-    ordering = ['participant_name']
+# @admin.register(Dispenser)
+# class DispenserAdmin(admin.ModelAdmin):
+    # list_display = ['participant_name', 'province']
+    # ordering = ['participant_name']
 
 @admin.register(Prescriber)
 class PrescriberAdmin(admin.ModelAdmin):

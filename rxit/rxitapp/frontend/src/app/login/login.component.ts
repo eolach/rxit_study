@@ -17,14 +17,25 @@ import { Dispenser } from '../dispenser/dispenser.model';
 export class LoginComponent implements OnInit {
 
   public user: any;
-  public isDispenser: boolean;
-  public isPrescriber: boolean;
 
   loginForm: FormGroup;
   submitted = false;
   loading = false;
-  selectedPrescriber: Prescriber;
-  selectedDispenser: Dispenser;
+  // flags for participant type
+  public isDispenser: boolean;
+  public isPrescriber: boolean;
+  public selectedPrescriber: Prescriber;
+  public selectedDispenser: Dispenser;
+
+   // the actual JWT token
+  public token: string;
+
+  // the token expiration date
+  public token_expires: Date;
+
+  // the username of the logged in user
+  public username: string;// error messages received from the login attempt
+   public errors: any = [];
 
   constructor(
     private _userService: UserHttpService,
@@ -59,36 +70,54 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
 
-    this._userService.login(this.f.username.value, this.f.password.value)
+    this._userService.login({ username: this.f.username.value, password: this.f.password.value })
       .subscribe(
-        user => {
-          this.user = user;
-          console.log('User participant_type is ', user.participant_type);
-          this.resolveParticipant(user);
+        data => {
+          this.updateData(data['token']);
+        },
+        err => {
+          this.errors = err['error'];
+          console.log(this.errors);
         }
       );
+
+    if (this._userService.username) {
+      console.log('authorized ', this._userService.username);
+    } else {
+      console.log('nothing authorized ');
+    }
+
   }
 
-  resolveParticipant(user) {
-    this.isDispenser = false;
-    this.isPrescriber = false;
-    if (user.participant_type === 'dispenser') {
-      this.isDispenser = true;
-      this._userService.getDispenser(user.participant_index)
-        .subscribe(dispenser => {
-          this.selectedDispenser = dispenser;
-          console.log('Logging in ', this.selectedDispenser);
-        });
-    } else if (user.participant_type === 'prescriber') {
-      this.isPrescriber = true;
-      this._userService.getPrescriber(user.participant_index)
-        .subscribe(prescriber => {
-          this.selectedPrescriber = prescriber;
-          console.log('Logging in ', this.selectedPrescriber);
-        });
+  private updateData(token) {
+    this.token = token;
+    this.errors = [];
+
+    // decode the token to read the username and expiration timestamp
+    const token_parts = this.token.split(/\./);
+    const token_decoded = JSON.parse(window.atob(token_parts[1]));
+    this.token_expires = new Date(token_decoded.exp * 1000);
+    this.username = token_decoded.username;
+    console.log('logged in ', this.username);
+
+    if (this.errors.length === 0) {
+      this.prepareUser();
     }
-    // console.log('Logging in ', user);
-    return;
+
+  }
+
+  private prepareUser() {
+    this.extractDetails();
+  }
+
+  private extractDetails() {
+    this._userService.getUser()
+      .subscribe((data) => {
+        console.log('details ', data[0], ' type ', typeof (data[0]));
+        this.resolveParticipant(data[0]['participant_type'], data[0]['participant_index']);
+        console.log('type ', data[0]['participant_type'], ' index ', data[0]['participant_index']);
+        }
+      );
   }
 
   refreshToken() {
@@ -97,5 +126,29 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this._userService.logout();
+  }
+
+  private resolveParticipant(type: string, index: number, ) {
+    this.isDispenser = false;
+    this.isPrescriber = false;
+    console.log('Resolving ', type, ' and ', index);
+    if (type === 'dispenser') {
+      this.isDispenser = true;
+      console.log('Choosing participant', index);
+      this._userService.getDispenser(index)
+        .subscribe((data: Dispenser) => {
+          this.selectedDispenser = data;
+          console.log('Selecting in ', this.selectedDispenser);
+        });
+    } else if (type === 'prescriber') {
+      this.isPrescriber = true;
+      this._userService.getPrescriber(index)
+        .subscribe((data: Prescriber) => {
+          this.selectedPrescriber = data;
+          console.log('Logging in ', index);
+        });
+    }
+    // console.log('Logging in ', user);
+    return;
   }
 }
