@@ -81,8 +81,8 @@ export class LoginComponent implements OnInit {
         }
       );
 
-    if (this._userService.username) {
-      console.log('authorized ', this._userService.username);
+    if (this.username) {
+      console.log('authorized ', this.username);
     } else {
       console.log('nothing authorized ');
     }

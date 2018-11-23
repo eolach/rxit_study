@@ -34,6 +34,8 @@ export class DispenserComponent implements OnChanges {
     this.step--;
   }
 
+  public errors: any = [];
+
   constructor(
     private route: ActivatedRoute,
     private dispenserService: UserHttpService,
@@ -66,13 +68,31 @@ export class DispenserComponent implements OnChanges {
   }
   // Functions called from the form in the template
   onSubmit() {
+    this.dispenser = this.prepareDispenser();
     console.log('onSubmit');
-    this.updateDispenser();
-    this.rebuildForm();
+    this.dispenserService.updateDispenser(
+      this.dispenser,
+      this.dispenserService.token)
+      .subscribe(
+        err => {
+          this.errors = err['error'];
+          console.log('Error: ', this.errors);
+        }
+      );
+    // this.rebuildForm();
   }
 
-  updateDispenser(): void {
-    // this.prescriberService.updatePrescriber(this.prescriber).subscribe(/* error handling */);
+  prepareDispenser(): Dispenser {
+    // Const containing the form data
+    const saveDispenser = this.dispenserForm.value;
+    saveDispenser.id = this.dispenser.id;
+
+    // Assign each of the groups to the const
+    // saveDispenser.description = Object.assign({}, saveDispenser.description);
+    // saveDispenser.numbers = Object.assign({}, saveDispenser.numbers);
+    console.log('Saving ', saveDispenser);
+    // Post the const to the server.
+    return saveDispenser;
   }
 
 

@@ -3,6 +3,7 @@ import { User } from '../user/user.model';
 import { Dispenser } from '../dispenser/dispenser.model';
 import { Prescriber } from '../prescriber/prescriber.model';
 import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -82,9 +83,18 @@ export class UserHttpService {
     // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
   }
 
-  updateDispenser(id) {
+  updateDispenser(dispenser: Dispenser, the_token: string): Observable<any>{
     // console.log('updating prescriber index ', id);
-    // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
+    const _token = 'JWT ' + the_token;
+    console.log('Using token ', _token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT ' + the_token
+      })
+    };
+    const url = `/api/dispensers/${dispenser.id}`;
+    return this.http.put(url, JSON.stringify(dispenser), httpOptions);
   }
 
   refreshToken() { }
