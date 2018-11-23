@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit {
   private updateData(token) {
     this.token = token;
     this.errors = [];
+    console.log('Current token', this.token)
 
     // decode the token to read the username and expiration timestamp
     const token_parts = this.token.split(/\./);
@@ -111,11 +112,11 @@ export class LoginComponent implements OnInit {
   }
 
   private extractDetails() {
-    this._userService.getUser()
+    this._userService.getUser(this.token)
       .subscribe((data) => {
-        console.log('details ', data[0], ' type ', typeof (data[0]));
-        this.resolveParticipant(data[0]['participant_type'], data[0]['participant_index']);
-        console.log('type ', data[0]['participant_type'], ' index ', data[0]['participant_index']);
+        console.log('details ', data, ' type ', typeof (data[0]));
+        this.resolveParticipant(data['participant_type'], data['participant_index']);
+        console.log('type ', data['participant_type'], ' index ', data['participant_index']);
         }
       );
   }

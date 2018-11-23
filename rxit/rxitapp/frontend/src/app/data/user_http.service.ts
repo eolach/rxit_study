@@ -53,9 +53,15 @@ export class UserHttpService {
       // );
   }
 
-  getUser() {
-    console.log('Getting user detail');
-    const url = `/api/user`;
+  getUser(the_token) {
+    console.log('Getting user detail', the_token);
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT ' + the_token
+      })
+    };
+    const url = `/api/users/2`;
     return this.http.get(url);
   }
 

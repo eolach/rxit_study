@@ -35,8 +35,8 @@ class SpecificUserViewSet(viewsets.ModelViewSet):
         by filtering against a `username` query parameter in the URL.
         """
         queryset = CustomUser.objects.all()
-        user = self.request.user
-        queryset = queryset.filter(username=user)
+        this_user = self.request.user.usename
+        queryset = queryset.filter(username=this_user)
         return queryset
 
 
