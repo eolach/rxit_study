@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
   public token_expires: Date;
 
   // the username of the logged in user
-  public username: string;// error messages received from the login attempt
-   public errors: any = [];
+  public username: string; // error messages received from the login attempt
+  public errors: any = [];
 
   constructor(
     private _userService: UserHttpService,
@@ -112,7 +112,7 @@ export class LoginComponent implements OnInit {
   }
 
   private extractDetails() {
-    this._userService.getUser(this.token)
+    this._userService.getUser(this.username, this.token)
       .subscribe((data) => {
         console.log('details ', data, ' type ', typeof (data[0]));
         this.resolveParticipant(data['participant_type'], data['participant_index']);

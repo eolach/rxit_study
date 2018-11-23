@@ -27,17 +27,19 @@ class SpecificUserViewSet(viewsets.ModelViewSet):
     """
     Provides basic CRUD functions for the User model
     """
+    queryset = CustomUser.objects.all()
     serializer_class = serializers.CustomUserSerializer
+    lookup_field = 'username'
     
-    def get_queryset(self):
-        """
+    """def get_queryset(self):
+        
         Optionally restricts the returned purchases to a given user,
         by filtering against a `username` query parameter in the URL.
-        """
-        queryset = CustomUser.objects.all()
+        
         this_user = self.request.user.usename
         queryset = queryset.filter(username=this_user)
         return queryset
+        """
 
 
 class Test_modelViewSet(viewsets.ModelViewSet):

@@ -6,7 +6,7 @@ from . import views
 router = routers.DefaultRouter(trailing_slash=False)
 
 router.register(r'users', views.CustomUserViewSet)
-router.register(r'user/(?P<username>)$', views.SpecificUserViewSet, 'CustomUser')
+router.register(r'user', views.SpecificUserViewSet, 'CustomUser')
 router.register(r'test_models', views.Test_modelViewSet)
 router.register(r'dispensers', views.DispenserViewSet)
 router.register(r'prescribers', views.PrescriberViewSet)

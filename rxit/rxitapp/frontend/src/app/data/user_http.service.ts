@@ -31,7 +31,6 @@ export class UserHttpService {
 
  // error messages received from the login attempt
   public errors: any = [];
- 
   constructor(private http: HttpClient) {
     this.httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -53,15 +52,15 @@ export class UserHttpService {
       // );
   }
 
-  getUser(the_token) {
+  getUser(username: string, the_token) {
     console.log('Getting user detail', the_token);
-    let httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'JWT ' + the_token
       })
     };
-    const url = `/api/users/2`;
+    const url = `/api/user/${username}`;
     return this.http.get(url);
   }
 
