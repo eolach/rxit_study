@@ -41,16 +41,16 @@ export class UserHttpService {
   login(user) {
     console.log('Getting user ', user);
     // return of(this.ELEMENT_DATA.find(user => user.name === username));
-    return this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions);
-      // .subscribe(
-      //   data => {
-      //     this.updateData(data['token']);
-      //   },
-      //   err => {
-      //     this.errors = err['error'];
-      //     console.log(this.errors);
-      //   }
-      // );
+    this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions)
+      .subscribe(
+        data => {
+          this.updateData(data['token']);
+        },
+        err => {
+          this.errors = err['error'];
+          console.log(this.errors);
+        }
+      );
   }
 
   getUser(username: string, the_token) {
@@ -101,20 +101,20 @@ export class UserHttpService {
 
   logout() { }
 
-  // private updateData(token) {
-  //   this.token = token;
-  //   this.errors = [];
+  private updateData(token) {
+    this.token = token;
+    this.errors = [];
 
-  //   // decode the token to read the username and expiration timestamp
-  //   const token_parts = this.token.split(/\./);
-  //   const token_decoded = JSON.parse(window.atob(token_parts[1]));
-  //   this.token_expires = new Date(token_decoded.exp * 1000);
-  //   this.username = token_decoded.username;
-  //   console.log('logged in ', this.username);
+    // decode the token to read the username and expiration timestamp
+    const token_parts = this.token.split(/\./);
+    const token_decoded = JSON.parse(window.atob(token_parts[1]));
+    this.token_expires = new Date(token_decoded.exp * 1000);
+    this.username = token_decoded.username;
+    console.log('logged in ', this.username);
 
-  //   if (this.errors.length === 0) {
-  //     this.prepareUser();
-  //   }
+    if (this.errors.length === 0) {
+      this.prepareUser();
+    }
 
   // }
 
