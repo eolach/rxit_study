@@ -16,6 +16,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 export class DispenserComponent implements OnChanges {
   @Input() dispenser: Dispenser;
   dispenserSubs: Subscription;
+  public errors: any = [];
   panelOpenState = false;
 
   dispenserForm: FormGroup;
@@ -34,7 +35,6 @@ export class DispenserComponent implements OnChanges {
     this.step--;
   }
 
-  public errors: any = [];
 
   constructor(
     private route: ActivatedRoute,

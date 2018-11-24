@@ -371,40 +371,27 @@ var UserHttpService = /** @class */ (function () {
         console.log('Getting user ', user);
         // return of(this.ELEMENT_DATA.find(user => user.name === username));
         return this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions);
-        // .subscribe(
-        //   data => {
-        //     this.updateData(data['token']);
-        //   },
-        //   err => {
-        //     this.errors = err['error'];
-        //     console.log(this.errors);
-        //   }
-        // );
     };
-    UserHttpService.prototype.getUser = function (username, the_token) {
-        console.log('Getting user detail', the_token);
+    UserHttpService.prototype.getUser = function (username) {
+        console.log('Getting user detail', this.token);
         var httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
                 'Content-Type': 'application/json',
-                'Authorization': 'JWT ' + the_token
+                'Authorization': 'JWT ' + this.token
             })
         };
         var url = "/api/user/" + username;
         return this.http.get(url);
     };
+    UserHttpService.prototype.refreshToken = function () { };
+    UserHttpService.prototype.logout = function () { };
+    /*
+      Methods related to the participants
+    */
     UserHttpService.prototype.getDispenser = function (id) {
         console.log('Getting dispenser index ', id);
         var url = "/api/dispensers/" + id;
         return this.http.get(url);
-    };
-    UserHttpService.prototype.getPrescriber = function (id) {
-        console.log('Getting prescriber index ', id);
-        var url = "/api/prescribers/" + id;
-        return this.http.get(url);
-    };
-    UserHttpService.prototype.updatePrescriber = function (id) {
-        // console.log('updating prescriber index ', id);
-        // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
     };
     UserHttpService.prototype.updateDispenser = function (dispenser, the_token) {
         // console.log('updating prescriber index ', id);
@@ -419,8 +406,15 @@ var UserHttpService = /** @class */ (function () {
         var url = "/api/dispensers/" + dispenser.id;
         return this.http.put(url, JSON.stringify(dispenser), httpOptions);
     };
-    UserHttpService.prototype.refreshToken = function () { };
-    UserHttpService.prototype.logout = function () { };
+    UserHttpService.prototype.getPrescriber = function (id) {
+        console.log('Getting prescriber index ', id);
+        var url = "/api/prescribers/" + id;
+        return this.http.get(url);
+    };
+    UserHttpService.prototype.updatePrescriber = function (id) {
+        // console.log('updating prescriber index ', id);
+        // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
+    };
     UserHttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
@@ -480,9 +474,9 @@ var DispenserComponent = /** @class */ (function () {
         this.dispenserService = dispenserService;
         this.location = location;
         this.fb = fb;
+        this.errors = [];
         this.panelOpenState = false;
         this.step = 0;
-        this.errors = [];
         this.createForm();
         console.log('created form ', this.dispenserForm);
     }
@@ -686,6 +680,14 @@ var LoginComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    /*
+      Methods related to the opening the application to a particular user.
+      Login uses the provided username and password to authenticate the user
+      with a JWT token. The toekn is saved for future use in the user service.
+      The username retrieves the details of the participant associated with that user
+      and provides an input to the appropriate participant component.
+      Logout removes the token.
+    */
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.submitted = true;
@@ -702,6 +704,7 @@ var LoginComponent = /** @class */ (function () {
             _this.updateData(data['token']);
         }, function (err) {
             _this.errors = err['error'];
+            // TODO warn when authorization fails
             console.log(_this.errors);
         });
         if (this.username) {
@@ -711,6 +714,14 @@ var LoginComponent = /** @class */ (function () {
             console.log('nothing authorized ');
         }
     };
+    LoginComponent.prototype.refreshToken = function () {
+        this._userService.refreshToken();
+    };
+    LoginComponent.prototype.logout = function () {
+        this._userService.logout();
+    };
+    // Utility to exract the username and expiration information from the token
+    // If there are no errors, the username is used to retrieve the participant
     LoginComponent.prototype.updateData = function (token) {
         this.token = token;
         this.errors = [];
@@ -720,28 +731,23 @@ var LoginComponent = /** @class */ (function () {
         var token_decoded = JSON.parse(window.atob(token_parts[1]));
         this.token_expires = new Date(token_decoded.exp * 1000);
         this.username = token_decoded.username;
+        // Persist user and token details in service
+        this._userService.username = this.username;
+        this._userService.token = this.token;
+        this._userService.token_expires = this.token_expires;
         console.log('logged in ', this.username);
         if (this.errors.length === 0) {
-            this.prepareUser();
+            this.retrieveParticipant();
         }
     };
-    LoginComponent.prototype.prepareUser = function () {
-        this.extractDetails();
-    };
-    LoginComponent.prototype.extractDetails = function () {
+    LoginComponent.prototype.retrieveParticipant = function () {
         var _this = this;
-        this._userService.getUser(this.username, this.token)
+        this._userService.getUser(this.username)
             .subscribe(function (data) {
             console.log('details ', data, ' type ', typeof (data[0]));
             _this.resolveParticipant(data['participant_type'], data['participant_index']);
             console.log('type ', data['participant_type'], ' index ', data['participant_index']);
         });
-    };
-    LoginComponent.prototype.refreshToken = function () {
-        this._userService.refreshToken();
-    };
-    LoginComponent.prototype.logout = function () {
-        this._userService.logout();
     };
     LoginComponent.prototype.resolveParticipant = function (type, index) {
         var _this = this;

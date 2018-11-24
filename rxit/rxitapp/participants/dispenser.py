@@ -1,5 +1,6 @@
 from django.db import models
 from rest_framework import serializers
+from drf_writable_nested import WritableNestedModelSerializer
 
 # Field sets for dispenser
 
@@ -96,7 +97,7 @@ class DescriptionSerializer(serializers.ModelSerializer):
             'corporate_type', 
             'pharmacy_mgt_system'           )
 
-class DispenserSerializer(serializers.ModelSerializer):
+class DispenserSerializer(WritableNestedModelSerializer):
 
     description = DescriptionSerializer()
     numbers = NumbersSerializer()
@@ -111,42 +112,4 @@ class DispenserSerializer(serializers.ModelSerializer):
             'total_rx',
             'walk_in_rx'
         )
-
-    def create(self, validated_data):
-        description_data = validated_data.pop('description')
-        numbers_data = validated_data.pop('numbers')
-        total_rx_data = validated_data.pop('total_rx')
-        walk_in_rx_data = validated_data.pop('walk_in_rx')
-        description_model = NumbersSerializer.create(DescriptionSerializer(), validated_data=description_data)
-        numbers_model = NumbersSerializer.create(NumbersSerializer(), validated_data=numbers_data)
-        total_rx_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=total_rx_data)
-        walk_in_rx_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=walk_in_rx_data)
-        dispenser_model, created = Dispenser.objects.update_or_create(
-            description=description_model, 
-            numbers=numbers_model, 
-            total_rx=total_rx_model, 
-            walk_in_rx=walk_in_rx_model, 
-            **validated_data)
-        
-        return dispenser_model
-
-    def update(self, instance, validated_data):
-        # Gather the field set data
-        description_data = validated_data.pop('description')
-        numbers_data = validated_data.pop('numbers')
-        total_rx_data = validated_data.pop('total_rx')
-        walk_in_rx_data = validated_data.pop('walk_in_rx')
-        # rebuild the fieldsets
-        description_model = NumbersSerializer.create(DescriptionSerializer(), validated_data=description_data)
-        numbers_model = NumbersSerializer.create(NumbersSerializer(), validated_data=numbers_data)
-        total_rx_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=total_rx_data)
-        walk_in_rx_model = RxStatsSerializer.create(RxStatsSerializer(), validated_data=walk_in_rx_data)
-        instance, created = Dispenser.objects.update_or_create(
-            description=description_model, 
-            numbers=numbers_model, 
-            total_rx=total_rx_model, 
-            walk_in_rx=walk_in_rx_model, 
-            **validated_data)
-        
-        return instance
             
