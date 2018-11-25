@@ -1,7 +1,8 @@
 from rxit.settings.common import *
 import os
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = '#ym%cn@shk8d-ya_f6$mk$@io&-gehdc$vo8)gx5q)9(=qjqu&'
 
 DEBUG = False
 
