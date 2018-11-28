@@ -1,0 +1,89 @@
+# Expires map
+map $sent_http_content_type $expires {
+    default                    off;
+    text/html                  epoch;
+    text/css                   max;
+    application/javascript     max;
+    application/woff2          max;
+    ~image/                    30d;
+}
+
+
+server {
+
+	listen 80;
+
+	server_name rxitstudy.com www.rxitstudy.com;
+
+	return 310 https://$server_name$request_uri;
+
+}
+
+
+
+server {
+
+
+	listen [::]:443 ssl ipv6only=on; # managed by Certbot
+	listen 443 ssl; # managed by Certbot
+	ssl_certificate /etc/letsencrypt/live/rxitstudy.com/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/rxitstudy.com/privkey.pem; # managed by Certbot
+	include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+
+        expires $expires;
+
+	index index.html index.htm;
+
+	server_name rxitstudy.com www.rxitstudy.com;
+
+#       Handle django 
+        location = /favicon.ico { access_log off; log_not_found off; }
+        location /static/ {
+                root /home/heng/rxit;
+        }
+
+        location / {
+                # forward application requests to the gunicorn server
+                # proxy_pass http://localhost:8000;
+                include proxy_params;
+                proxy_pass http://unix:/run/gunicorn.sock;
+                proxy_redirect off;
+                proxy_set_header Host $host;
+		proxy_headers_hash_max_size 1024;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	}
+
+
+        # Added to implement security
+        location ~/.well-known {
+               allow all;
+        }
+
+
+}
+
+
+#server {
+ #   if ($host = www.rxitstudy.com) {
+#        return 301 https://$host$request_uri;
+#    } # managed by Certbot
+#
+#    if ($host = rxitstudy.com) {
+#        return 301 https://$host$request_uri;
+#    } # managed by Certbot
+
+
+#	listen 80 default_server;
+#	listen [::]:80 default_server;
+
+#	server_name rxitstudy.com www.rxitstudy.com;
+#    return 404; # managed by Certbot
+
+
+
+
+#}
