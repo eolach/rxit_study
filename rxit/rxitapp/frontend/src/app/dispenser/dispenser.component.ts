@@ -71,8 +71,7 @@ export class DispenserComponent implements OnChanges {
     this.dispenser = this.prepareDispenser();
     console.log('onSubmit');
     this.dispenserService.updateDispenser(
-      this.dispenser,
-      this.dispenserService.token)
+      this.dispenser)
       .subscribe(
         err => {
           this.errors = err['error'];

@@ -41,24 +41,15 @@ export class UserHttpService {
   login(user) {
     console.log('Getting user ', user);
     // return of(this.ELEMENT_DATA.find(user => user.name === username));
-    this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions)
-      .subscribe(
-        data => {
-          this.updateData(data['token']);
-        },
-        err => {
-          this.errors = err['error'];
-          console.log(this.errors);
-        }
-      );
+    return this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions)
   }
 
-  getUser(username: string, the_token) {
-    console.log('Getting user detail', the_token);
+  getUser(username: string) {
+    console.log('Getting user detail', this.token);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'JWT ' + the_token
+        'Authorization': 'JWT ' + this.token
       })
     };
     const url = `/api/user/${username}`;
@@ -83,24 +74,32 @@ export class UserHttpService {
     // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
   }
 
-  updateDispenser(dispenser: Dispenser, the_token: string): Observable<any>{
+  updateDispenser(dispenser: Dispenser): Observable<any>{
     // console.log('updating prescriber index ', id);
-    const _token = 'JWT ' + the_token;
-    console.log('Using token ', _token);
+    const _token = 'JWT ' + this.token;
+    console.log('Using token ', this.token);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'JWT ' + the_token
+        'Authorization': 'JWT ' + this.token
       })
     };
     const url = `/api/dispensers/${dispenser.id}`;
-    return this.http.put(url, JSON.stringify(dispenser), httpOptions);
+    console.log('dispenser ', dispenser);
+    return of (this.http.put(url, JSON.stringify(dispenser), httpOptions)
+    .subscribe(
+      data => {
+        console.log('pu returned ', data);
+      }
+    ));
   }
 
   refreshToken() { }
 
   logout() { }
 
+  // Utility functions to interpret the user login
+  
   private updateData(token) {
     this.token = token;
     this.errors = [];
@@ -112,37 +111,5 @@ export class UserHttpService {
     this.username = token_decoded.username;
     console.log('logged in ', this.username);
 
-    if (this.errors.length === 0) {
-      this.prepareUser();
-    }
-
-  // }
-
-  // private prepareUser() {
-  //   this.extractDetails();
-  // }
-
-  // private resolveParticipant(type: string, index: number, ) {
-  //   this.isDispenser = false;
-  //   this.isPrescriber = false;
-  //   console.log('Resolving ', type, ' and ', index);
-  //   if (type === 'dispenser') {
-  //     this.isDispenser = true;
-  //     console.log('Choosing participant', index);
-  //     this.getDispenser(index)
-  //       .subscribe((data: Dispenser) => {
-  //         this.selectedDispenser = data;
-  //         console.log('Selecting in ', this.selectedDispenser);
-  //       });
-  //   } else if (type === 'prescriber') {
-  //     this.isPrescriber = true;
-  //     this.getPrescriber(index)
-  //       .subscribe((data: Prescriber) => {
-  //         // this.selectedPrescriber = prescriber;
-  //         console.log('Logging in ', index);
-  //       });
-  //   }
-  //   // console.log('Logging in ', user);
-  //   return;
-  // }
+   }
 }

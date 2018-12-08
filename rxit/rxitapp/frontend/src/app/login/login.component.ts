@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { UserService } from '../core/user.service';
 import { UserHttpService } from '../data/user_http.service';
 import { throwError } from 'rxjs';
+import { User } from '../user/user.model';
 import { Prescriber } from '../prescriber/prescriber.model';
 import { Dispenser } from '../dispenser/dispenser.model';
 @Component({
@@ -16,7 +17,7 @@ import { Dispenser } from '../dispenser/dispenser.model';
 
 export class LoginComponent implements OnInit {
 
-  public user: any;
+  public user: User;
 
   loginForm: FormGroup;
   submitted = false;
@@ -27,14 +28,14 @@ export class LoginComponent implements OnInit {
   public selectedPrescriber: Prescriber;
   public selectedDispenser: Dispenser;
 
-   // the actual JWT token
+   // token of the logged in user
   public token: string;
 
   // the token expiration date
   public token_expires: Date;
 
   // the username of the logged in user
-  public username: string; // error messages received from the login attempt
+  public username: string; 
   public errors: any = [];
 
   constructor(
@@ -43,10 +44,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user = {
-      username: '',
-      password: ''
-    };
+    
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -81,16 +79,17 @@ export class LoginComponent implements OnInit {
         }
       );
 
-    if (this.username) {
-      console.log('authorized ', this.username);
-    } else {
-      console.log('nothing authorized ');
-    }
+    // if (this.username) {
+    //   console.log('authorized ', this.username);
+    // } else {
+    //   console.log('nothing authorized ');
+    // }
 
   }
 
   private updateData(token) {
     this.token = token;
+    this.setToken();
     this.errors = [];
     console.log('Current token', this.token)
 
@@ -108,11 +107,11 @@ export class LoginComponent implements OnInit {
   }
 
   private prepareUser() {
-    this.extractDetails();
+    this.getUserDetails();
   }
 
-  private extractDetails() {
-    this._userService.getUser(this.username, this.token)
+  private getUserDetails() {
+    this._userService.getUser(this.username)
       .subscribe((data) => {
         console.log('details ', data, ' type ', typeof (data[0]));
         this.resolveParticipant(data['participant_type'], data['participant_index']);
@@ -121,6 +120,10 @@ export class LoginComponent implements OnInit {
       );
   }
 
+  setToken() {
+    this._userService.token = this.token;
+  }
+  
   refreshToken() {
     this._userService.refreshToken();
   }
