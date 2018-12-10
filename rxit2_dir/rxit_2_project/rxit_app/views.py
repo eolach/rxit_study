@@ -23,6 +23,17 @@ class CustomUserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = serializers.CustomUserSerializer
 
+class SpecificUserViewSet(viewsets.ModelViewSet):
+    """
+    Provides specific CRUD functions for the User model
+    when the username is provided
+    """
+    queryset = CustomUser.objects.all()
+    serializer_class = serializers.CustomUserSerializer
+    lookup_field = 'username'
+    
+
+
 
 
 class DispenserViewSet(viewsets.ModelViewSet):

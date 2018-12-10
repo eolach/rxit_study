@@ -18,9 +18,13 @@ from django.urls import path, include
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('rxit_app.urls')),
+    path(r'api-token-auth/', obtain_jwt_token),
+    path(r'api-token-refresh/', refresh_jwt_token)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

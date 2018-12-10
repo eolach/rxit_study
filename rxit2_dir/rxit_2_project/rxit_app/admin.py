@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser, Dispenser, Prescriber
+from .models import CustomUser
+from .participants.dispenser import Dispenser
 from django.contrib.auth.admin import UserAdmin
 
 
@@ -12,3 +13,8 @@ class CustomUserAdmin(UserAdmin):
     model = CustomUser
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
+@admin.register(Dispenser)
+class DispenserAdmin(admin.ModelAdmin):
+    list_display = ['username']
+
