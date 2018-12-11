@@ -85,12 +85,12 @@ export class UserHttpService {
         'Authorization': 'JWT ' + this.token
       })
     };
-    const url = `/api/dispensers/${dispenser.id}`;
+    const url = `/api/dispensers/${dispenser.pk}`;
     console.log('dispenser ', dispenser);
     return of (this.http.put(url, JSON.stringify(dispenser), httpOptions)
     .subscribe(
       data => {
-        console.log('pu returned ', data);
+        console.log('put returned ', data);
       }
     ));
   }

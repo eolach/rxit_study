@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Dispenser, Description, Numbers, RxStats } from './dispenser.model';
 import { UserHttpService } from '../data/user_http.service';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, RequiredValidator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dispenser',
@@ -17,6 +17,7 @@ export class DispenserComponent implements OnChanges {
   @Input() dispenser: Dispenser;
   dispenserSubs: Subscription;
   panelOpenState = false;
+  public errors: any = [];
 
   dispenserForm: FormGroup;
 
@@ -34,7 +35,6 @@ export class DispenserComponent implements OnChanges {
     this.step--;
   }
 
-  public errors: any = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -46,25 +46,38 @@ export class DispenserComponent implements OnChanges {
     console.log('created form ', this.dispenserForm);
   }
 
+  // Form is created when the componenet is constructed.
   createForm() {
-      console.log('examining ', this.dispenser);    
-      this.dispenserForm = this.fb.group({
+    console.log('examining ', this.dispenser);
+    this.dispenserForm = this.fb.group({
       description: this.fb.group({
         participant_name: [''],
         street: [''],
         city: [''],
         province: [''],
       }),
-      numbers: this.fb.group(new Numbers),
+      numbers: this.fb.group({
+        num_pharmacists: [0, ],
+        num_reg_tech: [0, Validators.required],
+        num_unreg: [0, Validators.required]
+      }),
 
       total_rx: this.fb.group(new RxStats()),
       walk_in_rx: this.fb.group(new RxStats()),
     });
   }
 
+  // Form is (re)populated whenever a change happens to the component inputs
+  // In this case, the Dispenser instance is the only input
   ngOnChanges(): void {
     console.log('ngOnChanges');
     this.rebuildForm();
+  }
+
+  // Rebuilding the form uses the current values from the view
+  rebuildForm() {
+    console.log('building with ', this.dispenser);
+    this.dispenserForm.patchValue(this.dispenser);
   }
   // Functions called from the form in the template
   onSubmit() {
@@ -81,10 +94,11 @@ export class DispenserComponent implements OnChanges {
     // this.rebuildForm();
   }
 
+  // Preparing the layers of data for submission to the server
   prepareDispenser(): Dispenser {
     // Const containing the form data
     const saveDispenser = this.dispenserForm.value;
-    saveDispenser.id = this.dispenser.id;
+    saveDispenser.pk = this.dispenser.pk;
 
     // Assign each of the groups to the const
     // saveDispenser.description = Object.assign({}, saveDispenser.description);
@@ -94,14 +108,15 @@ export class DispenserComponent implements OnChanges {
     return saveDispenser;
   }
 
-
-  goBack(): void {
-    this.location.back();
+  // Cancel the changes made in the current sessin
+  revert()  {
+    console.log('reverting');
+    this.rebuildForm();
   }
 
-  rebuildForm() {
-    console.log('building with ', this.dispenser);
-    this.dispenserForm.patchValue(this.dispenser);
+  // Not sure why we have this...
+  goBack(): void {
+    this.location.back();
   }
 
 }

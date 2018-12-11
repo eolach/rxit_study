@@ -2,7 +2,7 @@
 
 export class Dispenser {
 
-    id: number;
+    pk: number;
     description: Description;
     numbers: Numbers;
     total_rx: RxStats;

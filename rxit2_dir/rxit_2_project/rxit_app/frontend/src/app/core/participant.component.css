@@ -112,8 +112,8 @@ textarea {
  /* border: 3px solid rgb(255, 153, 0);*/
 }
 .input-number { 
-  max-width: 300px;
-  min-width: 200px;
+  max-width: 100px;
+  min-width: 50px;
   margin-right: 5em;
   /*border: 3px solid rgb(0, 255, 64);*/
 }

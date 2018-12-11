@@ -26,7 +26,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <!-- Login  -->
-<mat-card class="example-card">
+<mat-card *ngIf="!loading" class="example-card">
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
@@ -54,7 +54,7 @@
       <!-- <mat-card-actions>
     </mat-card-actions> -->
     </form>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
   </mat-card-content>
 </mat-card>
 <div *ngIf="selectedDispenser"><app-dispenser [dispenser]="selectedDispenser"></app-dispenser></div>

@@ -1,9 +1,8 @@
 <form [formGroup]="dispenserForm" (ngSubmit)="onSubmit()">
   <div style="margin-bottom: 1em">
-    <button type="submit" 
-            [disabled]="dispenserForm.pristine" class="btn btn-success">Save</button> &nbsp;
-    <button type="button" (click)="revert()"
-            [disabled]="dispenserForm.pristine" class="btn btn-danger">Revert</button>
+    <button type="submit" [disabled]="dispenserForm.pristine || dispenserForm.invalid" class="btn btn-success">Save</button>
+    &nbsp;
+    <button type="button" (click)="revert()" [disabled]="dispenserForm.pristine || dispenserForm.invalid" class="btn btn-danger">Revert</button>
   </div>
   <div fxLayout="column" fxLayoutAlign="center center">
     <div class="main-content">
@@ -12,10 +11,10 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title class="card-title">
-              <h4>Dispenser description</h4>
+              Dispenser description
             </mat-panel-title>
             <mat-panel-description>
-              <h4>Details of this dispenser practice</h4>
+              <p>Details of this dispenser practice</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div formGroupName="description">
@@ -34,13 +33,14 @@
           </div>
           <div formGroupName="numbers">
             <mat-form-field class="input-number">
-              <input matInput placeholder="Number of pharmacists" formControlName="num_pharmacists">
+              <input matInput id="num_pharm" placeholder="Number of pharmacists" formControlName="num_pharmacists"
+                required>
             </mat-form-field>
             <mat-form-field class="input-number">
-              <input matInput placeholder="Number of registered techs" formControlName="num_reg_tech">
+              <input matInput placeholder="Number of registered techs" formControlName="num_reg_tech" required>
             </mat-form-field>
             <mat-form-field class="input-number">
-              <input matInput placeholder="Number of assistants" formControlName="num_unreg">
+              <input matInput placeholder="Number of assistants" formControlName="num_unreg" required>
             </mat-form-field>
           </div>
         </mat-expansion-panel>
@@ -49,53 +49,50 @@
           <!--mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" showToggle> -->
           <mat-expansion-panel-header>
             <mat-panel-title class="card-title">
-              <h4>Dispenser statistics</h4>
+              Dispenser statistics
             </mat-panel-title>
             <mat-panel-description class="card-description">
               <p>Summary statistics for this dispenser practice</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <div fxLayout="column" max-width="80%" xLayoutAlign="center center" class="container-content">
-            <div class="card-header-text">How many prescriptions do you receive?
+          <!-- <div fxLayout="column" max-width="100%" fxLayoutAlign="center center" class="container-content"> -->
+          <div class="card-header-text">How many prescriptions do you receive?
+          </div>
+          <div formGroupName="total_rx">
+            <div fxLayout="row" class="form-group">
+              <div class="input-description">Total prescriptions</div>
+              <mat-form-field class="input-number">
+                <input matInput placeholder="Morning" formControlName="num_am" />
+              </mat-form-field>
+              <mat-form-field class="input-number">
+                <input matInput placeholder="Afternoon" formControlName="num_pm" />
+              </mat-form-field>
+              <mat-form-field class="input-number">
+                <input matInput placeholder="Evening" formControlName="num_evng" />
+              </mat-form-field>
+              <mat-form-field class="input-number">
+                <input matInput placeholder="Weekend" formControlName="num_wend" />
+              </mat-form-field>
             </div>
-            <div formGroupName="total_rx">
-              <div fxLayout="row" class="form-group">
-                <div class="input-description">Total prescriptions</div>
-                <mat-form-field class="input-number">
-                  <input matInput placeholder="Morning" formControlName="num_am" />
-                </mat-form-field>
-                <mat-form-field class="input-number">
-                  <input matInput placeholder="Afternoon" formControlName="num_pm" />
-                </mat-form-field>
-                <mat-form-field class="input-number">
-                  <input matInput placeholder="Evening" formControlName="num_evng" />
-                </mat-form-field>
-                <mat-form-field class="input-number">
-                  <input matInput placeholder="Weekend" formControlName="num_wend" />
-                </mat-form-field>
-              </div>
+          </div>
+          <div formGroupName="walk_in_rx">
+            <div fxLayout="row" class="form-group">
+              <div class="input-description">Walk-in patients with printed prescriptions</div>
+              <mat-form-field class="input-number">
+                <input matInput placeholder="Morning" formControlName="num_am" />
+              </mat-form-field>
+              <mat-form-field class="input-number">
+                <input matInput placeholder="Afternoon" formControlName="num_pm" />
+              </mat-form-field>
+              <mat-form-field class="input-number">
+                <input matInput placeholder="Evening" formControlName="num_evng" />
+              </mat-form-field>
+              <mat-form-field class="input-number">
+                <input matInput placeholder="Weekend" formControlName="num_wend" />
+              </mat-form-field>
             </div>
-            <div formGroupName="walk_in_rx">
-              <div fxLayout="row" class="form-group">
-                <div class="input-description">Walk-in patients with printed prescriptions</div>
-                <mat-form-field class="input-number">
-                  <input matInput placeholder="Morning" formControlName="num_am" />
-                </mat-form-field>
-                <mat-form-field class="input-number">
-                  <input matInput placeholder="Afternoon" formControlName="num_pm" />
-                </mat-form-field>
-                <mat-form-field class="input-number">
-                  <input matInput placeholder="Evening" formControlName="num_evng" />
-                </mat-form-field>
-                <mat-form-field class="input-number">
-                  <input matInput placeholder="Weekend" formControlName="num_wend" />
-                </mat-form-field>
-              </div>
-            </div>
-            </div>
-
+          </div>
         </mat-expansion-panel>
-
       </mat-accordion>
     </div>
   </div>
