@@ -36,10 +36,9 @@ class Numbers(models.Model):
     num_reg_tech = models.DecimalField(max_digits=3, decimal_places=1, default=0)
     num_unreg = models.DecimalField(max_digits=3, decimal_places=1, default=0)
 
-"""
 # RxStats
 class RxStats(models.Model):
-    dispenser = models.ForeignKey(
+    dispenser = models.OneToOneField(
         Dispenser,
         on_delete=models.CASCADE,
     ) 
@@ -48,13 +47,17 @@ class RxStats(models.Model):
     num_evng = models.DecimalField(max_digits=4, decimal_places=1, default=0)
     num_wend = models.DecimalField(max_digits=4, decimal_places=1, default=0)
 
+
+"""
 # TxTime
-# TxWho
+# TxRole
 # RxReview
 # Communication
 
 
+"""
 # Serializers
+
 class RxStatsSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -65,7 +68,6 @@ class RxStatsSerializer(serializers.ModelSerializer):
             'num_evng',
             'num_wend'
             )
-"""
 
 class NumbersSerializer(serializers.ModelSerializer):
 
@@ -87,13 +89,14 @@ class DescriptionSerializer(serializers.ModelSerializer):
             'city',
             'province',
             'corporate_type', 
-            'pharmacy_mgt_system'           )
+            'pharmacy_mgt_system'
+        )
 
 class DispenserSerializer(WritableNestedModelSerializer):
 
     description = DescriptionSerializer()
     numbers = NumbersSerializer()
-    # total_rx = RxStatsSerializer()
+    total_rx = RxStatsSerializer()
     # walk_in_rx = RxStatsSerializer()
 
     class Meta:
@@ -102,8 +105,7 @@ class DispenserSerializer(WritableNestedModelSerializer):
             'username',
             'description',
             'numbers',
-            # 'total_rx',
-            # 'walk_in_rx'
+            'total_rx'
         )
 
             
