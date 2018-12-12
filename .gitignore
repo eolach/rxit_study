@@ -1,7 +1,7 @@
 .idea
 __pycache__
 venv
-rxit-app/static/front-end
+# rxit-app/static/front-end
 
 
 # Frrm angular/gitignore
