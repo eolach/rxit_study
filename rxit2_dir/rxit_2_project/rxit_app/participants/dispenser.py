@@ -11,6 +11,7 @@ class Dispenser(models.Model):
         return self.username
 
 
+"""
 # Description
 class Description(models.Model):
     dispenser = models.OneToOneField(
@@ -25,6 +26,16 @@ class Description(models.Model):
     corporate_type = models.CharField(max_length=100, blank=True, default='')
     pharmacy_mgt_system = models.CharField(max_length=100, blank=True, default='')
 
+ # RxStats
+class RxStats(models.Model):
+    dispenser = models.OneToOneField(
+        Dispenser,
+        on_delete=models.CASCADE,
+    ) 
+    num_am = models.DecimalField(max_digits=4, decimal_places=1, default=0)
+    num_pm = models.DecimalField(max_digits=4, decimal_places=1, default=0)
+    num_evng = models.DecimalField(max_digits=4, decimal_places=1, default=0)
+    num_wend = models.DecimalField(max_digits=4, decimal_places=1, default=0) 
 
 # Numbers
 class Numbers(models.Model):
@@ -36,29 +47,15 @@ class Numbers(models.Model):
     num_reg_tech = models.DecimalField(max_digits=3, decimal_places=1, default=0)
     num_unreg = models.DecimalField(max_digits=3, decimal_places=1, default=0)
 
-# RxStats
-class RxStats(models.Model):
-    dispenser = models.OneToOneField(
-        Dispenser,
-        on_delete=models.CASCADE,
-    ) 
-    num_am = models.DecimalField(max_digits=4, decimal_places=1, default=0)
-    num_pm = models.DecimalField(max_digits=4, decimal_places=1, default=0)
-    num_evng = models.DecimalField(max_digits=4, decimal_places=1, default=0)
-    num_wend = models.DecimalField(max_digits=4, decimal_places=1, default=0)
 
-
-"""
 # TxTime
 # TxRole
 # RxReview
 # Communication
-
-
 """
 # Serializers
 
-class RxStatsSerializer(serializers.ModelSerializer):
+""" class RxStatsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = RxStats
@@ -67,8 +64,7 @@ class RxStatsSerializer(serializers.ModelSerializer):
             'num_pm',
             'num_evng',
             'num_wend'
-            )
-
+            ) 
 class NumbersSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -91,21 +87,22 @@ class DescriptionSerializer(serializers.ModelSerializer):
             'corporate_type', 
             'pharmacy_mgt_system'
         )
+"""
 
 class DispenserSerializer(WritableNestedModelSerializer):
 
-    description = DescriptionSerializer()
-    numbers = NumbersSerializer()
-    total_rx = RxStatsSerializer()
+    # description = DescriptionSerializer()
+    # numbers = NumbersSerializer()
+    # total_rx = RxStatsSerializer()
     # walk_in_rx = RxStatsSerializer()
 
     class Meta:
         model = Dispenser
         fields = ('pk',
             'username',
-            'description',
-            'numbers',
-            'total_rx'
+            # 'description',
+            # 'numbers',
+            # 'total_rx'
         )
 
             
