@@ -30,3 +30,31 @@ export class RxStats {
     num_evng = 0;
     num_wend = 0;
 }
+
+export class TxTime {
+    new_patient_time = 0;
+    new_rx_time = 0;
+    repeat_rx_time = 0;
+}
+
+export class TxRole {
+    pharmacist = false;
+    reg_tech = false;
+    unreg = false;
+}
+
+export class RxReview {
+    discuss_before = 0;
+    discuss_after = 0;
+    discuss_role = '';
+    discuss_notes = '';
+}
+
+export class RxComm {
+    duration = 0;
+    frequency = 0;
+    elapsed_time = 0;
+    by_fax = false;
+    by_phone = false;
+    by_dm = false;
+}

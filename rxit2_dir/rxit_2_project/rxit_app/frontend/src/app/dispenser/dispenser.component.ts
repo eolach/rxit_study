@@ -3,7 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Dispenser, Description, Numbers, RxStats } from './dispenser.model';
+import { Dispenser,
+    Description,
+    Numbers,
+    RxStats,
+    TxTime,
+    TxRole,
+    RxReview,
+    RxComm } from './dispenser.model';
 import { UserHttpService } from '../data/user_http.service';
 import { FormBuilder, FormGroup, FormControl, RequiredValidator, Validators } from '@angular/forms';
 
@@ -59,11 +66,32 @@ export class DispenserComponent implements OnChanges {
       numbers: this.fb.group({
         num_pharmacists: [0, ],
         num_reg_tech: [0, Validators.required],
-        num_unreg: [0, Validators.required]
+        num_unreg: [0, Validators.required],
+        pm_system: ['', Validators.required]
       }),
 
       total_rx: this.fb.group(new RxStats()),
       walk_in_rx: this.fb.group(new RxStats()),
+      faxed_rx: this.fb.group(new RxStats()),
+      phoned_in_rx: this.fb.group(new RxStats()),
+      e_prescribed_rx: this.fb.group(new RxStats()),
+      new_patients: this.fb.group(new RxStats()),
+
+      tx_time: this.fb.group(new TxTime()),
+
+      tx_role: this.fb.group(new TxRole()),
+
+      new_pat_review: this.fb.group(new RxReview()),
+      new_rx_review: this.fb.group(new RxReview()),
+      repeat_rx_review: this.fb.group(new RxReview()),
+
+      illegible_rx_comm: this.fb.group(new RxComm()),
+      incomplete_rx_comm: this.fb.group(new RxComm()),
+      question_rx_comm: this.fb.group(new RxComm()),
+      advice_change__rx_comm: this.fb.group(new RxComm()),
+      renewal_auth_rx_comm: this.fb.group(new RxComm()),
+      cancel_rx_comm: this.fb.group(new RxComm()),
+      physician_rx_comm: this.fb.group(new RxComm()),
     });
   }
 
