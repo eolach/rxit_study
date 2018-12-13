@@ -8,11 +8,17 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = UserCreationForm.Meta.fields
+        fields = UserCreationForm.Meta.fields \
+        + ('participant_name', 
+        'participant_type',
+        'participant_index',)
 
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = UserChangeForm.Meta.fields
+        fields = UserChangeForm.Meta.fields 
+        # + ('participant_name', 
+        # 'participant_type',
+        # 'participant_index',)
        

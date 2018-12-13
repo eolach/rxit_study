@@ -10,8 +10,10 @@ gunicorn = "*"
 "psycopg2-binary" = "*"
 djangorestframework = "*"
 djangorestframework-jwt = "*"
+drf-writable-nested = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
