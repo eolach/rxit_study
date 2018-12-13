@@ -129,7 +129,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'deployment', 'collected_static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'rxit_app', 'static')
+]
+
+print("base dir path", BASE_DIR)
+print("static dir path", STATIC_ROOT)
 
 # FIXTURE_DIRS = os.path.join(BASE_DIR)
 
