@@ -40,12 +40,5 @@
     "groups": [],
     "user_permissions": []
   }
-},
-{
-  "model": "rxit_app.dispenser",
-  "pk": 1,
-  "fields": {
-    "username": "woodsrx"
-  }
 }
 ]

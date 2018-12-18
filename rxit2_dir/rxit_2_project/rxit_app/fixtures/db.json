@@ -1,0 +1,132 @@
+[
+{
+  "model": "sessions.session",
+  "pk": "27vavsz1vcxm78ulewdx7pp5d8ykiv2w",
+  "fields": {
+    "session_data": "ZTA5NTA5ZGJlNzM2MTQ4ZDMxYzNlZGMxYzY5NDgzNzIyZDMyNjcyYzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0N2QwNmQ0NzM4YWM4YzAwMDNmNzg2MGQxNjNjNTM1MjA2M2FiZjZkIn0=",
+    "expire_date": "2019-01-01T19:05:12.149Z"
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$LQ1yD3dprVS4$CRMbjfJ7mtAXWvl+xA73Vz004R0HJcs5VM9WXXTOcj4=",
+    "last_login": "2018-12-18T19:05:12.142Z",
+    "is_superuser": true,
+    "username": "heng",
+    "first_name": "",
+    "last_name": "",
+    "email": "heng@eolas.ca",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2018-12-12T19:27:18.801Z",
+    "participant_name": "",
+    "participant_type": "",
+    "participant_index": 0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$dTcTQrI1NvBd$10sbralDOXYUr0Br0YOdPRHcMGxgjoNaCi7oCO6rAnM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "woodsrx",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-12T19:28:59.438Z",
+    "participant_name": "",
+    "participant_type": "",
+    "participant_index": 0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.rxdescription",
+  "pk": 1,
+  "fields": {
+    "participant_name": "Pharmacy 1",
+    "street": "",
+    "city": "",
+    "province": "ON",
+    "corporate_type": "",
+    "pharmacy_mgt_system": ""
+  }
+},
+{
+  "model": "rxit_app.rxdescription",
+  "pk": 2,
+  "fields": {
+    "participant_name": "Pharmacy 2",
+    "street": "",
+    "city": "Lethbridge",
+    "province": "AB",
+    "corporate_type": "",
+    "pharmacy_mgt_system": ""
+  }
+},
+{
+  "model": "rxit_app.dispenser",
+  "pk": 1,
+  "fields": {
+    "description": 1,
+    "username": "dispenser1"
+  }
+},
+{
+  "model": "rxit_app.dispenser",
+  "pk": 2,
+  "fields": {
+    "description": 2,
+    "username": "dispenser2"
+  }
+},
+{
+  "model": "rxit_app.dxdescription",
+  "pk": 1,
+  "fields": {
+    "participant_name": "Dr. Test1",
+    "street": "",
+    "city": "",
+    "province": "ON",
+    "practice_type": "",
+    "medical_record_system": ""
+  }
+},
+{
+  "model": "rxit_app.dxdescription",
+  "pk": 2,
+  "fields": {
+    "participant_name": "Dr. Test2",
+    "street": "",
+    "city": "",
+    "province": "AB",
+    "practice_type": "",
+    "medical_record_system": ""
+  }
+},
+{
+  "model": "rxit_app.prescriber",
+  "pk": 1,
+  "fields": {
+    "description": 1,
+    "username": "prescriber1"
+  }
+},
+{
+  "model": "rxit_app.prescriber",
+  "pk": 2,
+  "fields": {
+    "description": 2,
+    "username": "prescriber2"
+  }
+}
+]
