@@ -16,9 +16,9 @@ class DxDescription(models.Model):
     GROUP = 'GP'
     SOLO = 'SL'
     PRACTICE_CHOICES = (
-        (FHT_FHN_FHO, 'FHT?FHN?FHO'),
-        (GROUP, 'Solo'),
-        (SOLO, 'Junior')
+        (FHT_FHN_FHO, 'FHT/FHN/FHO'),
+        (GROUP, 'Group'),
+        (SOLO, 'Solo')
     )
     practice_type = models.CharField(
         max_length=2,

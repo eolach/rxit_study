@@ -3,6 +3,7 @@ from django.contrib import admin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import CustomUser
 from .participants.dispenser import Dispenser
+from .participants.prescriber import Prescriber
 from django.contrib.auth.admin import UserAdmin
 
 
@@ -14,7 +15,10 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(CustomUser, CustomUserAdmin)
 
-@admin.register(Dispenser)
+""" @admin.register(Dispenser)
 class DispenserAdmin(admin.ModelAdmin):
     list_display = ['username']
 
+@admin.register(Prescriber)
+class PrescriberAdmin(admin.ModelAdmin):
+    list_display = ['username'] """
