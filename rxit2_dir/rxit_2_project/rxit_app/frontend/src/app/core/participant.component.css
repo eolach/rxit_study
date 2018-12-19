@@ -101,11 +101,11 @@ textarea {
   margin-top: -4px;
 }
 
-.input-description{
+/* .input-description{
   width: 15em;
   font-size: 15px;
   font-weight: bold;
-}
+} */
 
 .input-text { 
   min-width: 300px;
@@ -113,14 +113,14 @@ textarea {
  }
  
 .input-check { 
-  max-width: 150px;
-  min-width: 50px;
+  width: 90px;
+  /* min-width: 50px; */
   margin-right: 5em;
   /*border: 3px solid rgb(0, 255, 64);*/
 }
 
 .input-check-sm { 
-  /* max-width: 100px; */
+  max-width: 90px; 
   /* min-width: 50px; */
   margin-right: 10em;
   /*border: 3px solid rgb(0, 255, 64);*/

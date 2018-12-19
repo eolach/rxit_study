@@ -1,7 +1,7 @@
 <!-- [disabled]="dispenserForm.pristine || dispenserForm.invalid" -->
 <form [formGroup]="dispenserForm" (ngSubmit)="onSubmit()">
   <div style="margin-bottom: 1em">
-    <button type="submit"  class="btn btn-success">Save</button>
+    <button type="submit" class="btn btn-success">Save</button>
     &nbsp;
     <button type="button" (click)="revert()" [disabled]="dispenserForm.pristine || dispenserForm.invalid" class="btn btn-danger">Revert</button>
   </div>
@@ -62,7 +62,7 @@
           </div>
           <div formGroupName="total_rx">
             <div fxLayout="row" class="form-group">
-              <div class="input-description">Total prescriptions received</div>
+              <div class="input-description">Total prescriptions received - all patients</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Morning" formControlName="num_am" />
               </mat-form-field>
@@ -147,7 +147,7 @@
           </div>
           <div formGroupName="new_patients">
             <div fxLayout="row" class="form-group">
-              <div class="input-description">New patients at this dispenser</div>
+              <div class="input-description">Patients seen for the first time at this dispensary</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Morning" formControlName="num_am" />
               </mat-form-field>
@@ -183,8 +183,11 @@
                 <input matInput placeholder="New Rx, returning patient" formControlName="new_rx_time" />
               </mat-form-field>
               <mat-form-field class="input-number">
-                <input matInput placeholder="Repeat prexcription" formControlName="repeat_rx_time" />
+                <input matInput placeholder="Repeat prescription" formControlName="repeat_rx_time" />
               </mat-form-field>
+            </div>
+            <div fxLayout="row" class="form-group">
+              <div class="input-description">Who usually initiates the dispensing process?</div>
               <mat-checkbox class="input-check" formControlName="pharmacist">Pharmacist</mat-checkbox>
               <mat-checkbox class="input-check" formControlName="reg_tech">Pharmacy tech</mat-checkbox>
               <mat-checkbox class="input-check" formControlName="unreg">Unregistered assistant</mat-checkbox>
@@ -197,12 +200,12 @@
               Formal prescription review
             </mat-panel-title>
             <mat-panel-description class="card-description">
-              <p>how often does each of these steps occur?</p>
+              <p>How often does each of these steps occur?</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div formGroupName="rx_process">
             <div fxLayout="row" class="form-group">
-              <div class="input-description">how long does it take (in minutes) to initiate a prescription?</div>
+              <div class="input-description">New patient</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="New patient" formControlName="new_patient_time" />
               </mat-form-field>
@@ -225,8 +228,7 @@
               Communication with prescriber
             </mat-panel-title>
             <mat-panel-description class="card-description">
-              <p>During the review process, the pharmacist may need clafrifation of the prescription, and will contact
-                the prescriber.</p>
+              <p>For clarificarification and consultation.</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div formGroupName="comm_illegible">
@@ -241,9 +243,9 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="elapsed_time" />
               </mat-form-field>
-              <mat-checkbox class="input-check-sm" formControlName="by_fax">fax</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_phone">phone</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_phone">phone</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
           <div formGroupName="comm_incomplete">
@@ -258,9 +260,9 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="elapsed_time" />
               </mat-form-field>
-              <mat-checkbox class="input-check-sm" formControlName="by_fax">fax</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_phone">phone</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_phone">phone</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
           <div formGroupName="comm_dose">
@@ -275,9 +277,9 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="elapsed_time" />
               </mat-form-field>
-              <mat-checkbox class="input-check-sm" formControlName="by_fax">fax</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_phone">phone</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_phone">phone</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
           <div formGroupName="comm_advise">
@@ -292,9 +294,9 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="elapsed_time" />
               </mat-form-field>
-              <mat-checkbox class="input-check-sm" formControlName="by_fax">fax</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_phone">phone</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_phone">phone</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
           <div formGroupName="comm_renewal">
@@ -309,9 +311,9 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="elapsed_time" />
               </mat-form-field>
-              <mat-checkbox class="input-check-sm" formControlName="by_fax">fax</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_phone">phone</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_phone">phone</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
           <div formGroupName="comm_cancel">
@@ -326,9 +328,9 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="elapsed_time" />
               </mat-form-field>
-              <mat-checkbox class="input-check-sm" formControlName="by_fax">fax</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_phone">phone</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_phone">phone</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
           <div formGroupName="comm_consult">
@@ -343,9 +345,9 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="elapsed_time" />
               </mat-form-field>
-              <mat-checkbox class="input-check-sm" formControlName="by_fax">fax</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_phone">phone</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_phone">phone</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
         </mat-expansion-panel>

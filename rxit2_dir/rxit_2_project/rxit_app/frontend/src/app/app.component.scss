@@ -146,13 +146,13 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
   }
   
   .input-description{
-    width: 15em;
+    min-width: 15em;
     font-size: 15px;
     font-weight: bold;
   }
   
-  .input-text { 
-   min-width: 300px;
+  .input-text-deascription { 
+   min-width: 150px;
    /* border: 3px solid rgb(255, 153, 0);*/
   }
   .input-number { 
