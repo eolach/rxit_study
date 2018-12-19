@@ -136,8 +136,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'rxit_app', 'static')
 ]
 
-print("base dir path", BASE_DIR)
-print("static dir path", STATIC_ROOT)
+# print("base dir path", BASE_DIR)
+# print("static dir path", STATIC_ROOT)
 
 # FIXTURE_DIRS = os.path.join(BASE_DIR)
 

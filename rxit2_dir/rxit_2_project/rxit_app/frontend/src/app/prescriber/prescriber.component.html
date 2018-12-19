@@ -1,5 +1,10 @@
 <form [formGroup]="prescriberForm">
-    <div fxLayout="column" fxLayoutAlign="center center">
+    <div style="margin-bottom: 1em">
+        <button type="submit" [disabled]="prescriberForm.pristine || prescriberForm.invalid" class="btn btn-success">Save</button>
+        &nbsp;
+        <button type="button" (click)="revert()" [disabled]="prescriberForm.pristine || prescriberForm.invalid" class="btn btn-danger">Revert</button>
+      </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
         <div class="main-content">
             <mat-accordion>
                 <!--  -->
@@ -9,7 +14,7 @@
                             <h4>Prescriber practice</h4>
                         </mat-panel-title>
                         <mat-panel-description>
-                            Please confirm name/address details
+                            Please confirm details of the practice
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <mat-form-field class="input-text">
@@ -29,10 +34,10 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h4>Practice profile</h4>
+                            <h4>What patterns do you see in patient visits?</h4>
                         </mat-panel-title>
                         <mat-panel-description>
-                            <p>What patterns to you see in patient visits?</p>
+                            <p>Please provide actual or estimated statistics</p>
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <div formGroupName="statisticsForm">
@@ -66,10 +71,10 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h4>Prescribing statistics</h4>
+                            <h4>What patterns do you see in prescriptions written?</h4>
                         </mat-panel-title>
                         <mat-panel-description>
-                            What patterns do you see in prescriptions written?
+                            Please provide actual or estimated statistics
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <div formGroupName="prescriptionForm">
@@ -103,7 +108,7 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h4>Dispenser activities</h4>
+                            <h4>What patterns do you see in communicating with dispensers?</h4>
                         </mat-panel-title>
                         <mat-panel-description>
                             What patterns do you see in communicating with dispensers?
@@ -143,10 +148,10 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h4>Prescription delivery</h4>
+                            How do you provide the presciption to your patients?
                         </mat-panel-title>
                         <mat-panel-description>
-                            How do you provide the presciption to your patients?
+                            Please estimate fractions for each method.
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <div formGroupName="deliveryForm">
@@ -156,10 +161,10 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h4>Prescription management</h4>
+                            Prescription management
                         </mat-panel-title>
                         <mat-panel-description>
-                            Who looks after the various processes of managing prescriptions?
+                            Who looks after communications with idspensaries?
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <div formGroupName="adminForm">
@@ -199,10 +204,10 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h4>Prescription preparation</h4>
+                            What process and systems do you use in selecting medications?
                         </mat-panel-title>
                         <mat-panel-description>
-                            What process and systems do you use in selecting medications?
+                            Please estimate frequency, duration and methods used.
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <!-- <div formGroupName="preparationForm">
@@ -219,10 +224,10 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h4>Prescription specification</h4>
+                            What processes and systems do you use in specifying the prescription?
                         </mat-panel-title>
                         <mat-panel-description>
-                            What process and systems do you use in specifying medications?
+                            Please estimate duration and methods used.
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <div formGroupName="specificationForm">

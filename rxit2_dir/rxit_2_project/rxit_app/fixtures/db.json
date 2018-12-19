@@ -1,10 +1,2337 @@
 [
 {
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "dispenser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "dxadmin"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "dxdelivery"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "dxdescription"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "dxprep"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "dxspec"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "dxstats"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "numbers"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "prescriber"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "rxcomm"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "rxdescription"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "rxprocess"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "rxreview"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 20,
+  "fields": {
+    "app_label": "rxit_app",
+    "model": "rxstats"
+  }
+},
+{
   "model": "sessions.session",
-  "pk": "27vavsz1vcxm78ulewdx7pp5d8ykiv2w",
+  "pk": "v5rpdl6tgc000fe9kfmfeemgr8xm2nug",
   "fields": {
     "session_data": "ZTA5NTA5ZGJlNzM2MTQ4ZDMxYzNlZGMxYzY5NDgzNzIyZDMyNjcyYzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0N2QwNmQ0NzM4YWM4YzAwMDNmNzg2MGQxNjNjNTM1MjA2M2FiZjZkIn0=",
-    "expire_date": "2019-01-01T19:05:12.149Z"
+    "expire_date": "2019-01-02T00:56:33.394Z"
+  }
+},
+{
+  "model": "rxit_app.rxdescription",
+  "pk": 1,
+  "fields": {
+    "participant_name": "Campus Pharmacy",
+    "street": "460 St. Davids Rd #9",
+    "city": "St. Catharines",
+    "province": "ON",
+    "corporate_type": "",
+    "pharmacy_mgt_system": ""
+  }
+},
+{
+  "model": "rxit_app.rxdescription",
+  "pk": 2,
+  "fields": {
+    "participant_name": "West Lincoln Pharmacy",
+    "street": "25 - 239 St. Catharines St.",
+    "city": "Smithville",
+    "province": "ON",
+    "corporate_type": "",
+    "pharmacy_mgt_system": ""
+  }
+},
+{
+  "model": "rxit_app.rxdescription",
+  "pk": 3,
+  "fields": {
+    "participant_name": "Woods Dispensary",
+    "street": "2931 20 Avenue S",
+    "city": "Lethbridge",
+    "province": "AB",
+    "corporate_type": "",
+    "pharmacy_mgt_system": ""
+  }
+},
+{
+  "model": "rxit_app.numbers",
+  "pk": 1,
+  "fields": {
+    "num_pharmacists": "0.0",
+    "num_reg_tech": "0.0",
+    "num_unreg": "0.0",
+    "num_am": "0.0"
+  }
+},
+{
+  "model": "rxit_app.numbers",
+  "pk": 2,
+  "fields": {
+    "num_pharmacists": "0.0",
+    "num_reg_tech": "0.0",
+    "num_unreg": "0.0",
+    "num_am": "0.0"
+  }
+},
+{
+  "model": "rxit_app.numbers",
+  "pk": 3,
+  "fields": {
+    "num_pharmacists": "0.0",
+    "num_reg_tech": "0.0",
+    "num_unreg": "0.0",
+    "num_am": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 1,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 2,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 3,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 4,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 5,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 6,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 7,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 8,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 9,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 10,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 11,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 12,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 13,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 14,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxstats",
+  "pk": 15,
+  "fields": {
+    "num_am": "0.0",
+    "num_pm": "0.0",
+    "num_evng": "0.0",
+    "num_wend": "0.0",
+    "stats_notes": ""
+  }
+},
+{
+  "model": "rxit_app.rxprocess",
+  "pk": 1,
+  "fields": {
+    "num_new_pt": "0.0",
+    "num_new_rx": "0.0",
+    "num_rpt_rx": "0.0",
+    "pharm_ip": false,
+    "reg_ip": false,
+    "unreg_ip": false
+  }
+},
+{
+  "model": "rxit_app.rxprocess",
+  "pk": 2,
+  "fields": {
+    "num_new_pt": "0.0",
+    "num_new_rx": "0.0",
+    "num_rpt_rx": "0.0",
+    "pharm_ip": false,
+    "reg_ip": false,
+    "unreg_ip": false
+  }
+},
+{
+  "model": "rxit_app.rxprocess",
+  "pk": 3,
+  "fields": {
+    "num_new_pt": "0.0",
+    "num_new_rx": "0.0",
+    "num_rpt_rx": "0.0",
+    "pharm_ip": false,
+    "reg_ip": false,
+    "unreg_ip": false
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 1,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 2,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 3,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 4,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 5,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 6,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 7,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 8,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxreview",
+  "pk": 9,
+  "fields": {
+    "before_rx": "0.0",
+    "after_rx": "0.0"
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 1,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 2,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 3,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 4,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 5,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 6,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 7,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 8,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 9,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 10,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 11,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 12,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 13,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 14,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 15,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 16,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 17,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 18,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 19,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 20,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.rxcomm",
+  "pk": 21,
+  "fields": {
+    "daily_duration": "0.0",
+    "daily_freq": "0.0",
+    "daily_elapsed": "0.0",
+    "by_fax": false,
+    "by_phone": false,
+    "by_dm": false
+  }
+},
+{
+  "model": "rxit_app.dispenser",
+  "pk": 1,
+  "fields": {
+    "description": 1,
+    "numbers": 1,
+    "total_rx": 1,
+    "walkin_rx": 2,
+    "faxed_rx": 3,
+    "e_prescribe_rx": 4,
+    "phoned_rx": 5,
+    "rx_process": 1,
+    "review_new_pt": 1,
+    "review_new_rx": 2,
+    "review_rpt_rx": 3,
+    "comm_illegible": 1,
+    "comm_incomplete": 2,
+    "comm_dose": 3,
+    "comm_advise": 4,
+    "comm_renewal": 5,
+    "comm_cancel": 6,
+    "comm_consult": 7,
+    "username": "campusrx",
+    "stats_notes": "",
+    "review_notes": ""
+  }
+},
+{
+  "model": "rxit_app.dispenser",
+  "pk": 2,
+  "fields": {
+    "description": 2,
+    "numbers": 2,
+    "total_rx": 6,
+    "walkin_rx": 7,
+    "faxed_rx": 8,
+    "e_prescribe_rx": 9,
+    "phoned_rx": 10,
+    "rx_process": 2,
+    "review_new_pt": 4,
+    "review_new_rx": 5,
+    "review_rpt_rx": 6,
+    "comm_illegible": 8,
+    "comm_incomplete": 9,
+    "comm_dose": 10,
+    "comm_advise": 11,
+    "comm_renewal": 12,
+    "comm_cancel": 13,
+    "comm_consult": 14,
+    "username": "wlincolnrx",
+    "stats_notes": "",
+    "review_notes": ""
+  }
+},
+{
+  "model": "rxit_app.dispenser",
+  "pk": 3,
+  "fields": {
+    "description": 3,
+    "numbers": 3,
+    "total_rx": 11,
+    "walkin_rx": 12,
+    "faxed_rx": 13,
+    "e_prescribe_rx": 14,
+    "phoned_rx": 15,
+    "rx_process": 3,
+    "review_new_pt": 7,
+    "review_new_rx": 8,
+    "review_rpt_rx": 9,
+    "comm_illegible": 15,
+    "comm_incomplete": 16,
+    "comm_dose": 17,
+    "comm_advise": 18,
+    "comm_renewal": 19,
+    "comm_cancel": 20,
+    "comm_consult": 21,
+    "username": "woodsrx",
+    "stats_notes": "",
+    "review_notes": ""
+  }
+},
+{
+  "model": "rxit_app.dxdescription",
+  "pk": 1,
+  "fields": {
+    "participant_name": "Dr. Pray",
+    "street": "605 James St N. suite 102",
+    "city": "Hamilton",
+    "province": "ON",
+    "medical_record_system": "",
+    "num_physicians": "2.0",
+    "practice_type": "GP"
+  }
+},
+{
+  "model": "rxit_app.dxdescription",
+  "pk": 2,
+  "fields": {
+    "participant_name": "Ambis & Jones Family Medicine",
+    "street": "310-15 Mountain Ave",
+    "city": "Stoney Creek",
+    "province": "ON",
+    "medical_record_system": "",
+    "num_physicians": "0.0",
+    "practice_type": "GP"
+  }
+},
+{
+  "model": "rxit_app.dxdescription",
+  "pk": 3,
+  "fields": {
+    "participant_name": "Lethbridge College Health Services",
+    "street": "3000 College Drive",
+    "city": "Lethbridge",
+    "province": "AB",
+    "medical_record_system": "",
+    "num_physicians": "0.0",
+    "practice_type": "FH"
+  }
+},
+{
+  "model": "rxit_app.dxdescription",
+  "pk": 4,
+  "fields": {
+    "participant_name": "Southgate Medical Centre",
+    "street": "10-15 Southgate Blvd. South",
+    "city": "Lethbridge",
+    "province": "AB",
+    "medical_record_system": "",
+    "num_physicians": "0.0",
+    "practice_type": "GP"
+  }
+},
+{
+  "model": "rxit_app.dxdescription",
+  "pk": 5,
+  "fields": {
+    "participant_name": "Nsisi Medical Centre",
+    "street": "414, 13th St. N",
+    "city": "Lethbridge",
+    "province": "AB",
+    "medical_record_system": "",
+    "num_physicians": "0.0",
+    "practice_type": "GP"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 1,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 2,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 3,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 4,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 5,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 6,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 7,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 8,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 9,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 10,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 11,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 12,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 13,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 14,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 15,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 16,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 17,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 18,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 19,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 20,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 21,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 22,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 23,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 24,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 25,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 26,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 27,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 28,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 29,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 30,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 31,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 32,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 33,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 34,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 35,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 36,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 37,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 38,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 39,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 40,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 41,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 42,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 43,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 44,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 45,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 46,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 47,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 48,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 49,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 50,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 51,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 52,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 53,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 54,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxstats",
+  "pk": 55,
+  "fields": {
+    "num_daily": "0.0",
+    "num_weeky": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 1,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 2,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 3,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 4,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 5,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 6,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 7,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 8,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 9,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 10,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 11,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 12,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 13,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 14,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 15,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 16,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 17,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 18,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 19,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxdelivery",
+  "pk": 20,
+  "fields": {
+    "method_del": false,
+    "fraction_del": "0.0"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 1,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 2,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 3,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 4,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 5,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 6,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 7,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 8,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 9,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxadmin",
+  "pk": 10,
+  "fields": {
+    "daily_freq": "0.0",
+    "daily_rx_messages": "0.0",
+    "pc_urgent_messages": "0.0",
+    "total_time_messages": "0.0",
+    "comm_role": "AD"
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 1,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 2,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 3,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 4,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 5,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 6,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 7,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 8,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 9,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 10,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 11,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 12,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 13,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 14,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 15,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 16,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 17,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 18,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 19,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxprep",
+  "pk": 20,
+  "fields": {
+    "dx_freq": "0.0",
+    "dx_duration": "0.0",
+    "within_emr": false,
+    "linked_to_emr": false,
+    "desktop": false,
+    "mobile_app": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 1,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 2,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 3,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 4,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 5,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 6,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 7,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 8,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 9,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 10,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 11,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 12,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 13,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 14,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 15,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 16,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 17,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 18,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 19,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 20,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 21,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 22,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 23,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 24,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.dxspec",
+  "pk": 25,
+  "fields": {
+    "spec_duration": "0.0",
+    "by_hand": false,
+    "free_text": false,
+    "drop_down": false,
+    "check_box": false,
+    "search": false
+  }
+},
+{
+  "model": "rxit_app.prescriber",
+  "pk": 1,
+  "fields": {
+    "description": 1,
+    "total_pts": 1,
+    "std_pts": 2,
+    "extend_pts": 3,
+    "ongoing_pts": 4,
+    "total_rx": 5,
+    "new_rx": 6,
+    "renew_rx": 7,
+    "auto_renew_rx": 8,
+    "poly_rx": 9,
+    "clarify_msg": 10,
+    "authorize_msg": 11,
+    "stats_notes": "",
+    "printed_rx": 1,
+    "faxed_rx": 2,
+    "phoned_rx": 3,
+    "e_prescribe_rx": 4,
+    "receive_msg": 1,
+    "process_msg": 2,
+    "pat_hx": 1,
+    "cds": 2,
+    "p_formulary": 3,
+    "p_dis": 4,
+    "drug_name": 1,
+    "dosage": 2,
+    "refills": 3,
+    "route": 4,
+    "instructions": 5,
+    "username": "harbourfront",
+    "deliver_notes": ""
+  }
+},
+{
+  "model": "rxit_app.prescriber",
+  "pk": 2,
+  "fields": {
+    "description": 2,
+    "total_pts": 12,
+    "std_pts": 13,
+    "extend_pts": 14,
+    "ongoing_pts": 15,
+    "total_rx": 16,
+    "new_rx": 17,
+    "renew_rx": 18,
+    "auto_renew_rx": 19,
+    "poly_rx": 20,
+    "clarify_msg": 21,
+    "authorize_msg": 22,
+    "stats_notes": "",
+    "printed_rx": 5,
+    "faxed_rx": 6,
+    "phoned_rx": 7,
+    "e_prescribe_rx": 8,
+    "receive_msg": 3,
+    "process_msg": 4,
+    "pat_hx": 5,
+    "cds": 6,
+    "p_formulary": 7,
+    "p_dis": 8,
+    "drug_name": 6,
+    "dosage": 7,
+    "refills": 8,
+    "route": 9,
+    "instructions": 10,
+    "username": "ambis",
+    "deliver_notes": ""
+  }
+},
+{
+  "model": "rxit_app.prescriber",
+  "pk": 3,
+  "fields": {
+    "description": 3,
+    "total_pts": 23,
+    "std_pts": 24,
+    "extend_pts": 25,
+    "ongoing_pts": 26,
+    "total_rx": 27,
+    "new_rx": 28,
+    "renew_rx": 29,
+    "auto_renew_rx": 30,
+    "poly_rx": 31,
+    "clarify_msg": 32,
+    "authorize_msg": 33,
+    "stats_notes": "",
+    "printed_rx": 9,
+    "faxed_rx": 10,
+    "phoned_rx": 11,
+    "e_prescribe_rx": 12,
+    "receive_msg": 5,
+    "process_msg": 6,
+    "pat_hx": 9,
+    "cds": 10,
+    "p_formulary": 11,
+    "p_dis": 12,
+    "drug_name": 11,
+    "dosage": 12,
+    "refills": 13,
+    "route": 14,
+    "instructions": 15,
+    "username": "lbcollege",
+    "deliver_notes": ""
+  }
+},
+{
+  "model": "rxit_app.prescriber",
+  "pk": 4,
+  "fields": {
+    "description": 4,
+    "total_pts": 34,
+    "std_pts": 35,
+    "extend_pts": 36,
+    "ongoing_pts": 37,
+    "total_rx": 38,
+    "new_rx": 39,
+    "renew_rx": 40,
+    "auto_renew_rx": 41,
+    "poly_rx": 42,
+    "clarify_msg": 43,
+    "authorize_msg": 44,
+    "stats_notes": "",
+    "printed_rx": 13,
+    "faxed_rx": 14,
+    "phoned_rx": 15,
+    "e_prescribe_rx": 16,
+    "receive_msg": 7,
+    "process_msg": 8,
+    "pat_hx": 13,
+    "cds": 14,
+    "p_formulary": 15,
+    "p_dis": 16,
+    "drug_name": 16,
+    "dosage": 17,
+    "refills": 18,
+    "route": 19,
+    "instructions": 20,
+    "username": "southgate",
+    "deliver_notes": ""
+  }
+},
+{
+  "model": "rxit_app.prescriber",
+  "pk": 5,
+  "fields": {
+    "description": 5,
+    "total_pts": 45,
+    "std_pts": 46,
+    "extend_pts": 47,
+    "ongoing_pts": 48,
+    "total_rx": 49,
+    "new_rx": 50,
+    "renew_rx": 51,
+    "auto_renew_rx": 52,
+    "poly_rx": 53,
+    "clarify_msg": 54,
+    "authorize_msg": 55,
+    "stats_notes": "",
+    "printed_rx": 17,
+    "faxed_rx": 18,
+    "phoned_rx": 19,
+    "e_prescribe_rx": 20,
+    "receive_msg": 9,
+    "process_msg": 10,
+    "pat_hx": 17,
+    "cds": 18,
+    "p_formulary": 19,
+    "p_dis": 20,
+    "drug_name": 21,
+    "dosage": 22,
+    "refills": 23,
+    "route": 24,
+    "instructions": 25,
+    "username": "nsisi",
+    "deliver_notes": ""
   }
 },
 {
@@ -12,7 +2339,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$120000$LQ1yD3dprVS4$CRMbjfJ7mtAXWvl+xA73Vz004R0HJcs5VM9WXXTOcj4=",
-    "last_login": "2018-12-18T19:05:12.142Z",
+    "last_login": "2018-12-19T00:56:33.390Z",
     "is_superuser": true,
     "username": "heng",
     "first_name": "",
@@ -47,86 +2374,6 @@
     "participant_index": 0,
     "groups": [],
     "user_permissions": []
-  }
-},
-{
-  "model": "rxit_app.rxdescription",
-  "pk": 1,
-  "fields": {
-    "participant_name": "Pharmacy 1",
-    "street": "",
-    "city": "",
-    "province": "ON",
-    "corporate_type": "",
-    "pharmacy_mgt_system": ""
-  }
-},
-{
-  "model": "rxit_app.rxdescription",
-  "pk": 2,
-  "fields": {
-    "participant_name": "Pharmacy 2",
-    "street": "",
-    "city": "Lethbridge",
-    "province": "AB",
-    "corporate_type": "",
-    "pharmacy_mgt_system": ""
-  }
-},
-{
-  "model": "rxit_app.dispenser",
-  "pk": 1,
-  "fields": {
-    "description": 1,
-    "username": "dispenser1"
-  }
-},
-{
-  "model": "rxit_app.dispenser",
-  "pk": 2,
-  "fields": {
-    "description": 2,
-    "username": "dispenser2"
-  }
-},
-{
-  "model": "rxit_app.dxdescription",
-  "pk": 1,
-  "fields": {
-    "participant_name": "Dr. Test1",
-    "street": "",
-    "city": "",
-    "province": "ON",
-    "practice_type": "",
-    "medical_record_system": ""
-  }
-},
-{
-  "model": "rxit_app.dxdescription",
-  "pk": 2,
-  "fields": {
-    "participant_name": "Dr. Test2",
-    "street": "",
-    "city": "",
-    "province": "AB",
-    "practice_type": "",
-    "medical_record_system": ""
-  }
-},
-{
-  "model": "rxit_app.prescriber",
-  "pk": 1,
-  "fields": {
-    "description": 1,
-    "username": "prescriber1"
-  }
-},
-{
-  "model": "rxit_app.prescriber",
-  "pk": 2,
-  "fields": {
-    "description": 2,
-    "username": "prescriber2"
   }
 }
 ]
