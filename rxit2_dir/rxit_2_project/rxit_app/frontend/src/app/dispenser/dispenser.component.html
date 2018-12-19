@@ -1,6 +1,7 @@
+<!-- [disabled]="dispenserForm.pristine || dispenserForm.invalid" -->
 <form [formGroup]="dispenserForm" (ngSubmit)="onSubmit()">
   <div style="margin-bottom: 1em">
-    <button type="submit" [disabled]="dispenserForm.pristine || dispenserForm.invalid" class="btn btn-success">Save</button>
+    <button type="submit"  class="btn btn-success">Save</button>
     &nbsp;
     <button type="button" (click)="revert()" [disabled]="dispenserForm.pristine || dispenserForm.invalid" class="btn btn-danger">Revert</button>
   </div>
@@ -10,12 +11,8 @@
         <!--  -->
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title class="card-title">
-              Dispenser description
-            </mat-panel-title>
-            <mat-panel-description>
-              <p>Please confirm details of the dispensary</p>
-            </mat-panel-description>
+            <mat-panel-title>Dispenser description</mat-panel-title>
+            <mat-panel-description>Please confirm details of this dispensary</mat-panel-description>
           </mat-expansion-panel-header>
           <div fxLayout="row" fxLayoutAlign="center center">
             <div formGroupName="description" fxLayout="column">
@@ -31,6 +28,9 @@
               <mat-form-field class="input-text">
                 <input matInput placeholder="Province" formControlName="province" />
               </mat-form-field>
+              <mat-form-field class="input-text">
+                <input matInput placeholder="Pharmacy mgt system" formControlName="pharmacy_mgt_system">
+              </mat-form-field>
             </div>
             <div formGroupName="numbers" fxLayout="column">
               <mat-form-field class="input-text">
@@ -38,13 +38,10 @@
                   required>
               </mat-form-field>
               <mat-form-field class="input-text">
-                <input matInput placeholder="Number of registered techs" formControlName="num_reg_tech" required>
+                <input matInput placeholder="Number of registered techs" formControlName="num_reg_tech">
               </mat-form-field>
               <mat-form-field class="input-text">
-                <input matInput placeholder="Number of assistants" formControlName="num_unreg" required>
-              </mat-form-field>
-              <mat-form-field class="input-text">
-                <input matInput placeholder="Pharmacy mgt system" formControlName="pm_system" required>
+                <input matInput placeholder="Number of assistants" formControlName="num_unreg">
               </mat-form-field>
             </div>
           </div>
@@ -57,7 +54,7 @@
               Dispenser statistics
             </mat-panel-title>
             <mat-panel-description class="card-description">
-              <p>Summary statistics for this dispenser practice</p>
+              <p>Summary statistics</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <!-- <div fxLayout="column" max-width="100%" fxLayoutAlign="center center" class="container-content"> -->
@@ -80,7 +77,7 @@
               </mat-form-field>
             </div>
           </div>
-          <div formGroupName="walk_in_rx">
+          <div formGroupName="walkin_rx">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Walk-in patients with printed prescriptions</div>
               <mat-form-field class="input-number">
@@ -114,7 +111,7 @@
               </mat-form-field>
             </div>
           </div>
-          <div formGroupName="phoned_in_rx">
+          <div formGroupName="phoned_rx">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Prescriptions phoned in by prescriber</div>
               <mat-form-field class="input-number">
@@ -131,7 +128,7 @@
               </mat-form-field>
             </div>
           </div>
-          <div formGroupName="e_prescribed_rx">
+          <div formGroupName="e_prescribe_rx">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Prescriptions phoned in by prescriber</div>
               <mat-form-field class="input-number">
@@ -173,10 +170,10 @@
               Initiating the dispensing process
             </mat-panel-title>
             <mat-panel-description class="card-description">
-              <p>How is the dispensing process initiated?</p>
+              <p>How is process initiated?</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <div formGroupName="tx_time">
+          <div formGroupName="rx_process">
             <div fxLayout="row" class="form-group">
               <div class="input-description">how long does it take (in minutes) to initiate a prescription?</div>
               <mat-form-field class="input-number">
@@ -188,11 +185,6 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Repeat prexcription" formControlName="repeat_rx_time" />
               </mat-form-field>
-            </div>
-          </div>
-          <div formGroupName="tx_role">
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Who usually initiates the dispensing process?</div>
               <mat-checkbox class="input-check" formControlName="pharmacist">Pharmacist</mat-checkbox>
               <mat-checkbox class="input-check" formControlName="reg_tech">Pharmacy tech</mat-checkbox>
               <mat-checkbox class="input-check" formControlName="unreg">Unregistered assistant</mat-checkbox>
@@ -208,7 +200,7 @@
               <p>how often does each of these steps occur?</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <div formGroupName="tx_time">
+          <div formGroupName="rx_process">
             <div fxLayout="row" class="form-group">
               <div class="input-description">how long does it take (in minutes) to initiate a prescription?</div>
               <mat-form-field class="input-number">
@@ -220,10 +212,6 @@
               <mat-form-field class="input-number">
                 <input matInput placeholder="Repeat prexcription" formControlName="repeat_rx_time" />
               </mat-form-field>
-            </div>
-          </div>
-          <div formGroupName="tx_role">
-            <div fxLayout="row" class="form-group">
               <div class="input-description">Who usually initiates the dispensing process?</div>
               <mat-checkbox class="input-check" formControlName="pharmacist">Pharmacist</mat-checkbox>
               <mat-checkbox class="input-check" formControlName="reg_tech">Pharmacy tech</mat-checkbox>
@@ -241,7 +229,7 @@
                 the prescriber.</p>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <div formGroupName="illegible_rx_comm">
+          <div formGroupName="comm_illegible">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Illegible text</div>
               <mat-form-field class="input-number">
@@ -258,7 +246,7 @@
               <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
-          <div formGroupName="illegible_rx_comm">
+          <div formGroupName="comm_incomplete">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Illegible text</div>
               <mat-form-field class="input-number">
@@ -275,7 +263,7 @@
               <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
-          <div formGroupName="incomplete_rx_comm">
+          <div formGroupName="comm_dose">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Incomplete information</div>
               <mat-form-field class="input-number">
@@ -292,7 +280,7 @@
               <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
-          <div formGroupName="question_rx_comm">
+          <div formGroupName="comm_advise">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Clarification question</div>
               <mat-form-field class="input-number">
@@ -309,7 +297,7 @@
               <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
-          <div formGroupName="advice_change__rx_comm">
+          <div formGroupName="comm_renewal">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Advice of change</div>
               <mat-form-field class="input-number">
@@ -326,7 +314,7 @@
               <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
-          <div formGroupName="renewal_auth_rx_comm">
+          <div formGroupName="comm_cancel">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Authorize renewal</div>
               <mat-form-field class="input-number">
@@ -343,26 +331,9 @@
               <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
             </div>
           </div>
-          <div formGroupName="cancel_rx_comm">
+          <div formGroupName="comm_consult">
             <div fxLayout="row" class="form-group">
               <div class="input-description">Cancel prescription</div>
-              <mat-form-field class="input-number">
-                <input matInput placeholder="Daily duration" formControlName="duration" />
-              </mat-form-field>
-              <mat-form-field class="input-number">
-                <input matInput placeholder="Daily frequency" formControlName="frequency" />
-              </mat-form-field>
-              <mat-form-field class="input-number">
-                <input matInput placeholder="Elapsed time" formControlName="elapsed_time" />
-              </mat-form-field>
-              <mat-checkbox class="input-check-sm" formControlName="by_fax">fax</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_phone">phone</mat-checkbox>
-              <mat-checkbox class="input-check-sm" formControlName="by_dm">e-message</mat-checkbox>
-            </div>
-          </div>
-          <div formGroupName="physician_rx_comm">
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Discuss with physician</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Daily duration" formControlName="duration" />
               </mat-form-field>

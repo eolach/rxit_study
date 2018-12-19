@@ -89,10 +89,10 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
   }
   
   .card-title{
-    min-width:300px;
+    width:300px;
     font-size: 18px;
     font-weight: bold;
-    /*border: 3px solid blue;*/
+    border: 3px solid blue;
   }
   
   .card-description{
@@ -101,7 +101,7 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
   }
   
   .card-header-text{
-    max-width: 500px;
+    // max-width: 500px;
     margin-bottom: 1em;
     font-style: italic;
     border:2px solid gray;

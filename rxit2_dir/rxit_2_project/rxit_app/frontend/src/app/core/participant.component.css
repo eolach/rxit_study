@@ -44,12 +44,12 @@ textarea {
   max-width: 768px;
 }
 
-.card-title{
-  min-width:300px;
+/* .card-title{
+  width:400px;
   font-size: 18px;
   font-weight: bold;
-  /*border: 3px solid blue;*/
-}
+  border: 3px solid blue;
+} */
 
 .card-description{
   text-align: left;
@@ -57,7 +57,7 @@ textarea {
 }
 
 .card-header-text{
-  max-width: 500px;
+  /* max-width: 500px; */
   margin-bottom: 1em;
   font-style: italic;
   border:2px solid gray;

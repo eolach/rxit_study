@@ -3,7 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Prescriber } from './prescriber.model';
+import { Prescriber,
+  DxDescription,
+  DxStats,
+  DxDelivery,
+  DxAdmin,
+  DxPrep,
+  DxSpec} from './prescriber.model';
 import { UserHttpService } from '../data/user_http.service';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 
@@ -103,94 +109,13 @@ constructor(
   // invoked in constructor
   createForm() {
     this.prescriberForm = this.fb.group({
-      participant_name: [''],
-      street: [''],
-      city: [''],
-      province: [''],
-      statisticsForm: this.fb.group({
-        total_pt_daily: [''],
-        total_pt_weekly: [''],
-        std_pt_daily: [''],
-        std_pt_weekly: [''],
-        ext_pt_daily: [''],
-        ext_pt_weekly: [''],
-        prop_ongoing_daily: [''],
-        prop_ongoing_weekly: [''],
-      }),
-      prescriptionForm: this.fb.group({
-        total_rx_daily: [''],
-        total_rx_weekly: [''],
-        new_rx_daily: [''],
-        new_rx_weekly: [''],
-        renew_rx_daily: [''],
-        renew_rx_weekly: [''],
-        multi_rx_daily: [''],
-        multi_rx_weekly: ['']
-      }),
-      communicationForm: this.fb.group({
-        auth_rx_daily: [''],
-        auth_rx_weekly: [''],
-        clarify_rx_daily: [''],
-        clarify_rx_weekly: [''],
-        request_rx_daily: [''],
-        request_rx_weekly: [''],
-        other_rx_daily: [''],
-        other_rx_weekly: [''],
-        other_rx_note: ['']
-      }),
-      deliveryForm: this.fb.group({
-        script: this.getCheckboxFormGroup(this.delivery_methods)
-      }),
-      adminForm: this.fb.group({
-        pharmacy_msgs_freq: [''],
-        pharmacy_msgs_role: this.roles,
-        pharmacy_msgs_num: [''],
-        pharmacy_msgs_percent: [''],
-        pharmacy_msgs_time: [''],
-        physician_msgs_freq: [''],
-        physician_msgs_role: this.roles,
-        physician_msgs_num: [''],
-        physician_msgs_percent: [''],
-        physician_msgs_time: [''],
-      }),
-      preparationForm: this.fb.group({
-        pt_hx_freq: [''],
-        pt_hx_time: [''],
-        pt_hx: this.getCheckboxFormGroup(this.prep_methods),
-        pt_hx_linked_emr: new FormControl(false),
-        pt_hx_desktop: new FormControl(false),
-        pt_hx_mobile: new FormControl(false),
-        cds_hx: this.getCheckboxFormGroup(this.prep_methods),
-        cds_hx_time: [''],
-        cds_hx_in_emr: new FormControl(false),
-        cds_hx_linked_emr: new FormControl(false),
-        cds_hx_desktop: new FormControl(false),
-        cds_hx_mobile: new FormControl(false),
-        frmlry_hx_freq: [''],
-        frmlry_hx_time: [''],
-        frmlry_hx: this.getCheckboxFormGroup(this.prep_methods),
-        dis_hx_freq: [''],
-        dis_hx_time: [''],
-        dis_hx_: this.getCheckboxFormGroup(this.prep_methods)
-      }),
-      specificationForm: this.fb.group({
-        name_time: '',
-        // This is a set of checkboxes. It is a form group with a single element.
-        // The single element is an array of checkbox controls.
-        // Here the array is called methods in each group.
-        // This is the FormArray that the div steps through.
-        // The template needs a name for this form array,
-        // so that it can access each of the controls in the array
-        rx_name: this.getCheckboxFormGroup(this.spec_methods),
-        dosage_time: [''],
-        dosage: this.getCheckboxFormGroup(this.spec_methods),
-        refills_time: [''],
-        refills: this.getCheckboxFormGroup(this.spec_methods),
-        route_time: [''],
-        route: this.getCheckboxFormGroup(this.spec_methods),
-        instruction_time: [''],
-        instruction: this.getCheckboxFormGroup(this.spec_methods),
-      }),
+      username: [''],
+      descriptionForm: this.fb.group(new DxDescription()),
+      statisticsForm: this.fb.group(new DxStats()),
+      deliveryForm: this.fb.group(new DxDelivery()),
+      adminForm: this.fb.group(new DxAdmin()),
+      preparationForm: this.fb.group(new DxPrep()),
+      specificationForm: this.fb.group(new DxSpec()),
     });
   }
 

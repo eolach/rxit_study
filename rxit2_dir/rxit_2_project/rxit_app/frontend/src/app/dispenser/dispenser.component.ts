@@ -7,8 +7,7 @@ import { Dispenser,
     Description,
     Numbers,
     RxStats,
-    TxTime,
-    TxRole,
+    RxProcess,
     RxReview,
     RxComm } from './dispenser.model';
 import { UserHttpService } from '../data/user_http.service';
@@ -62,6 +61,7 @@ export class DispenserComponent implements OnChanges {
         street: [''],
         city: [''],
         province: [''],
+        pharmacy_mgt_system: [''],
       }),
       numbers: this.fb.group({
         num_pharmacists: [0, ],
@@ -71,27 +71,25 @@ export class DispenserComponent implements OnChanges {
       }),
 
       total_rx: this.fb.group(new RxStats()),
-      walk_in_rx: this.fb.group(new RxStats()),
+      walkin_rx: this.fb.group(new RxStats()),
       faxed_rx: this.fb.group(new RxStats()),
-      phoned_in_rx: this.fb.group(new RxStats()),
-      e_prescribed_rx: this.fb.group(new RxStats()),
+      phoned_rx: this.fb.group(new RxStats()),
+      e_prescribe_rx: this.fb.group(new RxStats()),
       new_patients: this.fb.group(new RxStats()),
 
-      tx_time: this.fb.group(new TxTime()),
+      rx_process: this.fb.group(new RxProcess()),
 
-      tx_role: this.fb.group(new TxRole()),
+      review_new_pt: this.fb.group(new RxReview()),
+      review_new_rx: this.fb.group(new RxReview()),
+      review_rpt_rx: this.fb.group(new RxReview()),
 
-      new_pat_review: this.fb.group(new RxReview()),
-      new_rx_review: this.fb.group(new RxReview()),
-      repeat_rx_review: this.fb.group(new RxReview()),
-
-      illegible_rx_comm: this.fb.group(new RxComm()),
-      incomplete_rx_comm: this.fb.group(new RxComm()),
-      question_rx_comm: this.fb.group(new RxComm()),
-      advice_change__rx_comm: this.fb.group(new RxComm()),
-      renewal_auth_rx_comm: this.fb.group(new RxComm()),
-      cancel_rx_comm: this.fb.group(new RxComm()),
-      physician_rx_comm: this.fb.group(new RxComm()),
+      comm_illegible: this.fb.group(new RxComm()),
+      comm_incomplete: this.fb.group(new RxComm()),
+      comm_dose: this.fb.group(new RxComm()),
+      comm_advise: this.fb.group(new RxComm()),
+      comm_renewal: this.fb.group(new RxComm()),
+      comm_cancel: this.fb.group(new RxComm()),
+      comm_consult: this.fb.group(new RxComm()),
     });
   }
 
@@ -110,7 +108,7 @@ export class DispenserComponent implements OnChanges {
   // Functions called from the form in the template
   onSubmit() {
     this.dispenser = this.prepareDispenser();
-    console.log('onSubmit');
+    console.log('Submitting ', this.dispenser);
     this.dispenserService.updateDispenser(
       this.dispenser)
       .subscribe(

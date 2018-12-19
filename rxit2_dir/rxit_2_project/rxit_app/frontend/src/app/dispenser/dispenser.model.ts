@@ -6,7 +6,22 @@ export class Dispenser {
     description: Description;
     numbers: Numbers;
     total_rx: RxStats;
+    walkin_rx: RxStats;
+    faxed_rx: RxStats;
     walk_in_rx: RxStats;
+    e_prescribe_rx: RxStats;
+    phoned_rx: RxStats;
+    rx_process: RxProcess;
+    review_new_pt: RxReview;
+    review_new_rx: RxReview;
+    review_rpt_rx: RxReview;
+    comm_illegible: RxComm;
+    comm_incomplete: RxComm;
+    comm_dose: RxComm;
+    comm_advise: RxComm;
+    comm_renewal: RxComm;
+    comm_cancel: RxComm;
+    comm_consult: RxComm;
 }
 
 export class Description {
@@ -31,13 +46,10 @@ export class RxStats {
     num_wend = 0;
 }
 
-export class TxTime {
+export class RxProcess {
     new_patient_time = 0;
     new_rx_time = 0;
     repeat_rx_time = 0;
-}
-
-export class TxRole {
     pharmacist = false;
     reg_tech = false;
     unreg = false;

@@ -1,105 +1,85 @@
 export class Prescriber {
-    constructor(
-        public name: string,
-        public street: string,
-        public city: string,
-        public province: string,
-        public id: number,
-        public statistics?: PrescriberStatistics,
-        public prescription?: PrescriberPrescription,
-        public communication?: PrescriberCommunication,
-        public delivery?: PrescriberDelivery,
-        public admin?: PrescriberAdmin,
-        public prepration?: PrescriberPreperation,
-        public specification?: PrescriberSpecification
-    ) {}
+
+    pk: 0;
+    username: [''];
+    deliver_notes: [''];
+
+    description: DxDescription;
+
+    total_pts: DxStats;
+    std_pts: DxStats;
+    extend_pts: DxStats;
+    ongoing_pts: DxStats;
+    total_rx: DxStats;
+    new_rx: DxStats;
+    renew_rx: DxStats;
+    auto_renew_rx: DxStats;
+    clarify_msg: DxStats;
+    authorize_msg: DxStats;
+
+    printed_rx: DxDelivery;
+    faxed_rx: DxDelivery;
+    phoned_rx: DxDelivery;
+    e_prescribe_rx: DxDelivery;
+
+    receive_msg: DxAdmin;
+    process_msg: DxAdmin;
+
+    pat_hx: DxPrep;
+    cds: DxPrep;
+    p_formulary: DxPrep;
+    p_dis: DxPrep;
+
+    drug_name: DxSpec;
+    dosage: DxSpec;
+    refills: DxSpec;
+    route: DxSpec;
+    instructions: DxSpec;
 }
 
-export class PrescriberStatistics {
-    constructor (
-        public total_pt_daily: '',
-        public total_pt_weekly: '',
-        public std_pt_daily: '',
-        public std_pt_weekly: '',
-        public ext_pt_daily: '',
-        public ext_pt_weekly: '',
-        public prop_ongoing_daily: '',
-        public prop_ongoing_weekly: ''
-    ) {}
+export class DxDescription {
+
+    participant_name: [''];
+    street: [''];
+    city: [''];
+    province: [''];
+    practice_type: [''];
+    medical_record_system: [''];
+    num_physicians: 0;
 }
 
-export class PrescriberPrescription {
-    constructor (
-        public total_rx_daily: '',
-        public total_rx_weekly: '',
-        public new_rx_daily: '',
-        public new_rx_weekly: '',
-        public renew_rx_daily: '',
-        public renew_rx_weekly: '',
-        public multi_rx_daily: '',
-        public multi_rx_weekly: '',
-        ) {}
+export class DxStats {
+    num_daily: 0;
+    num_weeky: 0;
 }
 
-export class PrescriberCommunication {
-    constructor (
-        public auth_rx_daily: '',
-        public auth_rx_weekly: '',
-        public clarify_rx_daily: '',
-        public clarify_rx_weekly: '',
-        public request_rx_daily: '',
-        public request_rx_weekly: '',
-        public other_rx_daily: '',
-        public other_rx_weekly: '',
-        public other_rx_note: ''
-    ) {}
+export class DxDelivery {
+    method_del: false;
+    num_weekly: 0;
 }
 
-export class PrescriberDelivery {
-    constructor (
-        public delivery: boolean[]
-    ) {}
+export class DxAdmin {
+    daily_freq: 0;
+    daily_rx_messages: 0;
+    pc_urgent_messages: 0;
+    total_time_messages: 0;
+    comm_role:'';
 }
-
-export class PrescriberAdmin {
-    constructor (
-        public pharmacy_msgs_freq: '',
-        public pharmacy_msgs_role: '',
-        public pharmacy_msgs_num: '',
-        public pharmacy_msgs_percent: '',
-        public pharmacy_msgs_time: '',
-        public physician_msgs_freq: '',
-        public physician_msgs_role: '',
-        public physician_msgs_num: '',
-        public physician_msgs_percent: '',
-        public physician_msgs_time: ''
-    ) {}
-}
-export class PrescriberPreperation {
-    constructor (
-        public pt_hx_freq: '',
-        public pt_hx_time: '',
-        public pt_hx: boolean[],
-        public cds_hx_freq: '',
-        public cds_hx_time: '',
-        public cds_hx_: boolean[],
-        public frmlry_hx_freq: '',
-        public frmlry_hx_time: '',
-        public frmlry_hx_: boolean[],
-        public dis_hx_freq: '',
-        public dis_hx_time: '',
-        public dis_hx: boolean[],
-    ) {}
+export class DxPrep {
+    dx_freq: 0;
+    dx_duration: 0;
+    within_emr: false;
+    linked_to_emr: false;
+    desktop: false;
+    mobile_app: false;
 }
 
 
-export class PrescriberSpecification {
-    constructor (
-        public rx_name: boolean[],
-        public dosage: boolean[],
-        public refilols: boolean[],
-        public route: boolean[],
-        public instruction: boolean[],
-
-    ) {}
+export class DxSpec {
+    spec_duration: 0;
+    by_hand: false;
+    free_text: false;
+    drop_down: false;
+    check_box: false;
+    search: false;
 }
