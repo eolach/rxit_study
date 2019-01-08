@@ -25,6 +25,8 @@ export class Dispenser {
 }
 
 export class Description {
+
+    pk: 0;
     username: [''];
     participant_name: [''];
     street: [''];
@@ -35,11 +37,13 @@ export class Description {
 }
 
 export class Numbers {
+    pk = 0;
     num_pharmacists = 0;
     num_reg_tech = 0;
     num_unreg = 0;
 }
 export class RxStats {
+    pk = 0;
     num_am = 0;
     num_pm  = 0;
     num_evng = 0;
@@ -47,6 +51,7 @@ export class RxStats {
 }
 
 export class RxProcess {
+    pk = 0;
     new_patient_time = 0;
     new_rx_time = 0;
     repeat_rx_time = 0;
@@ -56,6 +61,7 @@ export class RxProcess {
 }
 
 export class RxReview {
+    pk = 0;
     discuss_before = 0;
     discuss_after = 0;
     discuss_role = '';
@@ -63,6 +69,7 @@ export class RxReview {
 }
 
 export class RxComm {
+    pk = 0;
     duration = 0;
     frequency = 0;
     elapsed_time = 0;

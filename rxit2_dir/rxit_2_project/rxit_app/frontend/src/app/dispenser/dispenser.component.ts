@@ -56,7 +56,9 @@ export class DispenserComponent implements OnChanges {
   createForm() {
     console.log('examining ', this.dispenser);
     this.dispenserForm = this.fb.group({
+      pk: [0, ],
       description: this.fb.group({
+        pk: [0, ],
         participant_name: [''],
         street: [''],
         city: [''],
@@ -64,6 +66,7 @@ export class DispenserComponent implements OnChanges {
         pharmacy_mgt_system: [''],
       }),
       numbers: this.fb.group({
+        pk: [0, ],
         num_pharmacists: [0, ],
         num_reg_tech: [0, Validators.required],
         num_unreg: [0, Validators.required],

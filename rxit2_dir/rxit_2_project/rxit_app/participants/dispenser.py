@@ -53,6 +53,7 @@ class RxComm(models.Model):
     by_dm = models.BooleanField(default=False)
 
 class Dispenser(models.Model):
+    annotation = models.CharField(max_length=100, blank=True, default='')
     description = models.OneToOneField(
         RxDescription,
         on_delete=models.CASCADE,
@@ -202,7 +203,7 @@ class NumbersSerializer(serializers.ModelSerializer):
             'num_reg_tech',
             'num_unreg'
             )
-class RxDescriptionSerializer(serializers.ModelSerializer):
+class RxDescriptionSerializer(WritableNestedModelSerializer):
 
     class Meta:
         model = RxDescription
@@ -217,7 +218,7 @@ class RxDescriptionSerializer(serializers.ModelSerializer):
 
 class DispenserSerializer(WritableNestedModelSerializer):
 
-    description = RxDescriptionSerializer()
+    description = RxDescriptionSerializer(partial=True)
     numbers = NumbersSerializer()
     total_rx = RxStatsSerializer()
     walkin_rx = RxStatsSerializer()
@@ -241,6 +242,7 @@ class DispenserSerializer(WritableNestedModelSerializer):
         model = Dispenser
         fields = ('pk',
             'username',
+            'annotation',
             'description',
             'numbers',
             'total_rx',

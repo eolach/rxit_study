@@ -411,8 +411,8 @@ var UserHttpService = /** @class */ (function () {
             })
         };
         var url = "/api/dispensers/" + dispenser.pk;
-        console.log('dispenser ', dispenser);
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(this.http.put(url, JSON.stringify(dispenser), httpOptions)
+        console.log('about to patch dispenser: ', dispenser);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(this.http.put(url, dispenser, httpOptions)
             .subscribe(function (data) {
             console.log('put returned ', data);
         }));
@@ -508,7 +508,9 @@ var DispenserComponent = /** @class */ (function () {
     DispenserComponent.prototype.createForm = function () {
         console.log('examining ', this.dispenser);
         this.dispenserForm = this.fb.group({
+            pk: [0,],
             description: this.fb.group({
+                pk: [0,],
                 participant_name: [''],
                 street: [''],
                 city: [''],
@@ -516,6 +518,7 @@ var DispenserComponent = /** @class */ (function () {
                 pharmacy_mgt_system: [''],
             }),
             numbers: this.fb.group({
+                pk: [0,],
                 num_pharmacists: [0,],
                 num_reg_tech: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
                 num_unreg: [0, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
@@ -637,6 +640,7 @@ var Description = /** @class */ (function () {
 
 var Numbers = /** @class */ (function () {
     function Numbers() {
+        this.pk = 0;
         this.num_pharmacists = 0;
         this.num_reg_tech = 0;
         this.num_unreg = 0;
@@ -646,6 +650,7 @@ var Numbers = /** @class */ (function () {
 
 var RxStats = /** @class */ (function () {
     function RxStats() {
+        this.pk = 0;
         this.num_am = 0;
         this.num_pm = 0;
         this.num_evng = 0;
@@ -656,6 +661,7 @@ var RxStats = /** @class */ (function () {
 
 var RxProcess = /** @class */ (function () {
     function RxProcess() {
+        this.pk = 0;
         this.new_patient_time = 0;
         this.new_rx_time = 0;
         this.repeat_rx_time = 0;
@@ -668,6 +674,7 @@ var RxProcess = /** @class */ (function () {
 
 var RxReview = /** @class */ (function () {
     function RxReview() {
+        this.pk = 0;
         this.discuss_before = 0;
         this.discuss_after = 0;
         this.discuss_role = '';
@@ -678,6 +685,7 @@ var RxReview = /** @class */ (function () {
 
 var RxComm = /** @class */ (function () {
     function RxComm() {
+        this.pk = 0;
         this.duration = 0;
         this.frequency = 0;
         this.elapsed_time = 0;

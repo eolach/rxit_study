@@ -86,8 +86,8 @@ export class UserHttpService {
       })
     };
     const url = `/api/dispensers/${dispenser.pk}`;
-    console.log('dispenser ', dispenser);
-    return of (this.http.put(url, JSON.stringify(dispenser), httpOptions)
+    console.log('about to patch dispenser: ', dispenser);
+    return of (this.http.put(url, dispenser, httpOptions)
     .subscribe(
       data => {
         console.log('put returned ', data);
