@@ -1,6 +1,6 @@
 export class Prescriber {
 
-    pk: 0;
+    pk: number;
     username: [''];
     deliver_notes: [''];
 
@@ -49,37 +49,37 @@ export class DxDescription {
 }
 
 export class DxStats {
-    num_daily: 0;
-    num_weeky: 0;
+    num_daily = 0;
+    num_weekly = 0;
 }
 
 export class DxDelivery {
-    method_del: false;
-    num_weekly: 0;
+    method_del =  false;
+    fraction_del = 0;
 }
 
 export class DxAdmin {
-    daily_freq: 0;
-    daily_rx_messages: 0;
-    pc_urgent_messages: 0;
-    total_time_messages: 0;
-    comm_role:'';
+    daily_freq = 0;
+    daily_rx_messages = 0;
+    pc_urgent_messages = 0;
+    total_time_messages = 0;
+    comm_role = '';
 }
 export class DxPrep {
-    dx_freq: 0;
-    dx_duration: 0;
-    within_emr: false;
-    linked_to_emr: false;
-    desktop: false;
-    mobile_app: false;
+    dx_freq = 0;
+    dx_duration = 0;
+    within_emr = false;
+    linked_to_emr = false;
+    desktop = false;
+    mobile_app = false;
 }
 
 
 export class DxSpec {
-    spec_duration: 0;
-    by_hand: false;
-    free_text: false;
-    drop_down: false;
-    check_box: false;
-    search: false;
+    spec_duration = 0;
+    by_hand = false;
+    free_text = false;
+    drop_down = false;
+    check_box = false;
+    search = false;
 }

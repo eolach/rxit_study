@@ -3,15 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Prescriber,
+import {
+  Prescriber,
   DxDescription,
   DxStats,
   DxDelivery,
   DxAdmin,
   DxPrep,
-  DxSpec} from './prescriber.model';
+  DxSpec
+} from './prescriber.model';
 import { UserHttpService } from '../data/user_http.service';
-import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 export interface Role {
   value: string;
@@ -55,7 +57,7 @@ export class PrescriberComponent implements OnChanges, OnInit {
     this.step--;
   }
 
-constructor(
+  constructor(
     private route: ActivatedRoute,
     private prescriberService: UserHttpService,
     private location: Location,
@@ -63,6 +65,7 @@ constructor(
 
   ) {
     this.createForm();
+    console.log('created form ', this.prescriberForm);
   }
 
   // Returns a FormArray in which an array of names is mapped to a set of FormGroups
@@ -78,7 +81,7 @@ constructor(
 
   // This returns a form group of the spec_methods array
   getCheckboxFormGroup(methodList: string[]): FormGroup {
-    return this.fb.group( {
+    return this.fb.group({
       size: this.spec_methods.length,
       methods: this.mapToCheckBoxArrayGroup(methodList)
     });
@@ -108,14 +111,48 @@ constructor(
   }
   // invoked in constructor
   createForm() {
+    console.log('examining ', this.prescriber);
     this.prescriberForm = this.fb.group({
-      username: [''],
-      descriptionForm: this.fb.group(new DxDescription()),
-      statisticsForm: this.fb.group(new DxStats()),
-      deliveryForm: this.fb.group(new DxDelivery()),
-      adminForm: this.fb.group(new DxAdmin()),
-      preparationForm: this.fb.group(new DxPrep()),
-      specificationForm: this.fb.group(new DxSpec()),
+      descriptionGroup: this.fb.group({
+        pk: [0, ],
+        participant_name: [''],
+        street: [''],
+        city: [''],
+        province: [''],
+        practice_type: [''],
+        medical_record_system: [''],
+        num_physicians: 0
+      }),
+      total_pts: this.fb.group(new DxStats()),
+      std_pts: this.fb.group(new DxStats()),
+      extend_pts: this.fb.group(new DxStats()),
+      ongoing_pts: this.fb.group(new DxStats()),
+      total_rx: this.fb.group(new DxStats()),
+      new_rx: this.fb.group(new DxStats()),
+      renew_rx: this.fb.group(new DxStats()),
+      auto_renew_rx: this.fb.group(new DxStats()),
+      poly_rx: this.fb.group(new DxStats()),
+      clarify_msg: this.fb.group(new DxStats()),
+      authorize_msg: this.fb.group(new DxStats()),
+
+      printed_rx: this.fb.group(new DxDelivery()),
+      faxed_rx: this.fb.group(new DxDelivery()),
+      phoned_rx: this.fb.group(new DxDelivery()),
+      e_prescribe_rx: this.fb.group(new DxDelivery()),
+
+      receive_msg: this.fb.group(new DxAdmin()),
+      process_msg: this.fb.group(new DxAdmin()),
+
+      pat_hx: this.fb.group(new DxPrep()),
+      cds: this.fb.group(new DxPrep()),
+      p_formulary: this.fb.group(new DxPrep()),
+      p_dis: this.fb.group(new DxPrep()),
+
+      drug_name: this.fb.group(new DxSpec()),
+      dosage: this.fb.group(new DxSpec()),
+      refills: this.fb.group(new DxSpec()),
+      route: this.fb.group(new DxSpec()),
+      instructions: this.fb.group(new DxSpec()),
     });
   }
 
@@ -126,25 +163,25 @@ constructor(
   }
 
   ngOnChanges(): void {
+    console.log('ngOnChanges');
     this.rebuildForm();
-    console.log('rebuilding ', this.prescriber);
   }
 
 
   // This takes whatever values are in the template form
   // and adds that back into the form model
   rebuildForm() {
+    console.log('building with ', this.prescriber);
     this.prescriberForm.patchValue(this.prescriber);
-    console.log('rebuilding the form');
   }
 
 
   // set the prescriber for the first time
-/*   setPrescriber(prescriber: Prescriber) {
-    this.prescriber = prescriber;
-    this.rebuildForm();
-  }
- */// Retrieves data from the server side database
+  /*   setPrescriber(prescriber: Prescriber) {
+      this.prescriber = prescriber;
+      this.rebuildForm();
+    }
+   */// Retrieves data from the server side database
   // getPrescriber(): void {
   //   // const id = +this.route.snapshot.paramMap.get('id');
   //   const id = 8;

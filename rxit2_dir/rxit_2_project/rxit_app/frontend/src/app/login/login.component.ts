@@ -148,7 +148,7 @@ export class LoginComponent implements OnInit {
       this._userService.getPrescriber(index)
         .subscribe((data: Prescriber) => {
           this.selectedPrescriber = data;
-          console.log('Logging in ', index);
+          console.log('Selecting in ', this.selectedPrescriber);
         });
     }
     // console.log('Logging in ', user);

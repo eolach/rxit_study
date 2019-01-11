@@ -5,16 +5,20 @@ export class Dispenser {
     pk: number;
     description: Description;
     numbers: Numbers;
+
     total_rx: RxStats;
     walkin_rx: RxStats;
     faxed_rx: RxStats;
     walk_in_rx: RxStats;
     e_prescribe_rx: RxStats;
     phoned_rx: RxStats;
+
     rx_process: RxProcess;
+
     review_new_pt: RxReview;
     review_new_rx: RxReview;
     review_rpt_rx: RxReview;
+
     comm_illegible: RxComm;
     comm_incomplete: RxComm;
     comm_dose: RxComm;
