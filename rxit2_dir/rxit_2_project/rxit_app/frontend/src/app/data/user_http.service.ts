@@ -70,10 +70,24 @@ export class UserHttpService {
 
   }
 
-  updatePrescriber(id) {
-    // console.log('updating prescriber index ', id);
-    // return of(this.PRESCRIBERS.find(prescriber => prescriber.id === id));
-  }
+  updatePrescriber(prescriber: Prescriber): Observable<any> {
+    console.log('updating prescriber index ', prescriber.pk);
+    const _token = 'JWT ' + this.token;
+    console.log('Using token ', this.token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT ' + this.token
+      })
+    };
+    const url = `/api/prescribers/${prescriber.pk}`;
+    console.log('about to patch prescriber: ', prescriber);
+    return of (this.http.put(url, prescriber, httpOptions)
+    .subscribe(
+      data => {
+        console.log('put returned ', data);
+      }
+    ));  }
 
   updateDispenser(dispenser: Dispenser): Observable<any> {
     // console.log('updating prescriber index ', id);

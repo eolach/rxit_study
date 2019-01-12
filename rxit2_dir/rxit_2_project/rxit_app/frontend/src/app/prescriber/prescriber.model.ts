@@ -1,8 +1,7 @@
 export class Prescriber {
 
     pk: number;
-    username: [''];
-    deliver_notes: [''];
+    // deliver_notes: [''];
 
     description: DxDescription;
 
@@ -39,26 +38,30 @@ export class Prescriber {
 
 export class DxDescription {
 
+    pk: 0;
+    username: [''];
     participant_name: [''];
     street: [''];
     city: [''];
     province: [''];
     practice_type: [''];
     medical_record_system: [''];
-    num_physicians: 0;
 }
 
 export class DxStats {
+    pk = 0;
     num_daily = 0;
     num_weekly = 0;
 }
 
 export class DxDelivery {
+    pk = 0;
     method_del =  false;
     fraction_del = 0;
 }
 
 export class DxAdmin {
+    pk = 0;
     daily_freq = 0;
     daily_rx_messages = 0;
     pc_urgent_messages = 0;
@@ -66,6 +69,7 @@ export class DxAdmin {
     comm_role = '';
 }
 export class DxPrep {
+    pk = 0;
     dx_freq = 0;
     dx_duration = 0;
     within_emr = false;
@@ -76,6 +80,7 @@ export class DxPrep {
 
 
 export class DxSpec {
+    pk = 0;
     spec_duration = 0;
     by_hand = false;
     free_text = false;

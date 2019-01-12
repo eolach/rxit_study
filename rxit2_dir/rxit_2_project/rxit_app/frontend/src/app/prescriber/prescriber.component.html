@@ -1,6 +1,7 @@
-<form [formGroup]="prescriberForm">
+<!-- [disabled]="prescriberForm.pristine || prescriberForm.invalid"  -->
+<form [formGroup]="prescriberForm" (ngSubmit)="onSubmit()">
     <div style="margin-bottom: 1em">
-        <button type="submit" [disabled]="prescriberForm.pristine || prescriberForm.invalid" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-success">Save</button>
         &nbsp;
         <button type="button" (click)="revert()" [disabled]="prescriberForm.pristine || prescriberForm.invalid" class="btn btn-danger">Revert</button>
     </div>
@@ -13,19 +14,21 @@
                         <mat-panel-title>Prescriber practice</mat-panel-title>
                         <mat-panel-description>Please confirm details of this practice</mat-panel-description>
                     </mat-expansion-panel-header>
-                    <div formGroupName="descriptionGroup" fxLayout="column">
-                        <mat-form-field class="input-text">
-                            <input matInput placeholder="Name" formControlName="participant_name">
-                        </mat-form-field>
-                        <mat-form-field class="input-text">
-                            <input matInput placeholder="Street" formControlName="street">
-                        </mat-form-field>
-                        <mat-form-field class="input-text">
-                            <input matInput placeholder="City" formControlName="city">
-                        </mat-form-field>
-                        <mat-form-field class="input-text">
-                            <input matInput placeholder="Province" formControlName="province">
-                        </mat-form-field>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <div formGroupName="description" fxLayout="column">
+                            <mat-form-field class="input-text">
+                                <input matInput placeholder="Name" formControlName="participant_name" />
+                            </mat-form-field>
+                            <mat-form-field class="input-text">
+                                <input matInput placeholder="Street" formControlName="street" />
+                            </mat-form-field>
+                            <mat-form-field class="input-text">
+                                <input matInput placeholder="City" formControlName="city" />
+                            </mat-form-field>
+                            <mat-form-field class="input-text">
+                                <input matInput placeholder="Province" formControlName="province" />
+                            </mat-form-field>
+                        </div>
                     </div>
                 </mat-expansion-panel>
                 <!-- Statistics-->
@@ -160,7 +163,7 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <h4>How are prescriptions provided to your patients?</h4>
+                            How are prescriptions provided to your patients?
                         </mat-panel-title>
                         <mat-panel-description>
                             Please provide actual or estimated statistics

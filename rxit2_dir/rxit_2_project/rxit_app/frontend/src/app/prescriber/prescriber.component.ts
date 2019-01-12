@@ -25,7 +25,7 @@ export interface Role {
   templateUrl: './prescriber.component.html',
   styleUrls: ['../core/participant.component.css']
 })
-export class PrescriberComponent implements OnChanges, OnInit {
+export class PrescriberComponent implements OnChanges {
   public spec_methods = ['by hand', 'free text', 'dropdown menu', 'checm box', 'search'];
   public prep_methods = ['in EMR', 'in linked EMR', 'on desktop app', 'on mobile app'];
   public delivery_methods = ['handed to patient', 'phoned to dispenser', 'faxed to dispenser', 'registered on PrescribeIT'];
@@ -41,6 +41,9 @@ export class PrescriberComponent implements OnChanges, OnInit {
     { value: 'assistant', viewValue: 'Assistant' },
     { value: 'other', viewValue: 'Other' }
   ];
+
+
+  public errors: any = [];
 
 
   step = 0;
@@ -68,52 +71,13 @@ export class PrescriberComponent implements OnChanges, OnInit {
     console.log('created form ', this.prescriberForm);
   }
 
-  // Returns a FormArray in which an array of names is mapped to a set of FormGroups
-  private mapToCheckBoxArrayGroup(data: string[]): FormArray {
-    return this.fb.array(data.map((i) => {
-      // console.log('map i:' + i)
-      return this.fb.group({
-        name: i,
-        selected: true
-      });
-    }));
-  }
 
-  // This returns a form group of the spec_methods array
-  getCheckboxFormGroup(methodList: string[]): FormGroup {
-    return this.fb.group({
-      size: this.spec_methods.length,
-      methods: this.mapToCheckBoxArrayGroup(methodList)
-    });
-  }
-
-  // Get the arrays that contain the various controls
-  get rx_nameArray(): FormArray {
-    // console.log(this.prescriberForm.controls.specificationForm)
-    // console.log(this.spec_methods)
-    return this.prescriberForm.get('specificationForm').get('rx_name').get('methods') as FormArray;
-  }
-
-  get dosageArray(): FormArray {
-    return this.prescriberForm.get('specificationForm.dosage.methods') as FormArray;
-  }
-
-  get refillsArray(): FormArray {
-    return this.prescriberForm.get('specificationForm.refills.methods') as FormArray;
-  }
-
-  get routeArray(): FormArray {
-    return this.prescriberForm.get('specificationForm.route.methods') as FormArray;
-  }
-
-  get instructionArray(): FormArray {
-    return this.prescriberForm.get('specificationForm.instruction.methods') as FormArray;
-  }
   // invoked in constructor
   createForm() {
-    console.log('examining ', this.prescriber);
+    console.log('creating form ');
     this.prescriberForm = this.fb.group({
-      descriptionGroup: this.fb.group({
+      pk: [0, ],
+      description: this.fb.group({
         pk: [0, ],
         participant_name: [''],
         street: [''],
@@ -121,7 +85,6 @@ export class PrescriberComponent implements OnChanges, OnInit {
         province: [''],
         practice_type: [''],
         medical_record_system: [''],
-        num_physicians: 0
       }),
       total_pts: this.fb.group(new DxStats()),
       std_pts: this.fb.group(new DxStats()),
@@ -158,9 +121,6 @@ export class PrescriberComponent implements OnChanges, OnInit {
 
   // invoked when called on initialization
 
-  ngOnInit(): void {
-    // this.getPrescriber();
-  }
 
   ngOnChanges(): void {
     console.log('ngOnChanges');
@@ -171,40 +131,41 @@ export class PrescriberComponent implements OnChanges, OnInit {
   // This takes whatever values are in the template form
   // and adds that back into the form model
   rebuildForm() {
-    console.log('building with ', this.prescriber);
+    console.log('rebuilding with ', this.prescriber);
     this.prescriberForm.patchValue(this.prescriber);
   }
 
-
-  // set the prescriber for the first time
-  /*   setPrescriber(prescriber: Prescriber) {
-      this.prescriber = prescriber;
-      this.rebuildForm();
-    }
-   */// Retrieves data from the server side database
-  // getPrescriber(): void {
-  //   // const id = +this.route.snapshot.paramMap.get('id');
-  //   const id = 8;
-  //   this.prescriberService.getPrescriber(id)
-  //     .subscribe(prescriber => {
-
-  //       console.log('participant is ' + prescriber.name); // do stuff with our data here.
-  //       // ....
-  //       // asign data to our class property in the end
-  //       // so it will be available to our template
-  //       this.prescriber = prescriber;
-  //   });
-  // }
-
   // Functions called from the form in the template
   onSubmit() {
-    this.updatePrescriber();
-    this.rebuildForm();
+    this.prescriber = this.preparePrescriber();
+    console.log('Submitting ', this.prescriber);
+    this.prescriberService.updatePrescriber(
+      this.prescriber)
+      .subscribe(
+        err => {
+          this.errors = err['error'];
+          console.log('Error: ', this.errors);
+        }
+      );
+    // this.rebuildForm();
   }
 
+  preparePrescriber(): Prescriber {
+    // Const containing the form data
+    const savePrescriber = this.prescriberForm.value;
+    savePrescriber.pk = this.prescriber.pk;
 
-  updatePrescriber(): void {
-    // this.prescriberService.updatePrescriber(this.prescriber).subscribe(/* error handling */);
+    // Assign each of the groups to the const
+    // saveDispenser.description = Object.assign({}, saveDispenser.description);
+    // saveDispenser.numbers = Object.assign({}, saveDispenser.numbers);
+    console.log('Saving ', savePrescriber);
+    // Post the const to the server.
+    return savePrescriber;
+  }
+
+  revert() {
+    console.log('reverting');
+    this.rebuildForm();
   }
 
   goBack(): void {

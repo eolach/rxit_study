@@ -29,7 +29,7 @@ class DxDescription(models.Model):
 # DxStats
 class DxStats(models.Model):
     num_daily = models.DecimalField(max_digits=4, decimal_places=1, default=0)
-    num_weeky = models.DecimalField(max_digits=4, decimal_places=1, default=0)
+    num_weekly = models.DecimalField(max_digits=4, decimal_places=1, default=0)
 
 class DxDelivery(models.Model):
     method_del = models.BooleanField(default=False)
@@ -124,7 +124,7 @@ class DxStatsSerializer(serializers.ModelSerializer):
         model = DxStats
         fields = ('pk',
             'num_daily',
-            'num_weeky'
+            'num_weekly'
         )
 
 class DxDeliverySerializer(serializers.ModelSerializer):
