@@ -347,7 +347,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserHttpService", function() { return UserHttpService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -360,24 +361,38 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var UserHttpService = /** @class */ (function () {
     function UserHttpService(http) {
         this.http = http;
         // error messages received from the login attempt
         this.errors = [];
         this.httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({ 'Content-Type': 'application/json' })
         };
     }
     UserHttpService.prototype.login = function (user) {
         console.log('Getting user ', user);
         // return of(this.ELEMENT_DATA.find(user => user.name === username));
-        return this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions);
+        return this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions)
+            .catch(function (error) {
+            console.log('error');
+            return rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"].throw(error.statusText);
+        });
+    };
+    UserHttpService.prototype.handleError = function (error) {
+        if (error.error instanceof ErrorEvent) {
+            console.error('An error occurred:', error.error.message);
+        }
+        else {
+            console.error("Backend returned code " + error.status + ", " +
+                ("body was: " + error.error));
+        }
     };
     UserHttpService.prototype.getUser = function (username) {
         console.log('Getting user detail', this.token);
         var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
                 'Content-Type': 'application/json',
                 'Authorization': 'JWT ' + this.token
             })
@@ -401,7 +416,7 @@ var UserHttpService = /** @class */ (function () {
         var _token = 'JWT ' + this.token;
         console.log('Using token ', this.token);
         var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
                 'Content-Type': 'application/json',
                 'Authorization': 'JWT ' + this.token
             })
@@ -418,7 +433,7 @@ var UserHttpService = /** @class */ (function () {
         var _token = 'JWT ' + this.token;
         console.log('Using token ', this.token);
         var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
                 'Content-Type': 'application/json',
                 'Authorization': 'JWT ' + this.token
             })
@@ -445,7 +460,7 @@ var UserHttpService = /** @class */ (function () {
     };
     UserHttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], UserHttpService);
     return UserHttpService;
 }());
@@ -720,7 +735,7 @@ var RxComm = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span>PrescribeIT baseline study</span>\n    <span class=\"example-fill-remaining-space\"></span>\n    <span class=\"align-center\"></span>\n    <span class=\"example-spacer\"></span>\n    <!-- <button mat-button>About</button> -->\n    <!-- <button mat-button>Contact</button> -->\n    <!-- <button mat-icon-button [matMenuTriggerFor]=\"menu\"> -->\n      <!-- <mat-icon>more_vert</mat-icon> -->\n    <!-- </button> -->\n    <!-- <mat-menu #menu=\"matMenu\">\n      <button mat-menu-item>\n        <mat-icon>dialpad</mat-icon>\n        <span>Redial</span>\n      </button>\n      <button mat-menu-item disabled>\n        <mat-icon>voicemail</mat-icon>\n        <span>Check voicemail</span>\n      </button>\n      <button mat-menu-item>\n        <mat-icon>notifications_off</mat-icon>\n        <span>Disable alerts</span>\n      </button>\n    </mat-menu> -->\n  </mat-toolbar-row>\n</mat-toolbar>\n<!-- Login  -->\n<mat-card *ngIf=\"!loading\" class=\"example-card\">\n  <mat-card-header>\n    <mat-card-title>Login</mat-card-title>\n  </mat-card-header>\n  <mat-card-content>\n    <form [formGroup]=\"loginForm\" style=\"width: 300px\">\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" formControlName=\"username\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" />\n        <!-- <div *ngIf=\"submitted && f.username.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"f.username.errors.required\">Username is required</div>\n                </div> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\" />\n        <!-- <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"f.password.errors.required\">Password is required</div>\n                </div> -->\n      </div>\n      <div class=\"form-group\">\n        <button mat-raised-button (click)=\"login()\" color=\"primary\">Login</button>\n        <!-- <button mat-button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button> -->\n        <!-- <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" /> -->\n      </div>\n      <!-- <mat-card-actions>\n    </mat-card-actions> -->\n    </form>\n    <!-- <mat-spinner [style.display]=\"showSpinner ? 'block' : 'none'\"></mat-spinner> -->\n  </mat-card-content>\n</mat-card>\n<div *ngIf=\"selectedDispenser\"><app-dispenser [dispenser]=\"selectedDispenser\"></app-dispenser></div>\n<div *ngIf=\"selectedPrescriber\"><app-prescriber [prescriber]=\"selectedPrescriber\"  ></app-prescriber></div>\n"
+module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span>PrescribeIT baseline study</span>\n    <span class=\"example-fill-remaining-space\"></span>\n    <span class=\"align-center\"></span>\n    <span class=\"example-spacer\"></span>\n    <!-- <button mat-button>About</button> -->\n    <!-- <button mat-button>Contact</button> -->\n    <!-- <button mat-icon-button [matMenuTriggerFor]=\"menu\"> -->\n      <!-- <mat-icon>more_vert</mat-icon> -->\n    <!-- </button> -->\n    <!-- <mat-menu #menu=\"matMenu\">\n      <button mat-menu-item>\n        <mat-icon>dialpad</mat-icon>\n        <span>Redial</span>\n      </button>\n      <button mat-menu-item disabled>\n        <mat-icon>voicemail</mat-icon>\n        <span>Check voicemail</span>\n      </button>\n      <button mat-menu-item>\n        <mat-icon>notifications_off</mat-icon>\n        <span>Disable alerts</span>\n      </button>\n    </mat-menu> -->\n  </mat-toolbar-row>\n</mat-toolbar>\n<!-- Login  -->\n<mat-card *ngIf=\"!loading\" class=\"example-card\">\n  <mat-card-header>\n    <mat-card-title>{{statusMessage}}</mat-card-title>\n  </mat-card-header>\n  <mat-card-content>\n    <form [formGroup]=\"loginForm\" style=\"width: 300px\">\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" formControlName=\"username\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" />\n        <!-- <div *ngIf=\"submitted && f.username.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"f.username.errors.required\">Username is required</div>\n                </div> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\" />\n        <!-- <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"f.password.errors.required\">Password is required</div>\n                </div> -->\n      </div>\n      <div class=\"form-group\">\n        <button mat-raised-button (click)=\"login()\" color=\"primary\">Login</button>\n        <!-- <button mat-button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button> -->\n        <!-- <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" /> -->\n      </div>\n      <!-- <mat-card-actions>\n    </mat-card-actions> -->\n    </form>\n    <!-- <mat-spinner [style.display]=\"showSpinner ? 'block' : 'none'\"></mat-spinner> -->\n  </mat-card-content>\n</mat-card>\n<div *ngIf=\"selectedDispenser\"><app-dispenser [dispenser]=\"selectedDispenser\"></app-dispenser></div>\n<div *ngIf=\"selectedPrescriber\"><app-prescriber [prescriber]=\"selectedPrescriber\"  ></app-prescriber></div>\n"
 
 /***/ }),
 
@@ -770,6 +785,7 @@ var LoginComponent = /** @class */ (function () {
         this.errors = [];
     }
     LoginComponent.prototype.ngOnInit = function () {
+        this.statusMessage = 'Please login with your assigned username and password';
         this.loginForm = this.fb.group({
             username: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]
@@ -792,10 +808,14 @@ var LoginComponent = /** @class */ (function () {
             return;
         }
         this.loading = true;
+        this.statusMessage = 'Logging in with credentials...';
         this._userService.login({ username: this.f.username.value, password: this.f.password.value })
             .subscribe(function (data) {
+            console.log('updating User data ', data);
             _this.updateData(data['token']);
         }, function (err) {
+            _this.loading = false;
+            _this.statusMessage = 'Login failed. /nPlease check password and try again.';
             _this.errors = err['error'];
             console.log(_this.errors);
         });
@@ -818,6 +838,10 @@ var LoginComponent = /** @class */ (function () {
         console.log('logged in ', this.username);
         if (this.errors.length === 0) {
             this.prepareUser();
+        }
+        else {
+            this.loading = false;
+            this.statusMessage = 'Login failed. Please check password and try again.';
         }
     };
     LoginComponent.prototype.prepareUser = function () {

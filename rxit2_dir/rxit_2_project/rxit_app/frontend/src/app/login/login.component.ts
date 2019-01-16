@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   public selectedPrescriber: Prescriber;
   public selectedDispenser: Dispenser;
 
-   // token of the logged in user
+  // token of the logged in user
   public token: string;
 
   // the token expiration date
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
   // the username of the logged in user
   public username: string;
   public errors: any = [];
+  public statusMessage: string;
 
   constructor(
     private _userService: UserHttpService,
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.statusMessage = 'Please login with your assigned username and password';
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -65,14 +67,18 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
+    this.statusMessage = 'Logging in with credentials...';
 
 
     this._userService.login({ username: this.f.username.value, password: this.f.password.value })
       .subscribe(
         data => {
+          console.log('updating User data ', data);
           this.updateData(data['token']);
         },
         err => {
+          this.loading = false;
+          this.statusMessage = 'Login failed. /nPlease check password and try again.';
           this.errors = err['error'];
           console.log(this.errors);
         }
@@ -98,9 +104,13 @@ export class LoginComponent implements OnInit {
     this.token_expires = new Date(token_decoded.exp * 1000);
     this.username = token_decoded.username;
     console.log('logged in ', this.username);
-
     if (this.errors.length === 0) {
+
       this.prepareUser();
+    } else {
+      this.loading = false;
+      this.statusMessage = 'Login failed. Please check password and try again.';
+
     }
 
   }
@@ -115,7 +125,7 @@ export class LoginComponent implements OnInit {
         console.log('details ', data, ' type ', typeof (data[0]));
         this.resolveParticipant(data['participant_type'], data['participant_index']);
         console.log('type ', data['participant_type'], ' index ', data['participant_index']);
-        }
+      }
       );
   }
 
