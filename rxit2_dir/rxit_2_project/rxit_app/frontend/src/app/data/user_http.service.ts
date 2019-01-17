@@ -130,19 +130,5 @@ export class UserHttpService {
   refreshToken() { }
 
   logout() { }
-
-  // Utility functions to interpret the user login
-
-  private updateData(token) {
-    this.token = token;
-    this.errors = [];
-
-    // decode the token to read the username and expiration timestamp
-    const token_parts = this.token.split(/\./);
-    const token_decoded = JSON.parse(window.atob(token_parts[1]));
-    this.token_expires = new Date(token_decoded.exp * 1000);
-    this.username = token_decoded.username;
-    console.log('logged in ', this.username);
-
-  }
+ 
 }
