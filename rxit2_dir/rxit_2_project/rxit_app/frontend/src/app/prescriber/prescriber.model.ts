@@ -46,6 +46,7 @@ export class DxDescription {
     province: [''];
     practice_type: [''];
     medical_record_system: [''];
+    num_physicians: 1;
 }
 
 export class DxStats {

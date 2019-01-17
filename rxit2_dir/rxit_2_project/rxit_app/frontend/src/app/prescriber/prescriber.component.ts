@@ -85,6 +85,7 @@ export class PrescriberComponent implements OnChanges {
         province: [''],
         practice_type: [''],
         medical_record_system: [''],
+        num_physicians: [0, ],
       }),
       total_pts: this.fb.group(new DxStats()),
       std_pts: this.fb.group(new DxStats()),

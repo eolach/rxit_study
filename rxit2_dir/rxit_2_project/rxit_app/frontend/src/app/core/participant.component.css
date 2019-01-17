@@ -101,11 +101,21 @@ textarea {
   margin-top: -4px;
 }
 
-/* .input-description{
+.input-description-pt{
+  width: 25em;
+  margin-right: 8px;
+} 
+
+.input-description{
   width: 15em;
-  font-size: 15px;
-  font-weight: bold;
-} */
+  margin-right: 8px;
+  /* font-weight: bold; */
+} 
+.input-description-sm{
+  width: 10em;
+  padding-right: 3em;
+  /* font-weight: bold; */
+} 
 
 .input-text { 
   min-width: 300px;
@@ -120,9 +130,15 @@ textarea {
 }
 
 .input-check-sm { 
-  max-width: 90px; 
+  width: 60px; 
   /* min-width: 50px; */
-  margin-right: 10em;
+  margin-right: 1em;
+  /*border: 3px solid rgb(0, 255, 64);*/
+}
+.input-check-vsm { 
+  width: 20px; 
+  /* min-width: 50px; */
+  margin-right: 1em;
   /*border: 3px solid rgb(0, 255, 64);*/
 }
 

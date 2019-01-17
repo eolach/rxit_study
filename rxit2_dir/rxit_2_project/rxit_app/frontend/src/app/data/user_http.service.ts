@@ -14,10 +14,10 @@ export class UserHttpService {
   currentUser: User;
 
   // flags for participant type
-  public isDispenser: boolean;
-  public isPrescriber: boolean;
-  public selectedPrescriber: Prescriber;
-  public selectedDispenser: Dispenser;
+  // public isDispenser: boolean;
+  // public isPrescriber: boolean;
+  // public selectedPrescriber: Prescriber;
+  // public selectedDispenser: Dispenser;
 
   // http options used for making API calls
   private httpOptions: any;
@@ -130,5 +130,5 @@ export class UserHttpService {
   refreshToken() { }
 
   logout() { }
- 
+
 }

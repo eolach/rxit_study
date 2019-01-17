@@ -138,7 +138,12 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
-    this._userService.logout();
+    this._userService.token = null;
+    this.selectedDispenser = null;
+    this.selectedPrescriber = null;
+    this.loading = false;
+    this.statusMessage = 'Please login with your assigned username and password';
+
   }
 
   private resolveParticipant(type: string, index: number, ) {
