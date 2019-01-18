@@ -162,6 +162,11 @@
               </mat-form-field>
             </div>
           </div>
+          <div fxLayout="row" class="form-group">
+            <mat-form-field class="text-full-width">
+              <textarea placeholder="Time in minutes" formControlName="stats_notes">Average time to dispense one item</textarea>
+            </mat-form-field>
+          </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <!--mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" showToggle> -->
@@ -186,13 +191,13 @@
                 <input matInput placeholder="Repeat prescription" formControlName="repeat_rx_time" />
               </mat-form-field>
             </div>
-            <div fxLayout="row" class="form-group">
-              <div class="input-description">Who usually initiates the dispensing process?</div>
-              <div fxLayout="column" fxLayoutAlign="start start">
-                <mat-checkbox class="input-check" formControlName="pharmacist">Pharmacist</mat-checkbox>
-                <mat-checkbox class="input-check" formControlName="reg_tech">Pharmacy tech</mat-checkbox>
-                <mat-checkbox class="input-check" formControlName="unreg">Unregistered assistant</mat-checkbox>
-              </div>
+          </div>
+          <div fxLayout="row" class="form-group">
+            <div class="input-description">Who usually initiates the dispensing process?</div>
+            <div fxLayout="column" fxLayoutAlign="start start">
+              <mat-checkbox class="input-check" formControlName="pharmacist">Pharmacist</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="reg_tech">Pharmacy tech</mat-checkbox>
+              <mat-checkbox class="input-check" formControlName="unreg">Assistant</mat-checkbox>
             </div>
           </div>
         </mat-expansion-panel>
@@ -214,8 +219,12 @@
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="% on completion" formControlName="discuss_after" />
               </mat-form-field>
-              <mat-form-field class="input-number-extra">
-                <input matInput placeholder="Role" formControlName="discuss_role" />
+              <mat-form-field class="input-role">
+                <select matNativeControl required>
+                  <option value="PH">Pharmacist</option>
+                  <option value="PT">Registered technician</option>
+                  <option value="AS">Assistant</option>
+                </select>
               </mat-form-field>
             </div>
           </div>
@@ -242,16 +251,16 @@
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="% on completion" formControlName="discuss_after" />
               </mat-form-field>
-              <mat-form-field class="input-number-extra">
+              <!-- <mat-form-field class="input-number-extra">
                 <input matInput placeholder="Role" formControlName="discuss_role" />
-              </mat-form-field>
+              </mat-form-field> -->
             </div>
           </div>
-          <!-- <div>
-            <mat-form-field class="input-text">
-              <input matInput placeholder="Notes" formControlName="discuss_notes" />
+          <div fxLayout="row" class="form-group">
+            <mat-form-field class="text-full-width">
+              <textarea matInput formControlName="review_notes">Additional notes</textarea>
             </mat-form-field>
-          </div> -->
+          </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>

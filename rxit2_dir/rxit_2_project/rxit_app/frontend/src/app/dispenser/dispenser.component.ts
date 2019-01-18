@@ -65,6 +65,7 @@ export class DispenserComponent implements OnChanges {
         province: [''],
         pharmacy_mgt_system: [''],
       }),
+      stats_notes: [''],
       numbers: this.fb.group({
         pk: [0, ],
         num_pharmacists: [0, ],
@@ -85,6 +86,7 @@ export class DispenserComponent implements OnChanges {
       review_new_pt: this.fb.group(new RxReview()),
       review_new_rx: this.fb.group(new RxReview()),
       review_rpt_rx: this.fb.group(new RxReview()),
+      review_notes: [''],
 
       comm_illegible: this.fb.group(new RxComm()),
       comm_incomplete: this.fb.group(new RxComm()),

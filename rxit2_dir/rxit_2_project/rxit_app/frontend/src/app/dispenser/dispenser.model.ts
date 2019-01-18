@@ -5,6 +5,8 @@ export class Dispenser {
     pk: number;
     description: Description;
     numbers: Numbers;
+    stats_notes: string;
+    review_notes: string;
 
     total_rx: RxStats;
     walkin_rx: RxStats;
