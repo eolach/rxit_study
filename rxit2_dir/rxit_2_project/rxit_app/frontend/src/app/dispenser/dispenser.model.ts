@@ -68,7 +68,7 @@ export class RxReview {
     pk = 0;
     discuss_before = 0;
     discuss_after = 0;
-    discuss_role = '';
+    discuss_role = 'Pharmacist';
     discuss_notes = '';
 }
 

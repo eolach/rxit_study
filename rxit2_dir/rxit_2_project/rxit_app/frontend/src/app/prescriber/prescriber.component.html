@@ -14,8 +14,8 @@
                         <mat-panel-title>Prescriber practice</mat-panel-title>
                         <mat-panel-description>Please confirm details of this practice</mat-panel-description>
                     </mat-expansion-panel-header>
-                    <div fxLayout="row" fxLayoutAlign="center center">
-                        <div formGroupName="description" fxLayout="column">
+                    <div formGroupName="description" fxLayout="row" fxLayoutAlign="center center">
+                        <div fxLayout="column" fxLayoutAlign="start start">
                             <mat-form-field class="input-text">
                                 <input matInput placeholder="Name" formControlName="participant_name" />
                             </mat-form-field>
@@ -29,7 +29,7 @@
                                 <input matInput placeholder="Province" formControlName="province" />
                             </mat-form-field>
                         </div>
-                        <div formGroupName="description" fxLayout="column" fxLayoutAlign="start center">
+                        <div fxLayout="column" fxLayoutAlign="start start">
                             <mat-form-field class="input-text">
                                 <input matInput placeholder="Practice type (FHT/FHN/FHO, group, solo)" formControlName="practice_type" />
                             </mat-form-field>
@@ -39,7 +39,6 @@
                             <mat-form-field class="input-text">
                                 <input matInput placeholder="Number of physicians" formControlName="num_physicians">
                             </mat-form-field>
-
                         </div>
                     </div>
                 </mat-expansion-panel>
@@ -117,7 +116,7 @@
                     </div>
                     <div formGroupName="renew_rx">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Renewal prescriptions</div>
+                            <div class="input-description-pt">Prescriptions renewed</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -128,7 +127,7 @@
                     </div>
                     <div formGroupName="auto_renew_rx">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Aithorize renewal by fax</div>
+                            <div class="input-description-pt">Renewals authorized by fax</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -150,7 +149,7 @@
                     </div>
                     <div formGroupName="clarify_msg">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Clarification of existing prescription</div>
+                            <div class="input-description-pt">Clarifications of existing prescription</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -161,7 +160,7 @@
                     </div>
                     <div formGroupName="authorize_msg">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Request to authorize previous prescription</div>
+                            <div class="input-description-pt">Requests to authorize previous prescription</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -201,7 +200,7 @@
                     </div>
                     <div formGroupName="phoned_rx">
                         <div fxLayout="row" class="form-group">
-                            <mat-checkbox class="input-check" formControlName="method_del"></mat-checkbox>
+                            <mat-checkbox class="input-check-vsm" formControlName="method_del"></mat-checkbox>
                             <div class="input-description-pt">Prescription phoned to Dispensary</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Weekly" formControlName="fraction_del">
@@ -210,8 +209,8 @@
                     </div>
                     <div formGroupName="e_prescribe_rx">
                         <div fxLayout="row" class="form-group">
-                            <mat-checkbox class="input-check" formControlName="method_del"></mat-checkbox>
-                            <div class="input-description-pt">Prescription sent through PrescribeITy</div>
+                            <mat-checkbox class="input-check-vsm" formControlName="method_del"></mat-checkbox>
+                            <div class="input-description-pt">Prescription sent through PrescribeIT</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Weekly" formControlName="fraction_del">
                             </mat-form-field>
@@ -231,42 +230,56 @@
                     </mat-expansion-panel-header>
                     <div formGroupName="receive_msg">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Receive and process messages from dispensary</div>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Frequency" formControlName="daily_freq">
+                            <div class="input-description">Receive and process messages from dispensary</div>
+                            <mat-form-field class="input-role">
+                                <select matNativeControl required>
+                                    <option value="MD">Physician</option>
+                                    <option value="RN">Nurse</option>
+                                    <option value="AS">Assistant</option>
+                                    <option value="AD">Office admin</option>
+                                </select>
                             </mat-form-field>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Managed by..." formControlName="comm_role">
-                            </mat-form-field>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Daily total" formControlName="daily_rx_messages">
-                            </mat-form-field>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Number" formControlName="pc_urgent_messages">
-                            </mat-form-field>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Time" formControlName="total_time_messages">
-                            </mat-form-field>
+                            <div fxLayout="column" fxLayoutAlign="start start">
+                                <mat-form-field class="input-number">
+                                    <input matInput placeholder="Frequency" formControlName="daily_freq">
+                                </mat-form-field>
+                                <mat-form-field class="input-number">
+                                    <input matInput placeholder="Daily total" formControlName="daily_rx_messages">
+                                </mat-form-field>
+                                <mat-form-field class="input-number">
+                                    <input matInput placeholder="Number" formControlName="pc_urgent_messages">
+                                </mat-form-field>
+                                <mat-form-field class="input-number">
+                                    <input matInput placeholder="Elapsed time" formControlName="total_time_messages">
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
                     <div formGroupName="process_msg">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Receive and process messages from dispensary</div>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Daily frequency" formControlName="daily_freq">
+                            <div class="input-description">Process messages authorized by physician</div>
+                            <mat-form-field class="input-role">
+                                <select matNativeControl required>
+                                    <option value="MD">Physician</option>
+                                    <option value="RN">Nurse</option>
+                                    <option value="AS">Assistant</option>
+                                    <option value="AD">Office admin</option>
+                                </select>
                             </mat-form-field>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Managed by..." formControlName="comm_role">
-                            </mat-form-field>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Daily total" formControlName="daily_rx_messages">
-                            </mat-form-field>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Daily number" formControlName="pc_urgent_messages">
-                            </mat-form-field>
-                            <mat-form-field class="input-number">
-                                <input matInput placeholder="Total time" formControlName="total_time_messages">
-                            </mat-form-field>
+                            <div fxLayout="column" fxLayoutAlign="start start">
+                                <mat-form-field class="input-number">
+                                    <input matInput placeholder="Daily frequency" formControlName="daily_freq">
+                                </mat-form-field>
+                                <mat-form-field class="input-number">
+                                    <input matInput placeholder="Daily total" formControlName="daily_rx_messages">
+                                </mat-form-field>
+                                <mat-form-field class="input-number">
+                                    <input matInput placeholder="Daily number" formControlName="pc_urgent_messages">
+                                </mat-form-field>
+                                <mat-form-field class="input-number">
+                                    <input matInput placeholder="Total time" formControlName="total_time_messages">
+                                </mat-form-field>
+                            </div>
                         </div>
                     </div>
                 </mat-expansion-panel>
@@ -289,10 +302,12 @@
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Duration" formControlName="dx_duration">
                             </mat-form-field>
-                            <mat-checkbox class="input-check" formControlName="within_emr">Within EMR</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="linked_to_emr">Linked to EMR</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="desktop">Desktop app</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="mobile_app">Mobile app</mat-checkbox>
+                            <div fxLayout="column" fxLayoutAlign="start start">
+                                <mat-checkbox class="input-check" formControlName="within_emr">Within EMR</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="linked_to_emr">Linked to EMR</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="desktop">Desktop app</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="mobile_app">Mobile app</mat-checkbox>
+                            </div>
                         </div>
                     </div>
                     <div formGroupName="cds">
@@ -304,10 +319,12 @@
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Duration" formControlName="dx_duration">
                             </mat-form-field>
-                            <mat-checkbox class="input-check" formControlName="within_emr">Within EMR</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="linked_to_emr">Linked to EMR</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="desktop">Desktop app</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="mobile_app">Mobile app</mat-checkbox>
+                            <div fxLayout="column" fxLayoutAlign="start start">
+                                <mat-checkbox class="input-check" formControlName="within_emr">Within EMR</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="linked_to_emr">Linked to EMR</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="desktop">Desktop app</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="mobile_app">Mobile app</mat-checkbox>
+                            </div>
                         </div>
                     </div>
                     <div formGroupName="p_formulary">
@@ -319,10 +336,12 @@
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Duration" formControlName="dx_duration">
                             </mat-form-field>
-                            <mat-checkbox class="input-check" formControlName="within_emr">Within EMR</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="linked_to_emr">Linked to EMR</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="desktop">Desktop app</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="mobile_app">Mobile app</mat-checkbox>
+                            <div fxLayout="column" fxLayoutAlign="start start">
+                                <mat-checkbox class="input-check" formControlName="within_emr">Within EMR</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="linked_to_emr">Linked to EMR</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="desktop">Desktop app</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="mobile_app">Mobile app</mat-checkbox>
+                            </div>
                         </div>
                     </div>
                     <div formGroupName="p_dis">
@@ -334,10 +353,12 @@
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Duration" formControlName="dx_duration">
                             </mat-form-field>
-                            <mat-checkbox class="input-check" formControlName="within_emr">Within EMR</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="linked_to_emr">Linked to EMR</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="desktop">Desktop app</mat-checkbox>
-                            <mat-checkbox class="input-check" formControlName="mobile_app">Mobile app</mat-checkbox>
+                            <div fxLayout="column" fxLayoutAlign="start start">
+                                <mat-checkbox class="input-check" formControlName="within_emr">Within EMR</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="linked_to_emr">Linked to EMR</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="desktop">Desktop app</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="mobile_app">Mobile app</mat-checkbox>
+                            </div>
                         </div>
                     </div>
                 </mat-expansion-panel>
@@ -370,70 +391,70 @@
                     </div>
                     <div formGroupName="dosage">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Dosage</div>
+                            <div class="input-description-sm">Dosage</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Duration" formControlName="spec_duration">
                             </mat-form-field>
                             <div fxLayout="column" fxLayoutAlign="start start">
-                                <mat-checkbox class="input-check-sm" formControlName="by_hand">Hand written</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="free_text">Free text</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="drop_down">Drop-down menu</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="by_hand">Hand written</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="free_text">Free text</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="drop_down">Drop-down menu</mat-checkbox>
                             </div>
                             <div fxLayout="column" fxLayoutAlign="start start">
-                                <mat-checkbox class="input-check-sm" formControlName="check_box">Check boxes</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="search">Search on name</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="check_box">Check boxes</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="search">Search on name</mat-checkbox>
                             </div>
                         </div>
                     </div>
                     <div formGroupName="refills">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Refills</div>
+                            <div class="input-description-sm">Refills</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Duration" formControlName="spec_duration">
                             </mat-form-field>
 
                             <div fxLayout="column" fxLayoutAlign="start start">
-                                <mat-checkbox class="input-check-sm" formControlName="by_hand">Hand written</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="free_text">Free text</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="drop_down">Drop-down menu</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="by_hand">Hand written</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="free_text">Free text</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="drop_down">Drop-down menu</mat-checkbox>
                             </div>
                             <div fxLayout="column" fxLayoutAlign="start start">
-                                <mat-checkbox class="input-check-sm" formControlName="check_box">Check boxes</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="search">Search on name</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="check_box">Check boxes</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="search">Search on name</mat-checkbox>
                             </div>
                         </div>
                     </div>
                     <div formGroupName="route">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description=pt">Route</div>
+                            <div class="input-description-sm">Route</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Duration" formControlName="spec_duration">
                             </mat-form-field>
                             <div fxLayout="column" fxLayoutAlign="start start">
-                                <mat-checkbox class="input-check-sm" formControlName="by_hand">Hand written</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="free_text">Free text</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="drop_down">Drop-down menu</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="by_hand">Hand written</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="free_text">Free text</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="drop_down">Drop-down menu</mat-checkbox>
                             </div>
                             <div fxLayout="column" fxLayoutAlign="start start">
-                                <mat-checkbox class="input-check-sm" formControlName="check_box">Check boxes</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="search">Search on name</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="check_box">Check boxes</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="search">Search on name</mat-checkbox>
                             </div>
                         </div>
                     </div>
                     <div formGroupName="instructions">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Instructions</div>
+                            <div class="input-description-sm">Instructions</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Duration" formControlName="spec_duration">
                             </mat-form-field>
                             <div fxLayout="column" fxLayoutAlign="start start">
-                                <mat-checkbox class="input-check-sm" formControlName="by_hand">Hand written</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="free_text">Free text</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="drop_down">Drop-down menu</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="by_hand">Hand written</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="free_text">Free text</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="drop_down">Drop-down menu</mat-checkbox>
                             </div>
                             <div fxLayout="column" fxLayoutAlign="start start">
-                                <mat-checkbox class="input-check-sm" formControlName="check_box">Check boxes</mat-checkbox>
-                                <mat-checkbox class="input-check-sm" formControlName="search">Search on name</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="check_box">Check boxes</mat-checkbox>
+                                <mat-checkbox class="input-check" formControlName="search">Search on name</mat-checkbox>
                             </div>
                         </div>
                     </div>

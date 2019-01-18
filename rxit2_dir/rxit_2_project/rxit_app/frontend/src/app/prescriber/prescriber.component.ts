@@ -37,9 +37,11 @@ export class PrescriberComponent implements OnChanges {
 
   prescriberSubs: Subscription;
   roles: Role[] = [
-    { value: 'physician', viewValue: 'Physician' },
-    { value: 'assistant', viewValue: 'Assistant' },
-    { value: 'other', viewValue: 'Other' }
+    { value: 'MD', viewValue: 'Physician' },
+    { value: 'RN', viewValue: 'Nurse' },
+    { value: 'AS', viewValue: 'Assistant' },
+    { value: 'AD', viewValue: 'Office mgr' },
+    { value: 'OT', viewValue: 'Other' }
   ];
 
 
