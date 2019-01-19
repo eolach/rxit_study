@@ -65,7 +65,7 @@
                     </div>
                     <div formGroupName="std_pts">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Standard patient visits (~ 15 mins)</div>
+                            <div class="input-description-tab">Standard patient visits (~ 15 mins)</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -76,7 +76,7 @@
                     </div>
                     <div formGroupName="extend_pts">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Extended patient visits (&gt; 30 mins)</div>
+                            <div class="input-description-tab">Extended patient visits (&gt; 30 mins)</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -87,7 +87,7 @@
                     </div>
                     <div formGroupName="ongoing_pts">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Proportion of patients with ongoing conditions</div>
+                            <div class="input-description-tab">Proportion of patients with ongoing conditions</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -109,7 +109,7 @@
                     </div>
                     <div formGroupName="new_rx">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">New prescriptions</div>
+                            <div class="input-description-tab">New prescriptions</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -120,7 +120,7 @@
                     </div>
                     <div formGroupName="renew_rx">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Prescriptions renewed</div>
+                            <div class="input-description-tab">Prescriptions renewed</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -131,7 +131,7 @@
                     </div>
                     <div formGroupName="auto_renew_rx">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">Renewals authorized by fax</div>
+                            <div class="input-description-tab">Renewals authorized by fax</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -142,7 +142,7 @@
                     </div>
                     <div formGroupName="poly_rx">
                         <div fxLayout="row" class="form-group">
-                            <div class="input-description-pt">More than one drug on prescription</div>
+                            <div class="input-description-tab">More than one drug on prescription</div>
                             <mat-form-field class="input-number">
                                 <input matInput placeholder="Daily" formControlName="num_daily">
                             </mat-form-field>
@@ -236,7 +236,7 @@
                         <div fxLayout="row" class="form-group">
                             <div class="input-description">Receive and process messages from dispensary</div>
                             <mat-form-field class="input-role">
-                                <select matNativeControl required>
+                                <select matNativeControl formControlName="comm_role" required>
                                     <option value="MD">Physician</option>
                                     <option value="RN">Nurse</option>
                                     <option value="AS">Assistant</option>
@@ -263,7 +263,7 @@
                         <div fxLayout="row" class="form-group">
                             <div class="input-description">Process messages authorized by physician</div>
                             <mat-form-field class="input-role">
-                                <select matNativeControl required>
+                                <select matNativeControl formControlName="comm_role" required>
                                     <option value="MD">Physician</option>
                                     <option value="RN">Nurse</option>
                                     <option value="AS">Assistant</option>

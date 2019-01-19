@@ -11,7 +11,11 @@ import { Dispenser,
     RxReview,
     RxComm } from './dispenser.model';
 import { UserHttpService } from '../data/user_http.service';
-import { FormBuilder, FormGroup, FormControl, RequiredValidator, Validators } from '@angular/forms';
+import { FormBuilder,
+      FormGroup,
+      FormControl,
+      RequiredValidator,
+      Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dispenser',

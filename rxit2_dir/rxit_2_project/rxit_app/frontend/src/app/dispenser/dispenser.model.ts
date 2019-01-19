@@ -58,27 +58,27 @@ export class RxStats {
 
 export class RxProcess {
     pk = 0;
-    new_patient_time = 0;
-    new_rx_time = 0;
-    repeat_rx_time = 0;
-    pharmacist = false;
-    reg_tech = false;
-    unreg = false;
+    num_new_pt = 0;
+    num_new_rx = 0;
+    num_rpt_rx = 0;
+    pharm_ip = false;
+    reg_ip = false;
+    unreg_ip = false;
 }
 
 export class RxReview {
     pk = 0;
-    discuss_before = 0;
-    discuss_after = 0;
-    discuss_role = 'Pharmacist';
-    discuss_notes = '';
+    before_rx = 0;
+    after_rx = 0;
+    discuss_role = 'AS';
+    review_notes = '';
 }
 
 export class RxComm {
     pk = 0;
-    duration = 0;
-    frequency = 0;
-    elapsed_time = 0;
+    daily_duration = 0;
+    daily_freq = 0;
+    daily_elapsed = 0;
     by_fax = false;
     by_phone = false;
     by_dm = false;

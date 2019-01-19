@@ -102,7 +102,7 @@ textarea {
 }
 
 .input-description-pt{
-  width: 25em;
+  width: 300px;
   margin-right: 8px;
 } 
 
@@ -111,16 +111,23 @@ textarea {
   margin-right: 8px;
   /* font-weight: bold; */
 } 
+.input-description-tab{
+  width: 300px;
+  margin-right: 8px;
+  padding-left: 50px;
+  /* font-weight: bold; */
+} 
 .input-description-sm{
   width: 10em;
   padding-right: 3em;
   /* font-weight: bold; */
 } 
 
+
 .input-number-extra { 
   width: 100px;
   /* min-width: 250px; */
-  margin-right: 5em;
+  margin-right: 1em;
   /*border: 3px solid rgb(0, 255, 64);*/
 }
 

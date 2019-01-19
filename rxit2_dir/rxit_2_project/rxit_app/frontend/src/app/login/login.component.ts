@@ -138,12 +138,22 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
+    this.username = null;
+    // this.user = {
+    //   username: '',
+    //   password: '',
+    //   participant_name: '',
+    //   participant_type: '',
+    //   participant_index: 0
+    // };
+    // this.loginForm.patchValue(this.user);
     this._userService.token = null;
     this.selectedDispenser = null;
     this.selectedPrescriber = null;
     this.loading = false;
     this.statusMessage = 'Please login with your assigned username and password';
-
+    this.loginForm.reset();
+    this.loginForm.markAsUntouched();
   }
 
   private resolveParticipant(type: string, index: number, ) {
