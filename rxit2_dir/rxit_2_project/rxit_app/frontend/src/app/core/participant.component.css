@@ -58,6 +58,7 @@ textarea {
 
 .card-header-text{
   max-width: 60%;
+  margin: auto;
   margin-bottom: 1em;
   font-style: italic;
   border:2px solid gray;

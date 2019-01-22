@@ -52,6 +52,11 @@
                         <mat-panel-title>What patterns do you see in patient visits?</mat-panel-title>
                         <mat-panel-description>Please provide actual or estimated statistics</mat-panel-description>
                     </mat-expansion-panel-header>
+                    <div class="card-header-text" fxLayout="center center">How many patients do you see
+                        in an average day? How many in an average week?
+                        <br>Of these, how many have extended visits?
+                        <br>How many are you following for ongoing conditions?
+                    </div>
                     <div formGroupName="total_pts">
                         <div fxLayout="row" class="form-group">
                             <div class="input-description-pt">Total patient visits</div>
@@ -184,6 +189,10 @@
                             Please provide actual or estimated statistics
                         </mat-panel-description>
                     </mat-expansion-panel-header>
+                    <div class="card-header-text" fxLayout="center center">
+                        There are several ways of providing the prescription to your patients for dispensing.
+                        <br>What fraction of prescriptions are delivered in these ways?
+                    </div>
                     <div formGroupName="printed_rx">
                         <div fxLayout="row" class="form-group">
                             <mat-checkbox class="input-check-vsm" formControlName="method_del"></mat-checkbox>
@@ -232,7 +241,12 @@
                             Who looks after communications with dispensaries?
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <div formGroupName="receive_msg">
+                    <div class="card-header-text" fxLayout="center center">
+                            Messages regarding prescriptions are regularly exchanged with pharmacies, 
+                            usually by fax, and occasionally by phone. 
+                            <br>How often are these messages managed and by whom, both incoming and outgoing?
+                        </div>
+                        <div formGroupName="receive_msg">
                         <div fxLayout="row" class="form-group">
                             <div class="input-description">Receive and process messages from dispensary</div>
                             <mat-form-field class="input-role">
@@ -297,6 +311,11 @@
                             Please estimate frequency, duration and methods used.
                         </mat-panel-description>
                     </mat-expansion-panel-header>
+                    <div class="card-header-text" fxLayout="center center">
+                            As you consider which medications to prescribe, 
+                            how often do you consult these sources?
+                            <br>Where do you find the information you need? (Please check all that apply)
+                        </div>
                     <div formGroupName="pat_hx">
                         <div fxLayout="row" class="form-group">
                             <div class="input-description-pt">Review patient's medication history</div>
@@ -376,6 +395,11 @@
                             Please estimate duration and methods used.
                         </mat-panel-description>
                     </mat-expansion-panel-header>
+                    <div class="card-header-text" fxLayout="center center">
+                            When you prepare the actual prescription for your patient, 
+                            you provide details to guide the pharmacist in preparing the mdeications.
+                            <br>How do you specify those details of a prescription?
+                        </div>
                     <div formGroupName="drug_name">
                         <div fxLayout="row" class="form-group">
                             <div class="input-description-sm">Drug name</div>
