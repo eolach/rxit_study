@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
         },
         err => {
           this.loading = false;
-          this.statusMessage = 'Login failed. /nPlease check password and try again.';
+          this.statusMessage = 'Login failed. Please check username and password and try again.';
           this.errors = err['error'];
           console.log(this.errors);
         }

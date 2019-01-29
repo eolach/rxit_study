@@ -7,7 +7,7 @@
       <br>You may return to this page as often as you wish.
     </div>
     <div style="margin-bottom: 1em">
-      <button type="submit" [disabled]="dispenserForm.pristine || dispenserForm.invalid"class="btn btn-success">Save</button>
+      <button type="submit" [disabled]="dispenserForm.pristine"class="btn btn-success">Save</button>
       &nbsp;
       <button type="button" (click)="revert()" [disabled]="dispenserForm.pristine" class="btn btn-danger">Revert</button>
     </div>
