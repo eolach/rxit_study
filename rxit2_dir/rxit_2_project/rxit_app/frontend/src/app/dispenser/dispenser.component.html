@@ -1,15 +1,15 @@
 <!-- [disabled]="dispenserForm.pristine || dispenserForm.invalid" -->
 <form [formGroup]="dispenserForm" (ngSubmit)="onSubmit()">
   <div fxLayout="column" fxLayoutAlign="center center">
-    <div>Select to open each section.
-      <br>Please enter or revise data when available.
+    <div class="card-header-text" >Click on each section below to open its survey panel.
+      <br>Please enter or revise data as needed.
       <br>Save data when ready, or revert to continue with existing data.
       <br>You may return to this page as often as you wish.
     </div>
     <div style="margin-bottom: 1em">
-      <button type="submit" class="btn btn-success">Save</button>
+      <button type="submit" [disabled]="dispenserForm.pristine || dispenserForm.invalid"class="btn btn-success">Save</button>
       &nbsp;
-      <button type="button" (click)="revert()" [disabled]="dispenserForm.pristine || dispenserForm.invalid" class="btn btn-danger">Revert</button>
+      <button type="button" (click)="revert()" [disabled]="dispenserForm.pristine" class="btn btn-danger">Revert</button>
     </div>
     <div class="main-content">
       <mat-accordion>
