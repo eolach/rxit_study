@@ -1,0 +1,212 @@
+[
+{
+  "model": "rxit_app.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$LQ1yD3dprVS4$CRMbjfJ7mtAXWvl+xA73Vz004R0HJcs5VM9WXXTOcj4=",
+    "last_login": "2019-01-14T16:32:01.244Z",
+    "is_superuser": true,
+    "username": "heng",
+    "first_name": "",
+    "last_name": "",
+    "email": "heng@eolas.ca",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2018-12-12T19:27:18.801Z",
+    "participant_name": "",
+    "participant_type": "",
+    "participant_index": 0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$dTcTQrI1NvBd$10sbralDOXYUr0Br0YOdPRHcMGxgjoNaCi7oCO6rAnM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "woodsrx",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-12T19:28:59.438Z",
+    "participant_name": "Woods Dispensary",
+    "participant_type": "dispenser",
+    "participant_index": 3,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$BoaxBM2Z5mXP$SpBh4TtSBdAhr3jDdPrkuT58bMPbg59kfvZYwvNgcHY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "campusrx",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-19T14:02:57.708Z",
+    "participant_name": "Campus Pharmacy",
+    "participant_type": "dispenser",
+    "participant_index": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$srUOh1S7dln9$i7884WAdGrJuSGsH5uN/KVi3LVIWOe5SeGxKerZOK2Y=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "wlincolnrx",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-19T14:03:25.160Z",
+    "participant_name": "West Lincoln Pharmacy",
+    "participant_type": "dispenser",
+    "participant_index": 2,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$1Mvgos1v6FNR$U0XxVT0LyHvUMOpbBxWgBUXTndEQTJHOg9I5VuQcYFk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "maplelandrx",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-19T14:04:09.173Z",
+    "participant_name": "Mapleland IDA",
+    "participant_type": "dispenser",
+    "participant_index": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$XwmPhbDbBpFw$3XOT9msJDdMzJoDRPGdPW9fLO03M/q5vzELCicnT8qo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ambis",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-19T14:04:54.924Z",
+    "participant_name": "Ambis & Jones Family Medicine",
+    "participant_type": "prescriber",
+    "participant_index": 2,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$5P9noRHjzdIn$qEoBpQqH7zWSNWWe+9zDEIOpx0J4OU0L4y2y7KtSO1A=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "harbourfront",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-19T14:05:29.562Z",
+    "participant_name": "Harbourfront Medical Group",
+    "participant_type": "prescriber",
+    "participant_index": 1,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$R38cAsrBFwGT$ZqKfNMT91xflDluu5DEwAddIsbNeHPTeE2IB0E6FQSY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "lbcollege",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-19T14:06:06.087Z",
+    "participant_name": "Lethbridge College",
+    "participant_type": "prescriber",
+    "participant_index": 3,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$QSIsy6AJGmBI$rdLN6sZzJWjutw5NS/EF2ObiW74JZRSyxNyKfSoOmLk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "southgate",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-19T14:06:42.449Z",
+    "participant_name": "Southgate Medical Centre",
+    "participant_type": "prescriber",
+    "participant_index": 4,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "rxit_app.customuser",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$BnFztZ51mYst$mcwBGmOSIZiXzLSlVNyF2YGzCEiptSx6ew08SoK6/i0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "nsisi",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2018-12-19T14:07:19.153Z",
+    "participant_name": "Nsisi Medical Centre",
+    "participant_type": "prescriber",
+    "participant_index": 5,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
