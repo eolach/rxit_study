@@ -56,3 +56,7 @@ tests/coverage_html/
 tests/.coverage
 build/
 tests/report/
+rxit2_dir/rxit_2_project/rxit_app/frontend
+
+# omit transfers between sties
+transfer
