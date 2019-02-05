@@ -4,24 +4,25 @@ mat-form-field{
 }
 
 .mat-expansion-panel-header {
-  background: rgb(213, 219, 253)
+  background: rgb(179, 178, 252)
 }
 
 .mat-expansion-panel-header.hover {
-  background: rgb(48, 58, 116)
+  background: rgb(112, 112, 173)
 }
 
 .mat-expanded { 
-  background: rgb(255, 255, 255)
+  background: rgb(226, 225, 248);
+  border:2px solid gray;
 }
 
 .mat-expansion-panel-header.mat-expanded { 
-  background: rgb(184, 188, 212)
+  background: rgb(201, 210, 250)
 }
 
 
 .mat-expansion-panel-header.mat-expanded:hover {
-  background: rgb(206, 207, 216)
+  background: rgb(134, 138, 173)
 } */
 
 html,
@@ -61,7 +62,7 @@ textarea {
   margin: auto;
   margin-bottom: 1em;
   font-style: italic;
-  border:2px solid gray;
+  /* border:2px solid gray; */
 }
 
 @media (max-width: 768px) {
