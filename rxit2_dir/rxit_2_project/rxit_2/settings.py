@@ -31,7 +31,9 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'www.rxitstudy.com',
-    'rxitstudy.com'
+    'rxitstudy.com',
+    'symulationstage.com',
+    'www.symulationstage.com'
 ]
 
 
