@@ -76,14 +76,29 @@ export class UserHttpService {
 
   getDispenser(id: number): Observable<Dispenser> {
     console.log('Getting dispenser index ', id);
-    const url = `/api/dispensers/${id}`;
-    return this.http.get<Dispenser>(url);
+    const _token = 'JWT ' + this.token;
+    console.log('Using token ', this.token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT ' + this.token
+      })
+    };
+    const url = `/api/dispenser/${id}`;
+    return this.http.get<Dispenser>(url, httpOptions);
   }
 
   getPrescriber(id: number): Observable<Prescriber> {
     console.log('Getting prescriber index ', id);
-    const url = `/api/prescribers/${id}`;
-    return this.http.get<Prescriber>(url);
+    const _token = 'JWT ' + this.token;
+    console.log('Using token ', this.token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT ' + this.token
+      })
+    };const url = `/api/prescriber/${id}`;
+    return this.http.get<Prescriber>(url, httpOptions);
 
   }
 
@@ -97,7 +112,7 @@ export class UserHttpService {
         'Authorization': 'JWT ' + this.token
       })
     };
-    const url = `/api/prescribers/${prescriber.pk}`;
+    const url = `/api/prescriber/${prescriber.pk}`;
     console.log('about to patch prescriber: ', prescriber);
     return of(this.http.put(url, prescriber, httpOptions)
       .subscribe(
@@ -117,7 +132,7 @@ export class UserHttpService {
         'Authorization': 'JWT ' + this.token
       })
     };
-    const url = `/api/dispensers/${dispenser.pk}`;
+    const url = `/api/dispenser/${dispenser.pk}`;
     console.log('about to patch dispenser: ', dispenser);
     return of(this.http.put(url, dispenser, httpOptions)
       .subscribe(
