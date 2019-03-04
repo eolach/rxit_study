@@ -150,7 +150,7 @@ export class PrescriberComponent implements OnChanges {
           console.log('Error: ', this.errors);
         }
       );
-    // this.rebuildForm();
+      this.prescriberForm.markAsPristine();
   }
 
   preparePrescriber(): Prescriber {
@@ -169,6 +169,7 @@ export class PrescriberComponent implements OnChanges {
   revert() {
     console.log('reverting');
     this.rebuildForm();
+    this.prescriberForm.markAsPristine();
   }
 
   goBack(): void {

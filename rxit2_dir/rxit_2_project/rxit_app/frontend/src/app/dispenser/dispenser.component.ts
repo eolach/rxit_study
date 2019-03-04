@@ -126,7 +126,8 @@ export class DispenserComponent implements OnChanges {
           console.log('Error: ', this.errors);
         }
       );
-    // this.rebuildForm();
+
+      this.dispenserForm.markAsPristine();
   }
 
   // Preparing the layers of data for submission to the server
@@ -147,6 +148,7 @@ export class DispenserComponent implements OnChanges {
   revert()  {
     console.log('reverting');
     this.rebuildForm();
+    this.dispenserForm.markAsPristine();
   }
 
   // Not sure why we have this...
