@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
+import { isNumeric } from 'rxjs/util/isNumeric';
+import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
+
 
 @Injectable()
 export class UserService {
@@ -26,4 +30,11 @@ export class UserService {
     this.username = token_decoded.username;
     console.log('token ', this.token);
   }
+}
+
+export function ValidateNumber(control: AbstractControl) {
+  if ((isNumeric(control.value)) || (control.value === '0')) {
+    return null;
+  }
+  return {ValidNumber: true};
 }
