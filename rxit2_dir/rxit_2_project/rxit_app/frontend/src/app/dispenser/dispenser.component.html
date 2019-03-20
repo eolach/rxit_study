@@ -2,15 +2,16 @@
 <form [formGroup]="dispenserForm" (ngSubmit)="onSubmit()">
   <div fxLayout="column" fxLayoutAlign="center center">
     <div class="card-header-text" >Click on each section below to open its survey panel.
-      <br>Please enter or revise data as needed.
+      <br>Please enter or revise data as needed. Note that most data is in numeric format.
+      <br>Except for notes, all fields require a valid input. This may include a zero (0.0) value.
       <br>Save data when ready, or revert to continue with existing data.
-      <br>You may return to this page as often as you wish.
-    </div>
+      <br>You may return to this page as often as you wish.    </div>
     <div style="margin-bottom: 1em">
-      <button type="submit" [disabled]="dispenserForm.pristine"class="btn btn-success">Save</button>
-      &nbsp;
-      <button type="button" (click)="revert()" [disabled]="dispenserForm.pristine" class="btn btn-danger">Revert</button>
-    </div>
+            <button type="submit" [disabled]="dispenserForm.pristine || dispenserForm.invalid" class="btn btn-success">Save</button>
+            &nbsp;
+            <button type="button" (click)="revert()" [disabled]="dispenserForm.pristine"
+                class="btn btn-danger">Revert</button>
+        </div>
     <div class="main-content">
       <mat-accordion>
         <!--  -->
@@ -39,14 +40,16 @@
             </div>
             <div formGroupName="numbers" fxLayout="column">
               <mat-form-field class="input-text">
-                <input matInput id="num_pharm" placeholder="Number of pharmacists" formControlName="num_pharmacists"
-                  required>
+                <input matInput id="num_pharm" placeholder="Number of pharmacists" formControlName="num_pharmacists">
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-text">
                 <input matInput placeholder="Number of registered techs" formControlName="num_reg_tech">
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-text">
                 <input matInput placeholder="Number of assistants" formControlName="num_unreg">
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -75,15 +78,20 @@
               <div class="input-description">Total prescriptions received - all patients</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Morning" formControlName="num_am" />
+                <mat-hint>Enter a valid number</mat-hint>
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Afternoon" formControlName="num_pm" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Evening" formControlName="num_evng" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Weekend" formControlName="num_wend" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -92,15 +100,19 @@
               <div class="input-description">Walk-in patients with printed prescriptions</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Morning" formControlName="num_am" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Afternoon" formControlName="num_pm" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Evening" formControlName="num_evng" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Weekend" formControlName="num_wend" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -109,15 +121,19 @@
               <div class="input-description">Prescriptions arriving by fax from prescriber</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Morning" formControlName="num_am" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Afternoon" formControlName="num_pm" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Evening" formControlName="num_evng" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Weekend" formControlName="num_wend" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -126,15 +142,19 @@
               <div class="input-description">Prescriptions phoned in by prescriber</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Morning" formControlName="num_am" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Afternoon" formControlName="num_pm" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Evening" formControlName="num_evng" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Weekend" formControlName="num_wend" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -143,15 +163,19 @@
               <div class="input-description">Prescriptions phoned in by prescriber</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Morning" formControlName="num_am" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Afternoon" formControlName="num_pm" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Evening" formControlName="num_evng" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Weekend" formControlName="num_wend" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -160,15 +184,19 @@
               <div class="input-description">Patients seen for the first time at this dispensary</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Morning" formControlName="num_am" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Afternoon" formControlName="num_pm" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Evening" formControlName="num_evng" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Weekend" formControlName="num_wend" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -197,12 +225,15 @@
               <div class="input-description">how long does it take (in minutes) to initiate a prescription?</div>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="New patient" formControlName="num_new_pt" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="New Rx, returning pt." formControlName="num_new_rx" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="Repeat prescription" formControlName="num_rpt_rx" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
             </div>
             <div fxLayout="row" class="form-group">
@@ -232,9 +263,11 @@
               <div class="input-description-sm">New patient</div>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="% filling" formControlName="before_rx" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="% on completion" formControlName="after_rx" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-role">
                 <select matNativeControl required>
@@ -250,9 +283,11 @@
               <div class="input-description-sm">New prescription</div>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="% filling" formControlName="before_rx" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="% on completion" formControlName="after_rx" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-role">
                 <select matNativeControl required>
@@ -268,9 +303,11 @@
               <div class="input-description-sm">Repeat prescription</div>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="% filling" formControlName="before_rx" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number-extra">
                 <input matInput placeholder="% on completion" formControlName="after_rx" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-role">
                 <select matNativeControl required>
@@ -308,12 +345,15 @@
               <div class="input-description">Illegible text</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Daily duration" formControlName="daily_duration" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Frequency" formControlName="daily_freq" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="daily_elapsed" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <div fxLayout="column" fxLayoutAlign="start start">
                 <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
@@ -327,12 +367,15 @@
               <div class="input-description">Incomplete information</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Daily duration" formControlName="daily_duration" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Frequency" formControlName="daily_freq" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="daily_elapsed" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <div fxLayout="column" fxLayoutAlign="start start">
                 <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
@@ -346,12 +389,15 @@
               <div class="input-description">Clarification question</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Daily duration" formControlName="daily_duration" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Frequency" formControlName="daily_freq" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="daily_elapsed" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <div fxLayout="column" fxLayoutAlign="start start">
                 <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
@@ -365,12 +411,15 @@
               <div class="input-description">Advice of change by pharmacist</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Daily duration" formControlName="daily_duration" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Frequency" formControlName="daily_freq" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="daily_elapsed" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <div fxLayout="column" fxLayoutAlign="start start">
                 <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
@@ -384,12 +433,15 @@
               <div class="input-description">Authorize renewal</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Daily duration" formControlName="daily_duration" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Frequency" formControlName="daily_freq" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="daily_elapsed" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <div fxLayout="column" fxLayoutAlign="start start">
                 <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
@@ -403,12 +455,15 @@
               <div class="input-description">Cancel prescription</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Daily duration" formControlName="daily_duration" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Frequency" formControlName="daily_freq" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="daily_elapsed" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <div fxLayout="column" fxLayoutAlign="start start">
                 <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>
@@ -422,12 +477,15 @@
               <div class="input-description">Consult with physician</div>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Daily duration" formControlName="daily_duration" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Frequency" formControlName="daily_freq" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <mat-form-field class="input-number">
                 <input matInput placeholder="Elapsed time" formControlName="daily_elapsed" />
+                <mat-error>Enter a valid number</mat-error>
               </mat-form-field>
               <div fxLayout="column" fxLayoutAlign="start start">
                 <mat-checkbox class="input-check" formControlName="by_fax">fax</mat-checkbox>

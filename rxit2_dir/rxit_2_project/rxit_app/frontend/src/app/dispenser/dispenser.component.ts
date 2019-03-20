@@ -1,7 +1,8 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
+import { ValidateNumber } from '../core/user.service';
 
 import { Dispenser,
     Description,
@@ -23,7 +24,7 @@ import { FormBuilder,
   styleUrls: ['../core/participant.component.css']
 })
 
-export class DispenserComponent implements OnChanges {
+export class DispenserComponent implements OnInit {
   @Input() dispenser: Dispenser;
   dispenserSubs: Subscription;
   panelOpenState = false;
@@ -72,39 +73,87 @@ export class DispenserComponent implements OnChanges {
       stats_notes: [''],
       numbers: this.fb.group({
         pk: [0, ],
-        num_pharmacists: [0, ],
-        num_reg_tech: [0, Validators.required],
-        num_unreg: [0, Validators.required],
-        pm_system: ['', Validators.required]
+        num_pharmacists: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+        num_reg_tech: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+        num_unreg: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+        pm_system: ['', ]
       }),
 
-      total_rx: this.fb.group(new RxStats()),
-      walkin_rx: this.fb.group(new RxStats()),
-      faxed_rx: this.fb.group(new RxStats()),
-      phoned_rx: this.fb.group(new RxStats()),
-      e_prescribe_rx: this.fb.group(new RxStats()),
-      new_patients: this.fb.group(new RxStats()),
+      total_rx: this.makeStatsGroup(),
+      walkin_rx: this.makeStatsGroup(),
+      faxed_rx: this.makeStatsGroup(),
+      phoned_rx: this.makeStatsGroup(),
+      e_prescribe_rx: this.makeStatsGroup(),
+      new_patients: this.makeStatsGroup(),
 
-      rx_process: this.fb.group(new RxProcess()),
+      rx_process: this.makeProcessGroup(),
 
-      review_new_pt: this.fb.group(new RxReview()),
-      review_new_rx: this.fb.group(new RxReview()),
-      review_rpt_rx: this.fb.group(new RxReview()),
+      review_new_pt: this.makeReviewGroup(),
+      review_new_rx: this.makeReviewGroup(),
+      review_rpt_rx: this.makeReviewGroup(),
       review_notes: [''],
 
-      comm_illegible: this.fb.group(new RxComm()),
-      comm_incomplete: this.fb.group(new RxComm()),
-      comm_dose: this.fb.group(new RxComm()),
-      comm_advise: this.fb.group(new RxComm()),
-      comm_renewal: this.fb.group(new RxComm()),
-      comm_cancel: this.fb.group(new RxComm()),
-      comm_consult: this.fb.group(new RxComm()),
+      comm_illegible: this.makeCommGroup(),
+      comm_incomplete: this.makeCommGroup(),
+      comm_dose: this.makeCommGroup(),
+      comm_advise: this.makeCommGroup(),
+      comm_renewal: this.makeCommGroup(),
+      comm_cancel: this.makeCommGroup(),
+      comm_consult: this.makeCommGroup(),
     });
+  }
+
+  makeStatsGroup() {
+    const statsGroup = this.fb.group({
+      pk: [0],
+      num_am: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      num_pm: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      num_evng: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      num_wend: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]]
+    });
+    return statsGroup;
+  }
+
+  makeProcessGroup() {
+    const processGroup = this.fb.group({
+      pk: [0],
+      num_new_pt: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      num_new_rx: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      num_rpt_rx: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      pharm_ip: ['false'],
+      reg_ip: ['false'],
+      unreg_ip: ['false'],
+    });
+    return processGroup;
+  }
+
+  makeReviewGroup() {
+    const reviewGroup = this.fb.group({
+      pk: [0],
+      before_rx: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      after_rx: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      discuss_role: ['AS'],
+      review_notes: ['']
+    });
+    return reviewGroup;
+  }
+
+  makeCommGroup() {
+    const commGroup = this.fb.group({
+      pk: [0],
+      daily_duration: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      daily_freq: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      daily_elapsed: [0, [Validators.required, ValidateNumber, Validators.min(0), Validators.minLength(1)]],
+      by_fax: ['false'],
+      by_phone: ['false'],
+      by_dm: ['false'],
+    });
+    return commGroup;
   }
 
   // Form is (re)populated whenever a change happens to the component inputs
   // In this case, the Dispenser instance is the only input
-  ngOnChanges(): void {
+  ngOnInit(): void {
     console.log('ngOnChanges');
     this.rebuildForm();
   }
