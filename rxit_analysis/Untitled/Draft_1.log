@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.2)  18 MAR 2019 15:02
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.9.2)  21 MAR 2019 16:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -826,7 +826,7 @@ ex-text;"
 )
 
 LaTeX Warning: Unused global option(s):
-    [10,letterpaperpaper].
+    [10].
 
 (./Draft_1.aux)
 \openout1 = `Draft_1.aux'.
@@ -923,19 +923,19 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
 * driver: xetex
-* paper: <default>
+* paper: letterpaper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(71.13188pt, 472.03123pt, 71.13188pt)
-* v-part:(T,H,B)=(34.14322pt, 726.68355pt, 34.14322pt)
+* h-part:(L,W,R)=(62.59596pt, 480.56715pt, 71.13188pt)
+* v-part:(T,H,B)=(35.56593pt, 725.26083pt, 34.14322pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=472.03123pt
-* \textheight=659.68355pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-38.12677pt
+* \textwidth=480.56715pt
+* \textheight=658.26083pt
+* \oddsidemargin=-9.67403pt
+* \evensidemargin=-9.67403pt
+* \topmargin=-36.70406pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -957,14 +957,8 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 16.
 ABD: EveryShipout initializing macros
-File: HealthEngineerLogo.png Graphic file (type QTm)
-<use  "HealthEngineerLogo.png" >
-
-Package Fancyhdr Warning: \footskip is too small (30.0pt): 
- Make it at least 75.27165pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
+File: logo.png Graphic file (type QTm)
+<use  "logo.png" >
 File: cover.png Graphic file (type QTm)
 <use  "cover.png" > [1
 
@@ -980,22 +974,22 @@ LaTeX Font Warning: Font shape `EU1/Lato-Black.ttf(0)/bx/n' undefined
 \tf@toc=\write4
 \openout4 = `Draft_1.toc'.
 
-File: HealthEngineerLogo.png Graphic file (type QTm)
-<use  "HealthEngineerLogo.png" >
+File: logo.png Graphic file (type QTm)
+<use  "logo.png" >
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 78.87169pt.
+ Make it at least 21.18571pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [2
 
 ]
-File: HealthEngineerLogo.png Graphic file (type QTm)
-<use  "HealthEngineerLogo.png" >
+File: logo.png Graphic file (type QTm)
+<use  "logo.png" >
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 78.87169pt.
+ Make it at least 21.18571pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -1003,11 +997,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ] 
 AED: lastpage setting LastPage
-File: HealthEngineerLogo.png Graphic file (type QTm)
-<use  "HealthEngineerLogo.png" >
+File: logo.png Graphic file (type QTm)
+<use  "logo.png" >
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 78.87169pt.
+ Make it at least 21.18571pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -1017,12 +1011,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 25409 strings out of 493589
- 510993 string characters out of 6143513
- 516339 words of memory out of 5000000
- 28490 multiletter control sequences out of 15000+600000
+ 25407 strings out of 493589
+ 510921 string characters out of 6143513
+ 516222 words of memory out of 5000000
+ 28489 multiletter control sequences out of 15000+600000
  4270 words of font info for 38 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 59i,16n,64p,10458b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,16n,64p,10459b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Draft_1.pdf (4 pages).

@@ -3,13 +3,13 @@ title: PrescribeIT Baseline Study
 author: Dr. Neil McEvoy 
 date: \today
 params:
-  logo: HealthEngineerLogo.png
+  logo: logo.png
   cover: cover.png
   iblue: 2b4894
   igray: d4dbde
 documentclass: article
 fontsize: 10
-papersize: letterpaper
+papersize: letter
 output: 
   IReports::businessReport:
     keep_tex: TRUE
@@ -21,8 +21,8 @@ header-includes:
   - \newcommand{\iblue}{`r params$iblue`}
   - \newcommand{\igray}{`r params$igray`}
 include-before:
-  - \renewcommand{\contentsname}{Inhaltsverzeichnis}
-  - \renewcommand{\pagename}{Seite}
+  - \renewcommand{\contentsname}{Contents}
+  - \renewcommand{\pagename}{Page}
 ---
 
 
@@ -39,7 +39,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 \maketitle
 \tableofcontents
-\addcontentsline{toc}{section}{Contents}
+\addcontentsline{toc}{section}{Table of contents}
 \clearpage
 
 \section{Background to the Study}
@@ -62,16 +62,12 @@ The phase uses indicator sets developed in light of the findings of the initial 
 
 The indicators were assembled as a secure website designed for secure yet easy access.
 
-The idnicators are shown in the following tables
+The indicators are shown in the following tables
 
 \section{Phase 2 Baseline Findings}
 
-
-
-The following figures illustrate the base line indicators.
-
 ```{r results = "asis"}
-tab <- xtable(head(iris, n = 20), align = "|C|C|C|C|C|C|")
+tab <- xtable(head(iris, n = 20), align = "|C|C|C|C|C|C|", caption="List of sites")
 
 addtorow <- list()
 addtorow$pos <- list()
