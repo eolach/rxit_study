@@ -170,9 +170,12 @@ export class DispenserComponent implements OnInit {
     this.dispenserService.updateDispenser(
       this.dispenser)
       .subscribe(
-        err => {
-          this.errors = err['error'];
-          console.log('Error: ', this.errors);
+        // err => {
+        //   this.errors = err['error'];
+        //   console.log('Error: ', this.errors);
+        // }
+        data => {
+          console.log('Updaed record: ', data);
         }
       );
 

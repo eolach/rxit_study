@@ -469,9 +469,12 @@ var UserHttpService = /** @class */ (function () {
         var url = "/api/dispenser/" + dispenser.pk;
         console.log('about to patch dispenser: ', dispenser);
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(this.http.put(url, dispenser, httpOptions)
-            .subscribe(function (data) {
-            console.log('put returned ', data);
-        }));
+        // .subscribe(
+        //   data => {
+        //     console.log('put returned ', data);
+        //   }
+        // )
+        );
     };
     UserHttpService.prototype.refreshToken = function () { };
     UserHttpService.prototype.logout = function () { };
@@ -649,13 +652,16 @@ var DispenserComponent = /** @class */ (function () {
     };
     // Functions called from the form in the template
     DispenserComponent.prototype.onSubmit = function () {
-        var _this = this;
         this.dispenser = this.prepareDispenser();
         console.log('Submitting ', this.dispenser);
         this.dispenserService.updateDispenser(this.dispenser)
-            .subscribe(function (err) {
-            _this.errors = err['error'];
-            console.log('Error: ', _this.errors);
+            .subscribe(
+        // err => {
+        //   this.errors = err['error'];
+        //   console.log('Error: ', this.errors);
+        // }
+        function (data) {
+            console.log('Updaed record: ', data);
         });
         this.dispenserForm.markAsPristine();
     };
