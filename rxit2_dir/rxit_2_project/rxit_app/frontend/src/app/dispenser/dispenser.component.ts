@@ -84,7 +84,7 @@ export class DispenserComponent implements OnInit {
       faxed_rx: this.makeStatsGroup(),
       phoned_rx: this.makeStatsGroup(),
       e_prescribe_rx: this.makeStatsGroup(),
-      new_patients: this.makeStatsGroup(),
+      new_pt: this.makeStatsGroup(),
 
       rx_process: this.makeProcessGroup(),
 
