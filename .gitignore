@@ -58,10 +58,10 @@ build/
 tests/report/
 rxit2_dir/rxit_2_project/rxit_app/frontend
 
-# omit transfers between sties
+# omit transfers between sites
 transfer
 .ssh
 rxitstudy.code-workspace
 rxit_study_db_1
 .Rproj.user
-Phase 2 report
+Phase2report
