@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-# SECRET_KEY='cd48e1c22de0961d5d1bfb14f8a66e006cfb1cfbf3f0c0f3'
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY='cd48e1c22de0961d5d1bfb14f8a66e006cfb1cfbf3f0c0f3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG')
-# DEBUG = True
+# DEBUG = os.environ.get('DJANGO_DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -147,8 +147,13 @@ STATICFILES_DIRS = [
 # jwt within rest framework# 
 # 
 REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        # 'rest_framework.permissions.IsAdminUser',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
