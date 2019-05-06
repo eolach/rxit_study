@@ -23,10 +23,10 @@ class Numbers(models.Model):
     num_am = models.DecimalField(max_digits=4, decimal_places=1, default=0)
 # RxStats
 class RxStats(models.Model):
-    num_am = models.DecimalField(max_digits=4, decimal_places=1, default=0)
-    num_pm = models.DecimalField(max_digits=4, decimal_places=1, default=0)
-    num_evng = models.DecimalField(max_digits=4, decimal_places=1, default=0)
-    num_wend = models.DecimalField(max_digits=4, decimal_places=1, default=0) 
+    num_am = models.DecimalField(max_digits=4, decimal_places=1, default=0.0)
+    num_pm = models.DecimalField(max_digits=4, decimal_places=1, default=0.0)
+    num_evng = models.DecimalField(max_digits=4, decimal_places=1, default=0.0)
+    num_wend = models.DecimalField(max_digits=4, decimal_places=1, default=0.0) 
     stats_notes = models.CharField(max_length=300, blank=True, default='')
 
 # RxProcess
@@ -86,6 +86,12 @@ class Dispenser(models.Model):
         RxStats,
         related_name='phoned_rx',
         on_delete=models.CASCADE,
+    ) 
+    new_pt  = models.ForeignKey(
+        RxStats,
+        related_name='new_pt',
+        on_delete=models.CASCADE,
+        null=True,
     ) 
     rx_process = models.OneToOneField(
         RxProcess,
@@ -225,6 +231,7 @@ class DispenserSerializer(WritableNestedModelSerializer):
     faxed_rx = RxStatsSerializer()
     e_prescribe_rx = RxStatsSerializer()
     phoned_rx = RxStatsSerializer()
+    new_pt = RxStatsSerializer()
     rx_process = RxProcessSerializer()
     review_new_pt = RxReviewSerializer()
     review_new_rx = RxReviewSerializer()
@@ -250,6 +257,7 @@ class DispenserSerializer(WritableNestedModelSerializer):
             'faxed_rx',
             'e_prescribe_rx',
             'phoned_rx',
+            'new_pt',
             'stats_notes',
             'rx_process',
             'review_new_pt',

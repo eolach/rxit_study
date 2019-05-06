@@ -1,0 +1,49 @@
+---
+title: "Rxit Phase 2 Analysis of Baseline Data"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+This notebook applies dplyr to a PostgreSQL database
+
+```{r}
+require("RPostgreSQL")
+library(dplyr)
+
+pw <- {
+  "x9cnyzib"
+}
+
+# loads the PostgreSQL driver
+drv <- dbDriver("PostgreSQL")
+# creates a connection to the postgres database
+# note that "con" will be used later in each connection to the database
+con <- dbConnect(drv, dbname = "rxit_study",
+                 host = "localhost", port = 5432,
+                 user = "heng", password = pw)
+rm(pw) # removes the password
+```
+The database has several tables
+```{r}
+rxitTables <- dbListTables(con)
+rxitTables
+```
+
+The main tables relate to 
+  the users, "rxit_app_customuser", *`r rxitTables[8]`*
+  the prescribers, "rxit_app_prescriber",
+  and the dispensers, "rxit_app_dispenser"
+
+The *prescribers are detailed in the prescribers_db:
+
+```{r}
+prescribers_db <- tbl(con, "rxit_app_prescriber" )
+prescribers_db
+```
+
+
+There in no value in listing the base dataframe. It is composed of subframes to avail of the redundancy of the indicator sets. Rather, the report will examine the cumulative results of the survey, looking at the values of these sets together. So, for instance, in looking at patient volumes, the data will show the variation in volume by time of day and by type of prescription, for instance.
+
+The report will not yet show the change over time of any of these indicators.
