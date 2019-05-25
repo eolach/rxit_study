@@ -107,12 +107,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _prescriber_prescriber_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./prescriber/prescriber.component */ "./src/app/prescriber/prescriber.component.ts");
 /* harmony import */ var _core_user_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./core/user.service */ "./src/app/core/user.service.ts");
 /* harmony import */ var _data_user_http_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./data/user_http.service */ "./src/app/data/user_http.service.ts");
+/* harmony import */ var _reviewer_reviewer_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./reviewer/reviewer.component */ "./src/app/reviewer/reviewer.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -139,7 +141,8 @@ var AppModule = /** @class */ (function () {
                 _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
                 _user_user_component__WEBPACK_IMPORTED_MODULE_11__["UserComponent"],
                 _dispenser_dispenser_component__WEBPACK_IMPORTED_MODULE_12__["DispenserComponent"],
-                _prescriber_prescriber_component__WEBPACK_IMPORTED_MODULE_13__["PrescriberComponent"]
+                _prescriber_prescriber_component__WEBPACK_IMPORTED_MODULE_13__["PrescriberComponent"],
+                _reviewer_reviewer_component__WEBPACK_IMPORTED_MODULE_16__["ReviewerComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -804,7 +807,7 @@ var RxComm = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span>PrescribeIT baseline study</span>\n    <span class=\"example-fill-remaining-space\"></span>\n    <span><button mat-button (click)=\"logout()\" [disabled] = \"!loading\">Click here to log out</button></span>\n    <!-- <button mat-button>Contact</button> -->\n    <!-- <button mat-icon-button [matMenuTriggerFor]=\"menu\"> -->\n      <!-- <mat-icon>more_vert</mat-icon> -->\n    <!-- </button> -->\n    <!-- <mat-menu #menu=\"matMenu\">\n      <button mat-menu-item>\n        <mat-icon>dialpad</mat-icon>\n        <span>Redial</span>\n      </button>\n      <button mat-menu-item disabled>\n        <mat-icon>voicemail</mat-icon>\n        <span>Check voicemail</span>\n      </button>\n      <button mat-menu-item>\n        <mat-icon>notifications_off</mat-icon>\n        <span>Disable alerts</span>\n      </button>\n    </mat-menu> -->\n  </mat-toolbar-row>\n</mat-toolbar>\n<!-- Login  -->\n<mat-card *ngIf=\"!loading\" class=\"example-card\">\n  <mat-card-header>\n    <mat-card-title>{{statusMessage}}</mat-card-title>\n  </mat-card-header>\n  <mat-card-content>\n    <form [formGroup]=\"loginForm\" style=\"width: 300px\">\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" formControlName=\"username\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" />\n        <!-- <div *ngIf=\"submitted && f.username.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"f.username.errors.required\">Username is required</div>\n                </div> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\" />\n        <!-- <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"f.password.errors.required\">Password is required</div>\n                </div> -->\n      </div>\n      <div class=\"form-group\">\n        <button mat-raised-button (click)=\"login()\" color=\"primary\">Login</button>\n        <!-- <button mat-button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button> -->\n        <!-- <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" /> -->\n      </div>\n      <!-- <mat-card-actions>\n    </mat-card-actions> -->\n    </form>\n    <!-- <mat-spinner [style.display]=\"showSpinner ? 'block' : 'none'\"></mat-spinner> -->\n  </mat-card-content>\n</mat-card>\n<div *ngIf=\"selectedDispenser\"><app-dispenser [dispenser]=\"selectedDispenser\"></app-dispenser></div>\n<div *ngIf=\"selectedPrescriber\"><app-prescriber [prescriber]=\"selectedPrescriber\"  ></app-prescriber></div>\n"
+module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span>PrescribeIT baseline study</span>\n    <span class=\"example-fill-remaining-space\"></span>\n    <span><button mat-button (click)=\"logout()\" [disabled] = \"!loading\">Click here to log out</button></span>\n    <!-- <button mat-button>Contact</button> -->\n    <!-- <button mat-icon-button [matMenuTriggerFor]=\"menu\"> -->\n      <!-- <mat-icon>more_vert</mat-icon> -->\n    <!-- </button> -->\n    <!-- <mat-menu #menu=\"matMenu\">\n      <button mat-menu-item>\n        <mat-icon>dialpad</mat-icon>\n        <span>Redial</span>\n      </button>\n      <button mat-menu-item disabled>\n        <mat-icon>voicemail</mat-icon>\n        <span>Check voicemail</span>\n      </button>\n      <button mat-menu-item>\n        <mat-icon>notifications_off</mat-icon>\n        <span>Disable alerts</span>\n      </button>\n    </mat-menu> -->\n  </mat-toolbar-row>\n</mat-toolbar>\n<!-- Login  -->\n<mat-card *ngIf=\"!loading\" class=\"example-card\">\n  <mat-card-header>\n    <mat-card-title>{{statusMessage}}</mat-card-title>\n  </mat-card-header>\n  <mat-card-content>\n    <form [formGroup]=\"loginForm\" style=\"width: 300px\">\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" formControlName=\"username\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.username.errors }\" />\n        <!-- <div *ngIf=\"submitted && f.username.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"f.username.errors.required\">Username is required</div>\n                </div> -->\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" formControlName=\"password\" class=\"form-control\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\" />\n        <!-- <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback\">\n                    <div *ngIf=\"f.password.errors.required\">Password is required</div>\n                </div> -->\n      </div>\n      <div class=\"form-group\">\n        <button mat-raised-button (click)=\"login()\" color=\"primary\">Login</button>\n        <!-- <button mat-button [disabled]=\"loading\" class=\"btn btn-primary\">Login</button> -->\n        <!-- <img *ngIf=\"loading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\" /> -->\n      </div>\n      <!-- <mat-card-actions>\n    </mat-card-actions> -->\n    </form>\n    <!-- <mat-spinner [style.display]=\"showSpinner ? 'block' : 'none'\"></mat-spinner> -->\n  </mat-card-content>\n</mat-card>\n<div *ngIf=\"selectedDispenser\"><app-dispenser [dispenser]=\"selectedDispenser\"></app-dispenser></div>\n<div *ngIf=\"selectedPrescriber\"><app-prescriber [prescriber]=\"selectedPrescriber\"  ></app-prescriber></div>\n<div *ngIf=\"selectedReviewer\"><app-reviewer [reviewer]=\"selectedReviewer\"  ></app-reviewer></div>\n"
 
 /***/ }),
 
@@ -970,6 +973,11 @@ var LoginComponent = /** @class */ (function () {
                 _this.selectedPrescriber = data;
                 console.log('Selecting in ', _this.selectedPrescriber);
             });
+        }
+        else if (type === 'reviewer') {
+            this.isReviewer = true;
+            this.selectedReviewer = true;
+            console.log('Selecting as reviewer');
         }
         // console.log('Logging in ', user);
         return;
@@ -1326,6 +1334,76 @@ var DxSpec = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/reviewer/reviewer.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/reviewer/reviewer.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  reviewer works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/reviewer/reviewer.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/reviewer/reviewer.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZXZpZXdlci9yZXZpZXdlci5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/reviewer/reviewer.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/reviewer/reviewer.component.ts ***!
+  \************************************************/
+/*! exports provided: ReviewerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReviewerComponent", function() { return ReviewerComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _user_user_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../user/user.model */ "./src/app/user/user.model.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ReviewerComponent = /** @class */ (function () {
+    function ReviewerComponent() {
+    }
+    ReviewerComponent.prototype.ngOnInit = function () {
+        console.log("initializing reviewer");
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _user_user_model__WEBPACK_IMPORTED_MODULE_1__["Reviewer"])
+    ], ReviewerComponent.prototype, "reviewer", void 0);
+    ReviewerComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-reviewer',
+            template: __webpack_require__(/*! ./reviewer.component.html */ "./src/app/reviewer/reviewer.component.html"),
+            styles: [__webpack_require__(/*! ./reviewer.component.scss */ "./src/app/reviewer/reviewer.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ReviewerComponent);
+    return ReviewerComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/user/user.component.html":
 /*!******************************************!*\
   !*** ./src/app/user/user.component.html ***!
@@ -1383,6 +1461,33 @@ var UserComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], UserComponent);
     return UserComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/user/user.model.ts":
+/*!************************************!*\
+  !*** ./src/app/user/user.model.ts ***!
+  \************************************/
+/*! exports provided: User, Reviewer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Reviewer", function() { return Reviewer; });
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
+}());
+
+var Reviewer = /** @class */ (function () {
+    function Reviewer() {
+    }
+    return Reviewer;
 }());
 
 

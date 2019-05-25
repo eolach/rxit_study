@@ -18,6 +18,7 @@ import { PrescriberComponent } from './prescriber/prescriber.component';
 
 import { UserService } from './core/user.service';
 import { UserHttpService } from './data/user_http.service';
+import { ReviewerComponent } from './reviewer/reviewer.component';
 
 
 
@@ -27,7 +28,8 @@ import { UserHttpService } from './data/user_http.service';
     LoginComponent,
     UserComponent,
     DispenserComponent,
-    PrescriberComponent
+    PrescriberComponent,
+    ReviewerComponent
   ],
   imports: [
     BrowserModule,

@@ -25,8 +25,10 @@ export class LoginComponent implements OnInit {
   // flags for participant type
   public isDispenser: boolean;
   public isPrescriber: boolean;
+  public isReviewer: boolean;
   public selectedPrescriber: Prescriber;
   public selectedDispenser: Dispenser;
+  public selectedReviewer: boolean;
 
   // token of the logged in user
   public token: string;
@@ -175,6 +177,10 @@ export class LoginComponent implements OnInit {
           this.selectedPrescriber = data;
           console.log('Selecting in ', this.selectedPrescriber);
         });
+    } else if (type === 'reviewer') {
+      this.isReviewer = true;
+      this.selectedReviewer = true;
+      console.log('Selecting as reviewer');
     }
     // console.log('Logging in ', user);
     return;
