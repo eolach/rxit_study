@@ -20,10 +20,10 @@
 $
 
 # Command Line History (newest to oldest):
+:wq
+|2,0,1575469066,,"wq"
 :q
 |2,0,1549398881,,"q"
-:wq
-|2,0,1549376280,,"wq"
 :%s/rxitstudy/symulationstage/g
 |2,0,1549313052,,"%s/rxitstudy/symulationstage/g"
 :%s/rxitstudy/symulationstage
@@ -223,34 +223,44 @@ $
 |3,0,36,0,1,0,1549376217,"e"
 
 # File marks:
-'0  1  0  ~/.git/config
-|4,48,1,0,1549398881,"~/.git/config"
-'1  8  0  ~/.git
-|4,49,8,0,1549398807,"~/.git"
-'2  38  0  /etc/nginx/sites-available/symulationstage.com
-|4,50,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
-'3  2  24  ~/.env
-|4,51,2,24,1549376280,"~/.env"
-'4  1  0  ~/.bash_profile
-|4,52,1,0,1549375120,"~/.bash_profile"
-'5  1  0  /.profile
-|4,53,1,0,1549375076,"/.profile"
-'6  1  0  /.bashrc
-|4,54,1,0,1549375049,"/.bashrc"
-'7  1  0  /.bash_profile
-|4,55,1,0,1549374877,"/.bash_profile"
-'8  3  0  /etc/environment
-|4,56,3,0,1549374848,"/etc/environment"
-'9  36  0  /etc/nginx/sites-available/symulationstage.com
-|4,57,36,0,1549313524,"/etc/nginx/sites-available/symulationstage.com"
+'0  8  403  ~/.ssh/authorized_keys
+|4,48,8,403,1575469066,"~/.ssh/authorized_keys"
+'1  1  0  ~/.git/config
+|4,49,1,0,1549398881,"~/.git/config"
+'2  8  0  ~/.git
+|4,50,8,0,1549398807,"~/.git"
+'3  38  0  /etc/nginx/sites-available/symulationstage.com
+|4,51,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
+'4  2  24  ~/.env
+|4,52,2,24,1549376280,"~/.env"
+'5  1  0  ~/.bash_profile
+|4,53,1,0,1549375120,"~/.bash_profile"
+'6  1  0  /.profile
+|4,54,1,0,1549375076,"/.profile"
+'7  1  0  /.bashrc
+|4,55,1,0,1549375049,"/.bashrc"
+'8  1  0  /.bash_profile
+|4,56,1,0,1549374877,"/.bash_profile"
+'9  3  0  /etc/environment
+|4,57,3,0,1549374848,"/etc/environment"
 
 # Jumplist (newest first):
+-'  8  403  ~/.ssh/authorized_keys
+|4,39,8,403,1575469066,"~/.ssh/authorized_keys"
+-'  1  0  ~/.ssh/authorized_keys
+|4,39,1,0,1575468932,"~/.ssh/authorized_keys"
+-'  1  0  ~/.git/config
+|4,39,1,0,1549398881,"~/.git/config"
 -'  1  0  ~/.git/config
 |4,39,1,0,1549398881,"~/.git/config"
 -'  8  0  ~/.git
 |4,39,8,0,1549398807,"~/.git"
 -'  8  0  ~/.git
 |4,39,8,0,1549398807,"~/.git"
+-'  8  0  ~/.git
+|4,39,8,0,1549398807,"~/.git"
+-'  8  0  ~/.git
+|4,39,8,0,1549398807,"~/.git"
 -'  38  0  /etc/nginx/sites-available/symulationstage.com
 |4,39,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
 -'  38  0  /etc/nginx/sites-available/symulationstage.com
@@ -259,6 +269,22 @@ $
 |4,39,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
 -'  38  0  /etc/nginx/sites-available/symulationstage.com
 |4,39,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
+-'  38  0  /etc/nginx/sites-available/symulationstage.com
+|4,39,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
+-'  38  0  /etc/nginx/sites-available/symulationstage.com
+|4,39,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
+-'  38  0  /etc/nginx/sites-available/symulationstage.com
+|4,39,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
+-'  38  0  /etc/nginx/sites-available/symulationstage.com
+|4,39,38,0,1549390883,"/etc/nginx/sites-available/symulationstage.com"
+-'  36  0  /etc/nginx/sites-available/symulationstage.com
+|4,39,36,0,1549390873,"/etc/nginx/sites-available/symulationstage.com"
+-'  36  0  /etc/nginx/sites-available/symulationstage.com
+|4,39,36,0,1549390873,"/etc/nginx/sites-available/symulationstage.com"
+-'  36  0  /etc/nginx/sites-available/symulationstage.com
+|4,39,36,0,1549390873,"/etc/nginx/sites-available/symulationstage.com"
+-'  36  0  /etc/nginx/sites-available/symulationstage.com
+|4,39,36,0,1549390873,"/etc/nginx/sites-available/symulationstage.com"
 -'  36  0  /etc/nginx/sites-available/symulationstage.com
 |4,39,36,0,1549390873,"/etc/nginx/sites-available/symulationstage.com"
 -'  36  0  /etc/nginx/sites-available/symulationstage.com
@@ -283,6 +309,38 @@ $
 |4,39,2,24,1549376280,"~/.env"
 -'  2  24  ~/.env
 |4,39,2,24,1549376280,"~/.env"
+-'  2  24  ~/.env
+|4,39,2,24,1549376280,"~/.env"
+-'  2  24  ~/.env
+|4,39,2,24,1549376280,"~/.env"
+-'  2  24  ~/.env
+|4,39,2,24,1549376280,"~/.env"
+-'  2  24  ~/.env
+|4,39,2,24,1549376280,"~/.env"
+-'  2  24  ~/.env
+|4,39,2,24,1549376280,"~/.env"
+-'  2  24  ~/.env
+|4,39,2,24,1549376280,"~/.env"
+-'  2  24  ~/.env
+|4,39,2,24,1549376280,"~/.env"
+-'  2  24  ~/.env
+|4,39,2,24,1549376280,"~/.env"
+-'  1  0  ~/.env
+|4,39,1,0,1549376209,"~/.env"
+-'  1  0  ~/.env
+|4,39,1,0,1549376209,"~/.env"
+-'  1  0  ~/.env
+|4,39,1,0,1549376209,"~/.env"
+-'  1  0  ~/.env
+|4,39,1,0,1549376209,"~/.env"
+-'  1  0  ~/.env
+|4,39,1,0,1549376209,"~/.env"
+-'  1  0  ~/.env
+|4,39,1,0,1549376209,"~/.env"
+-'  1  0  ~/.env
+|4,39,1,0,1549376209,"~/.env"
+-'  1  0  ~/.env
+|4,39,1,0,1549376209,"~/.env"
 -'  1  0  ~/.env
 |4,39,1,0,1549376209,"~/.env"
 -'  1  0  ~/.env
@@ -331,6 +389,38 @@ $
 |4,39,1,0,1549375120,"~/.bash_profile"
 -'  1  0  ~/.bash_profile
 |4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
+-'  1  0  ~/.bash_profile
+|4,39,1,0,1549375120,"~/.bash_profile"
 -'  1  0  /.profile
 |4,39,1,0,1549375076,"/.profile"
 -'  1  0  /.profile
@@ -355,98 +445,15 @@ $
 |4,39,1,0,1549375076,"/.profile"
 -'  1  0  /.profile
 |4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.profile
-|4,39,1,0,1549375076,"/.profile"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
--'  1  0  /.bashrc
-|4,39,1,0,1549375049,"/.bashrc"
 
 # History of marks within files (newest to oldest):
+
+> ~/.ssh/authorized_keys
+	*	1575469056	0
+	"	8	403
+	^	8	404
+	.	8	404
+	+	8	404
 
 > ~/.git/config
 	*	1549398816	0

@@ -61,3 +61,5 @@ rxit2_dir/rxit_2_project/rxit_app/frontend
 # omit transfers between sties
 transfer
 .ssh
+
+.vim/
