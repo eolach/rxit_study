@@ -21,7 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
+
 SECRET_KEY='abcdefg'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DJANGO_DEBUG')
@@ -30,7 +33,9 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'www.rxitstudy.com',
-    'rxitstudy.com'
+
+    'www.symulationstage.com',
+    'symulationstge.com'
 ]
 
 
@@ -147,7 +152,6 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
-
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',

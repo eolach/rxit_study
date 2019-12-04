@@ -1,5 +1,5 @@
 .idea
-__pycache__
+#__pycache__
 venv
 # rxit-app/static/front-end
 
@@ -61,6 +61,9 @@ rxit2_dir/rxit_2_project/rxit_app/frontend
 # omit transfers between sites
 transfer
 .ssh
+
+.vim/
+*~
 rxitstudy.code-workspace
 rxit_study_db_1
 .Rproj.user
@@ -68,5 +71,22 @@ Phase2report
 rxit_analysis
 Bookdown_example
 rxit2_dir/rxit_2_project/rxit_app/static
+
+
+# Omit local caches, vim and libs
+.cache/
+.local/
+.vim/
+.viminfo
+.vscode-server/
+archive_copy/
+Bookdown_example/
+rxit_analysis/
+
+.bash_history
+.bash_logout
+.vim.code-workspace
+
 Charts
 .env
+
