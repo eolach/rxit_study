@@ -1,28 +1,28 @@
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     height: 100%;
   }
-  
+
   mat-sidenav {
     width: 250px;
   }
-  
+
   a {
     text-decoration: none;
     color: white;
   }
-  
+
   a:hover,
   a:active {
     color: lightgray;
   }
-  
+
   .navigation-items {
     list-style: none;
     padding: 0;
     margin: 0;
     cursor: pointer;
   }
-  
+
   .icon {
     display: inline-block;
     height: 30px;
@@ -32,7 +32,7 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     vertical-align: middle;
     width: 15%;
   }
-  
+
   .label {
     display: inline-block;
     line-height: 30px;
@@ -46,28 +46,28 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     width: 5em;
     margin-right:3em;
   }
-  
+
   .mat-expansion-panel-header {
     background: rgb(213, 219, 253)
   }
-  
+
   .mat-expansion-panel-header.hover {
     background: rgb(48, 58, 116)
   }
-  
-  .mat-expanded { 
+
+  .mat-expanded {
     background: rgb(255, 255, 255)
   }
-  
-  .mat-expansion-panel-header.mat-expanded { 
+
+  .mat-expansion-panel-header.mat-expanded {
     background: rgb(68, 81, 160)
   }
-  
-  
+
+
   .mat-expansion-panel-header.mat-expanded:hover {
     background: rgb(206, 207, 216)
-  } 
-  
+  }
+
   html,
   body {
     height: 100%;
@@ -78,45 +78,45 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
   textarea {
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+
   .main-content {
     padding: 20px;
   }
-  
+
   /* container widths */
   .main-content{
     max-width: 768px;
   }
-  
+
   .card-title{
     width:300px;
     font-size: 18px;
     font-weight: bold;
     border: 3px solid blue;
   }
-  
+
   .card-description{
     text-align: left;
     /* border: 3px solid green;*/
   }
-  
+
   .card-header-text{
     // max-width: 500px;
     margin-bottom: 1em;
     font-style: italic;
     border:2px solid gray;
   }
-  
+
   @media (max-width: 768px) {
   }
-  
-  
+
+
   /* form specific formatting */
   .form-group {
     display: flex;
     flex-direction: column;
   }
-  
+
   .form-group label {
     flex: none;
     display: block;
@@ -125,16 +125,16 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     font-size: 1em;
   }
   .form-group label.right-inline {
-    text-align: right;  
+    text-align: right;
     padding-right: 8px;
     padding-left: 10px;
     width: auto;
   }
-  
+
   .form-group .table-line{
     flex: 1 1 column;
   }
-  
+
   .form-group .input-control {
     flex: 1 1 auto;
     display: block;
@@ -144,30 +144,30 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     padding: 4px;
     margin-top: -4px;
   }
-  
+
   .input-description{
     min-width: 15em;
     font-size: 15px;
     font-weight: bold;
   }
-  
-  .input-text-deascription { 
+
+  .input-text-deascription {
    min-width: 150px;
    /* border: 3px solid rgb(255, 153, 0);*/
   }
-  .input-number { 
+  .input-number {
     max-width: 100px;
     min-width: 50px;
     margin-right: 5em;
     /*border: 3px solid rgb(0, 255, 64);*/
   }
-  .input-number-lg { 
+  .input-number-lg {
     max-width: 300px;
     min-width: 250px;
     margin-right: 5em;
     /*border: 3px solid rgb(0, 255, 64);*/
   }
-  
+
   .level2{
     color:rgb(80, 81, 97);
     padding-left: 1em;
@@ -178,31 +178,31 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     padding-left: 2em;
     font-size: 13px;
   }
-  
-  
+
+
   .short-form{
     max-width: 100px;
   }
-  
+
   .low-spacer{
     padding-bottom: 20px;
   }
-  
+
   .side-spacer{
     width: 3em;
   }
-  
+
    button {
     padding: 5px 15px;
     margin: 5px;
     min-width: 100px
   }
-  
+
   @media (max-width: 768px) {
     .main-content {
       padding: 20px 8px;
     }
-    
+
     .form-group {
       flex-direction: column;
     }
@@ -210,11 +210,14 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
       margin-top: 2px;
     }
     .form-group label.right-inline {
-      text-align: left;  
+      text-align: left;
       padding-right: 0;
-      padding-left: 0;   
+      padding-left: 0;
     }
   }
-  
-  
-  
+
+  .example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox.
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }

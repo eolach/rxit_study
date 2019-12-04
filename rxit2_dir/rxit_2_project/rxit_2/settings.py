@@ -24,16 +24,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY='cd48e1c22de0961d5d1bfb14f8a66e006cfb1cfbf3f0c0f3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG')
-# DEBUG = True
+# DEBUG = os.environ.get('DJANGO_DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'www.rxitstudy.com',
     'rxitstudy.com',
+<<<<<<< HEAD
     'www.symulationstage.com',
     'symulationstge.com'
+=======
+    'symulationstage.com',
+    'www.symulationstage.com'
+>>>>>>> staging
 ]
 
 
@@ -147,8 +152,13 @@ STATICFILES_DIRS = [
 # jwt within rest framework# 
 # 
 REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        # 'rest_framework.permissions.IsAdminUser',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',

@@ -11,15 +11,20 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
+<<<<<<< HEAD
 ~MSle0~/rxitstudy
 
 # Last Substitute Search Pattern:
 ~MSle0&rxitstudy
+=======
+~Msle0~/\<if\>
+>>>>>>> staging
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
+<<<<<<< HEAD
 :wq
 |2,0,1575469066,,"wq"
 :q
@@ -42,6 +47,38 @@ $
 |2,1,1549297169,,"\\<nginx\\>"
 ??\a
 |2,1,1549297105,63,"\\a"
+=======
+:q
+|2,0,1575383942,,"q"
+:q!
+|2,0,1575372553,,"q!"
+:.:q
+|2,0,1575372395,,".:q"
+:wq
+|2,0,1575313075,,"wq"
+:wq!
+|2,0,1575311207,,"wq!"
+:Q
+|2,0,1567067103,,"Q"
+:qw
+|2,0,1566917094,,"qw"
+:qa!
+|2,0,1557856177,,"qa!"
+
+# Search String History (newest to oldest):
+? @$
+|2,1,1575383481,,"@$"
+? \<if\>
+|2,1,1567109974,,"\\<if\\>"
+? \<root\>
+|2,1,1567087942,,"\\<root\\>"
+? \<return\>
+|2,1,1567007360,,"\\<return\\>"
+? \<rest_framework\>
+|2,1,1557151998,,"\\<rest_framework\\>"
+? \<SECRET_KEY\>
+|2,1,1551287577,,"\\<SECRET_KEY\\>"
+>>>>>>> staging
 
 # Expression History (newest to oldest):
 
@@ -50,6 +87,7 @@ $
 # Debug Line History (newest to oldest):
 
 # Registers:
+<<<<<<< HEAD
 ""0	CHAR	0
 	e
 |3,1,0,0,1,0,1549398796,"e"
@@ -209,11 +247,69 @@ $
 	
 	    listen [::]:443 ssl ipv6only=on; # managed by Certbot
 	    listen 443 ssl; # managed by Certbot
+=======
+"0	LINE	0
+	# server {
+	# 	 if ($host = www.symulationstage.com) {
+	        # return 301 https://$host$request_uri;
+	    #}  # managed by Certbot
+	
+	
+	    # if ($host = symulationstage.com) {
+	    #    return 301 https://$host$request_uri;
+	    # } # managed by Certbot
+	
+	
+	      #  listen 80;
+	      #  listen [::]:80;
+	
+	       # server_name symulationstage.com www.symulationstage.com;
+	    #return 404; # managed by Certbot
+	
+	
+	
+	
+	# }
+|3,0,0,1,21,0,1575383481,"# server {","# 	 if ($host = www.symulationstage.com) {","        # return 301 https://$host$request_uri;","    #}  # managed by Certbot","","","    # if ($host = symulationstage.com) {","    #    return 301 https://$host$request_uri;","    # } # managed by Certbot","","","      #  listen 80;","      #  listen [::]:80;","","       # server_name symulationstage.com www.symulationstage.com;","    #return 404; # managed by Certbot","",>2
+|<"","","","# }"
+""1	LINE	0
+	# server {
+	# 	 if ($host = www.symulationstage.com) {
+	        # return 301 https://$host$request_uri;
+	    #}  # managed by Certbot
+	
+	
+	    # if ($host = symulationstage.com) {
+	    #    return 301 https://$host$request_uri;
+	    # } # managed by Certbot
+	
+	
+	      #  listen 80;
+	      #  listen [::]:80;
+	
+	       # server_name symulationstage.com www.symulationstage.com;
+	    #return 404; # managed by Certbot
+	
+	
+	
+	
+	# }
+|3,1,1,1,21,0,1567110157,"# server {","# 	 if ($host = www.symulationstage.com) {","        # return 301 https://$host$request_uri;","    #}  # managed by Certbot","","","    # if ($host = symulationstage.com) {","    #    return 301 https://$host$request_uri;","    # } # managed by Certbot","","","      #  listen 80;","      #  listen [::]:80;","","       # server_name symulationstage.com www.symulationstage.com;","    #return 404; # managed by Certbot","",>2
+|<"","","","# }"
+"2	LINE	0
+	#    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+	
+	
+	
+	    
+	   
+>>>>>>> staging
 	    ssl_certificate /etc/letsencrypt/live/symulationstage.com/fullchain.pem; # managed by Certbot
 	    ssl_certificate_key /etc/letsencrypt/live/symulationstage.com/privkey.pem; # managed by Certbot
 	    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 	    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 	
+<<<<<<< HEAD
 |3,0,3,1,50,0,1549312013,"	index index.html index.htm index. nginx-debian.html;","","	server_name symulationstage.com www.symulationstage.com;","","        location = /favicon.ico { access_log off; log_not_found off; }","","        location /static/ {","               alias /home/heng/rxit2_dir/rxit_2_project/staticfiles/;","        }","","	location / {","		# First attempt to serve request as file, then","		# as directory, then fall back to displaying a 404.",>32
 |<"		# try_files $uri $uri/ =404;","","		# Added for django rxit_app","		proxy_pass http://unix:/run/gunicorn.sock;","		proxy_redirect off;","		proxy_set_header Host $host;","		proxy_set_header X-Real-IP $remote_addr;","		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;","","","	}","","	# pass PHP scripts to FastCGI server","	#","	#location ~ \\.php$ {","	#	include snippets/fastcgi-php.conf;","	#","	#	# With php-fpm (or other unix sockets):",>52
 |<"	#	fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;","	#	# With php-cgi (or other tcp sockets):","	#	fastcgi_pass 127.0.0.1:9000;","	#}","","	# deny access to .htaccess files, if Apache's document root","	# concurs with nginx's one","	#","	#location ~ /\\.ht {","	#	deny all;","	#}","","    listen [::]:443 ssl ipv6only=on; # managed by Certbot","    listen 443 ssl; # managed by Certbot","    ssl_certificate /etc/letsencrypt/live/symulationstage.com/fullchain.pem; # managed by Certbot",>101
@@ -568,3 +664,665 @@ $
 > .ssh/known_hosts
 	*	1548967622	0
 	"	1	0
+=======
+	
+|3,0,2,1,12,0,1567109923,"#    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot","","","","    ","   ","    ssl_certificate /etc/letsencrypt/live/symulationstage.com/fullchain.pem; # managed by Certbot","    ssl_certificate_key /etc/letsencrypt/live/symulationstage.com/privkey.pem; # managed by Certbot","    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot",>73
+|<"    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot","",""
+"3	LINE	0
+	
+	
+	
+|3,0,3,1,3,0,1567088129,"","",""
+"4	LINE	0
+	
+	
+|3,0,4,1,2,0,1567088095,"",""
+"5	LINE	0
+	
+	
+|3,0,5,1,2,0,1567088084,"",""
+"6	LINE	0
+	
+	
+	
+|3,0,6,1,3,0,1567087910,"","",""
+"7	LINE	0
+	}
+	
+	server {
+	
+	        # SSL configuration
+	        #
+	        listen 443 ssl;
+	        listen [::]:443 ssl;
+	
+	        expires $expires;
+	
+	
+	        include snippets/ssl-symulationstage.com.conf;
+	        include snippets/ssl-params.conf;
+|3,0,7,1,14,0,1567007401,"}","","server {","","        # SSL configuration","        #","        listen 443 ssl;","        listen [::]:443 ssl;","","        expires $expires;","","","        include snippets/ssl-symulationstage.com.conf;","        include snippets/ssl-params.conf;"
+"8	LINE	0
+	
+	
+	
+|3,0,8,1,3,0,1567004267,"","",""
+"9	LINE	0
+	# Virtual Host configuration for example.com
+	#
+	# You can move that to a different file under sites-available/ and symlink that
+	# to sites-enabled/ to enable it.
+	#
+	#server {
+	#	listen 80;
+	#	listen [::]:80;
+	#
+	#	server_name example.com;
+	#
+	#	root /var/www/example.com;
+	#	index index.html;
+	#
+	#	location / {
+	#		try_files $uri $uri/ =404;
+	#	}
+	#}
+|3,0,9,1,18,0,1567003922,"# Virtual Host configuration for example.com","#","# You can move that to a different file under sites-available/ and symlink that","# to sites-enabled/ to enable it.","#","#server {","#	listen 80;","#	listen [::]:80;","#","#	server_name example.com;","#","#	root /var/www/example.com;","#	index index.html;","#","#	location / {","#		try_files $uri $uri/ =404;","#	}","#}"
+"-	CHAR	0
+	 listen 443 ssl; # managed by Certbot
+|3,0,36,0,1,0,1567109717," listen 443 ssl; # managed by Certbot"
+
+# File marks:
+'0  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,48,2,0,1575383942,"/var/log/postgresql/postgresql-10-main.log"
+'1  1  0  /etc/postgresql/10/main/pg_ctl.conf
+|4,49,1,0,1575383514,"/etc/postgresql/10/main/pg_ctl.conf"
+'2  8  0  /etc/postgresql/10/main/conf.d
+|4,50,8,0,1575383487,"/etc/postgresql/10/main/conf.d"
+'3  1  0  /etc/postgresql/10/main/pg_hba.conf
+|4,51,1,0,1575383460,"/etc/postgresql/10/main/pg_hba.conf"
+'4  1  0  /usr/local/var/postgres/postmaster.pid
+|4,52,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+'5  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,53,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+'6  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,54,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+'7  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,55,2,0,1575372553,"/var/log/postgresql/postgresql-10-main.log"
+'8  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,56,2,0,1575372553,"/var/log/postgresql/postgresql-10-main.log"
+'9  1  0  /var/log/postgresql/postgresql-10main.log
+|4,57,1,0,1575372478,"/var/log/postgresql/postgresql-10main.log"
+
+# Jumplist (newest first):
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575383942,"/var/log/postgresql/postgresql-10-main.log"
+-'  1  0  /etc/postgresql/10/main/pg_ctl.conf
+|4,39,1,0,1575383514,"/etc/postgresql/10/main/pg_ctl.conf"
+-'  8  0  /etc/postgresql/10/main/conf.d
+|4,39,8,0,1575383487,"/etc/postgresql/10/main/conf.d"
+-'  8  0  /etc/postgresql/10/main/conf.d
+|4,39,8,0,1575383487,"/etc/postgresql/10/main/conf.d"
+-'  1  0  /etc/postgresql/10/main/pg_hba.conf
+|4,39,1,0,1575383460,"/etc/postgresql/10/main/pg_hba.conf"
+-'  1  0  /etc/postgresql/10/main/pg_hba.conf
+|4,39,1,0,1575383460,"/etc/postgresql/10/main/pg_hba.conf"
+-'  1  0  /etc/postgresql/10/main/pg_hba.conf
+|4,39,1,0,1575383460,"/etc/postgresql/10/main/pg_hba.conf"
+-'  1  0  /etc/postgresql/10/main/pg_hba.conf
+|4,39,1,0,1575383460,"/etc/postgresql/10/main/pg_hba.conf"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  1  0  /usr/local/var/postgres/postmaster.pid
+|4,39,1,0,1575378263,"/usr/local/var/postgres/postmaster.pid"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  2  0  /var/log/postgresql/postgresql-10-main.log
+|4,39,2,0,1575373830,"/var/log/postgresql/postgresql-10-main.log"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  307  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,307,0,1575373225,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+-'  1  0  /etc/postgresql/10/main/postgresql.conf
+|4,39,1,0,1575373152,"/etc/postgresql/10/main/postgresql.conf"
+
+# History of marks within files (newest to oldest):
+
+> /etc/postgresql/10/main/pg_ctl.conf
+	*	1575383506	0
+	"	1	0
+
+> /var/log/postgresql/postgresql-10-main.log
+	*	1575383152	0
+	"	2	0
+	^	2	6
+	.	2	3
+	+	2	3
+
+> /usr/local/var/postgres/postmaster.pid
+	*	1575378259	0
+	"	1	0
+
+> /etc/postgresql/10/main/postgresql.conf
+	*	1575373220	0
+	"	307	0
+
+> /var/log/postgresql/postgresql-10main.log
+	*	1575372470	0
+	"	1	0
+
+> /var/log/postgresql/postgres
+	*	1575372408	0
+	"	1	3
+	^	1	7
+	.	1	6
+	+	1	6
+	a	1	0
+
+> /etc/nginx/sites-available/rxitstudystage.com
+	*	1575313073	0
+	"	65	0
+	^	18	16
+	.	18	15
+	+	778	78
+	+	412	77
+	+	12	1
+	+	38	0
+	+	69	9
+	+	69	0
+	+	38	1
+	+	38	0
+	+	22	58
+	+	38	43
+	+	54	34
+	+	24	10
+	+	38	0
+	+	54	0
+	+	67	17
+	+	67	19
+	+	40	35
+	+	40	58
+	+	67	1
+	+	68	0
+	+	22	43
+	+	67	20
+	+	22	8
+	+	42	7
+	+	40	0
+	+	55	322
+	+	55	88
+	+	55	169
+	+	43	0
+	+	52	91
+	+	26	8
+	+	28	0
+	+	31	0
+	+	28	15
+	+	67	3
+	+	67	2
+	+	30	0
+	+	33	0
+	+	31	0
+	+	32	0
+	+	33	0
+	+	37	0
+	+	67	0
+	+	69	2
+	+	69	9
+	+	69	6
+	+	69	5
+	+	69	4
+	+	69	5
+	+	69	6
+	+	69	7
+	+	69	4
+	+	69	1
+	+	69	0
+	+	52	16
+	+	53	16
+	+	54	16
+	+	55	16
+	+	56	16
+	+	57	3
+	+	22	8
+	+	20	0
+	+	18	15
+
+> /var/www/html/index.nginx-debian.html
+	*	1575312471	0
+	"	1	0
+
+> /var/www/html/index.html
+	*	1575312357	0
+	"	1	0
+
+> /var/www/testsite.com/html/index.html
+	*	1575312281	0
+	"	25	0
+	^	25	0
+	.	25	0
+	+	23	28
+	+	24	60
+	+	25	0
+
+> /etc/nginx/sites-available/rxitstudy.com
+	*	1575311118	0
+	"	1	0
+
+> ~/.ssh/authorized_keys
+	*	1575306274	0
+	"	9	401
+	^	9	402
+	.	9	402
+	+	1	0
+	+	4	0
+	+	1	389
+	+	4	0
+	+	1	726
+	+	1	723
+	+	4	241
+	+	4	0
+	+	4	264
+	+	1	241
+	+	4	724
+	+	6	0
+	+	4	724
+	+	4	325
+	+	4	0
+	+	6	0
+	+	6	724
+	+	6	0
+	+	9	0
+	+	7	392
+	+	4	0
+	+	5	404
+	+	9	402
+
+> /etc/hosts
+	*	1575305768	0
+	"	1	0
+
+> /etc/nginx/sites-available/testsite.com
+	*	1567105107	0
+	"	19	28
+	^	19	29
+	.	19	28
+	+	44	28
+	+	46	41
+	+	41	27
+	+	22	10
+	+	23	15
+	+	44	27
+	+	53	6
+	+	53	3
+	+	44	33
+	+	53	2
+	+	44	35
+	+	23	1
+	+	22	18
+	+	53	19
+	+	41	2
+	+	51	0
+	+	49	0
+	+	22	0
+	+	19	30
+	+	15	1
+	+	13	58
+	+	18	18
+	+	13	42
+	+	15	0
+	+	19	28
+
+> /var/www/testsite.com/html/index.com
+	*	1567104471	0
+	"	1	0
+
+> /data/www/index.html
+	*	1567104403	0
+	"	1	17
+	^	1	18
+	.	1	17
+	+	1	17
+
+> /data/www/testsite.com/html/index.html
+	*	1567100165	0
+	"	1	0
+
+> /data/www/text.html
+	*	1567100055	0
+	"	1	20
+	^	1	25
+	.	1	24
+	+	1	24
+
+> /etc/nginx/sites-enabled/testsite.com
+	*	1567088143	0
+	"	13	0
+	^	13	1
+	.	13	0
+	+	1	0
+	+	3	0
+	+	6	0
+	+	14	0
+	+	14	4
+	+	14	0
+	+	8	42
+	+	12	0
+	+	12	1
+	+	12	0
+	+	12	33
+	+	6	16
+	+	6	3
+	+	5	11
+	+	12	0
+	+	10	0
+	+	12	0
+	+	1	28
+	+	2	2
+	+	6	0
+	+	10	2
+	+	12	0
+	+	1	15
+	+	4	24
+	+	6	1
+	+	7	0
+	+	12	0
+	+	13	0
+
+> ~/rxit2_dir/rxit_2_project/temp_frontend/frontend/index.html
+	*	1567040170	0
+	"	1	0
+
+> /etc/nginx/snippets/snake.oil
+	*	1567017217	0
+	"	1	0
+
+> /etc/nginx/sites-enabled/rxitstudystage.com
+	*	1567016940	0
+	"	44	16
+	^	44	17
+	.	44	17
+	+	44	17
+
+> /etc/nginx/nginx.conf
+	*	1567016354	0
+	"	1	0
+
+> /etc/nginx/sites-enabled/default
+	*	1567003380	0
+	"	50	1
+	^	44	2
+	.	44	1
+	+	44	1
+
+> /usr/share/nginx/html/index.html
+	*	1567003223	0
+	"	1	0
+
+> /etc/nginx/sites-available/default
+	*	1567002892	0
+	"	90	2
+	^	44	5
+	.	44	4
+	+	44	0
+	+	45	0
+	+	44	5
+	+	54	3
+	+	44	4
+
+> /etc/nginx/site-available/default
+	*	1566996604	0
+	"	1	0
+
+> /etc/nginx/sites-available/symulationstage.com
+	*	1566989418	0
+	"	55	0
+
+> /etc/nginx/sites-available/symulationstage.old
+	*	1566933758	0
+	"	1	0
+
+> /etc/nginx/sites-available/symulationstage.backup
+	*	1566933664	0
+	"	1	0
+
+> /etc/nginx/sites-available/symulationstage-old
+	*	1566933628	0
+	"	1	0
+
+> /var/log/nginx/error.log
+	*	1566931907	0
+	"	1	0
+
+> /var/log/nginx/access.log
+	*	1566931852	0
+	"	1	0
+
+> /var/nginx/access.log
+	*	1566931820	0
+	"	1	0
+
+> ~/.ssh/.ssh/known_hosts
+	*	1566424093	0
+	"	2	0
+	.	1	0
+	+	2	0
+	+	1	0
+
+> ~/.ssh/authorized-keys
+	*	1566338574	0
+	"	1	0
+
+> ~/.ssh/.ssh/known-hosts
+	*	1566336946	0
+	"	1	0
+
+> /etc/group
+	*	1557850599	0
+	"	4	0
+
+> /var/lib/postgresql/10/main/postmaster.pid
+	*	1557844554	0
+	"	1	0
+
+> /var/lib/postgresql/10/main.postmaster.pid
+	*	1557844539	0
+	"	1	0
+
+> ~/rxit2_dir/rxit_2_project/rxit_2/settings.py
+	*	1557169070	0
+	"	153	4
+	.	153	0
+	+	23	1
+	+	24	0
+	+	27	1
+	+	28	0
+	+	151	48
+	+	152	34
+	+	165	0
+	+	152	0
+	+	152	10
+	+	152	0
+	+	153	0
+
+> rxit_2/rxit_app/settings.py
+	*	1557165027	0
+	"	1	0
+
+> ~/rxit2_dir/rxit_2_project/rxit_app/views.py
+	*	1551287519	0
+	"	6	4
+
+> /etc/postgresql/10/main/pg_hba.conf
+	*	1549823414	0
+	"	79	0
+>>>>>>> staging
