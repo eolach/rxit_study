@@ -246,3 +246,10 @@ sudo vim .env
 env
 exit
 vim /etc/system
+git status
+git status
+git checkout master
+git merge staging
+git merge staging
+git status
+exit
