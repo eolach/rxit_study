@@ -68,3 +68,13 @@ Phase2report
 rxit_analysis
 Bookdown_example
 rxit2_dir/rxit_2_project/rxit_app/static
+
+# Omit local caches, vim and libs
+.cache/
+.local/
+.vim/
+.viminfo
+.vscode-server/
+archive_copy/
+Bookdown_example/
+rxit_analysis/
