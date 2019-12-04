@@ -78,3 +78,7 @@ rxit2_dir/rxit_2_project/rxit_app/static
 archive_copy/
 Bookdown_example/
 rxit_analysis/
+
+.bash_history
+.bash_logout
+.vim.code-workspace
