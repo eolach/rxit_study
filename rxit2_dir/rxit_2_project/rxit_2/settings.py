@@ -21,24 +21,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-SECRET_KEY='cd48e1c22de0961d5d1bfb14f8a66e006cfb1cfbf3f0c0f3'
+
+
+SECRET_KEY='abcdefg'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DJANGO_DEBUG')
 DEBUG = True
-
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'www.rxitstudy.com',
-    'rxitstudy.com',
-<<<<<<< HEAD
+
     'www.symulationstage.com',
     'symulationstge.com'
-=======
-    'symulationstage.com',
-    'www.symulationstage.com'
->>>>>>> staging
 ]
 
 

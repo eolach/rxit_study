@@ -135,11 +135,11 @@ export class UserHttpService {
     const url = `/api/dispenser/${dispenser.pk}`;
     console.log('about to patch dispenser: ', dispenser);
     return of(this.http.put(url, dispenser, httpOptions)
-      // .subscribe(
-      //   data => {
-      //     console.log('put returned ', data);
-      //   }
-      // )
+      .subscribe(
+        data => {
+          console.log('put returned ', data);
+        }
+      )
       );
   }
 

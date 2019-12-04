@@ -175,7 +175,7 @@ export class DispenserComponent implements OnInit {
         //   console.log('Error: ', this.errors);
         // }
         data => {
-          console.log('Updaed record: ', data);
+          console.log('Updated record: ', data);
         }
       );
 

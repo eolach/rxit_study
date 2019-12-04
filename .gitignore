@@ -72,6 +72,7 @@ rxit_analysis
 Bookdown_example
 rxit2_dir/rxit_2_project/rxit_app/static
 
+
 # Omit local caches, vim and libs
 .cache/
 .local/
@@ -85,3 +86,7 @@ rxit_analysis/
 .bash_history
 .bash_logout
 .vim.code-workspace
+
+Charts
+.env
+
